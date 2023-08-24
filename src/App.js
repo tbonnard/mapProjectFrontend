@@ -36,7 +36,6 @@ function App() {
     dispatch(getUserInfo())
   },[dispatch])
 
-
   return (
     <div className="App">
 

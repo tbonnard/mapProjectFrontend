@@ -10,7 +10,6 @@ export const getMapQueryData = (parameterData) => {
     }
 }
 
-
 export const resetMapQuery = () => {
     return async dispatch => {
         dispatch({

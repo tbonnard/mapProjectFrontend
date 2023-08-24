@@ -49,13 +49,19 @@ export const getUserInfo = () =>{
         let userDetails = null
         if (localStorage.getItem('userMapProjectDetails')) {
             if (document.cookie.replace(/(?:(?:^|.*;\s*)jwtTk\s*=\s*([^;]*).*$)|^.*$/, '$1')) {
-                userDetails = localStorage.getItem('userMapProjectDetails')
+                userDetails =localStorage.getItem('userMapProjectDetails')
+                const userJsonParsed = JSON.parse(userDetails)
+                let userToCheck = await userServices.userDetails(userJsonParsed.id)
+                if (userToCheck) {
+                    userDetails = userToCheck
+                }         
             } else {
-                localStorage.removeItem("userMapProjectDetails")
+                // localStorage.removeItem("userMapProjectDetails")
+                dispatch(logoutUser());
             } }
         dispatch({
             type: "GET_USER_INFO",
-            data: JSON.parse(userDetails)
+            data: userDetails
         })
     }
 }

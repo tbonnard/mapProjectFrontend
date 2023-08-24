@@ -11,7 +11,16 @@ const getProjectsfromProperty = async (itemObject) => {
 }
 
 const createProject = async (itemObject) => {
-    const response = await axios.post(`${urlCreate}`, itemObject );
+    axios.defaults.withCredentials = true;
+    const userToken = document.cookie.replace(/(?:(?:^|.*;\s*)jwtTk\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    const csrftoken = document.cookie.replace(/(?:(?:^|.*;\s*)csrftoken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    const response = await axios.post(`${urlCreate}`, itemObject,
+    {
+      headers: {
+        Authorization: `Bearer ${userToken}`,
+        'X-CSRFToken': csrftoken,
+        'Content-Type': 'application/json',
+      }} );
     return response.data
     
 }

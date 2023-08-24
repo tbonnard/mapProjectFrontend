@@ -16,27 +16,27 @@ const logoutUser = async ()  => {
     return response.data
 }
 
-// No need for the portfolio
 const createAccount = async (accountObject) => {
     const response = await axios.post(`${url}register/`, accountObject)
     return response.data
   }
+
   
-  // No need
-  const checkUsername = async (username) => {
-    const response = await axios.get(`${url}validate_username/${username}`)
-    if (response.data.message === "username available") {return true} else {return false}
-  }
-  
-  // No need for the portfolio -- missing details but no need so I let as is for now
-  const userDetails = async () => {
-    const loggedUserJSON = window.localStorage.getItem('jwtTk')
-    const csrftoken = window.localStorage.getItem('csrftoken')
-    const response = await axios.get(`${url}user`)
+const userDetails = async (id) => {
+    axios.defaults.withCredentials = true;
+    const userToken = document.cookie.replace(/(?:(?:^|.*;\s*)jwtTk\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    const csrftoken = document.cookie.replace(/(?:(?:^|.*;\s*)csrftoken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    const response = await axios.get(`${url}user/${id}/`, 
+    {
+      headers: {
+        Authorization: `Bearer ${userToken}`,
+        'X-CSRFToken': csrftoken,
+        'Content-Type': 'application/json',
+      }})
     return response.data
   }
   
 
-const exportedObject = { loginUser, logoutUser, createAccount, checkUsername, userDetails  }
+const exportedObject = { loginUser, logoutUser, createAccount, userDetails  }
 
 export default exportedObject

@@ -25,7 +25,6 @@ const SearchForm = () => {
   }
 
 
-
   const handleHowItWorks = () => {
     window.scrollTo({left: 0, top:document.querySelector('#howItWorks').offsetTop,  behavior: "smooth"});
   }

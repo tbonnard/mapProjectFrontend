@@ -5,14 +5,14 @@
 // https://wiki.openstreetmap.org/wiki/Map_features
 
 
-import React, {  useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
 import { useNavigate } from 'react-router-dom';
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
-import { propertyCreation, setPropertyItem } from '../../reducers/propertyReducer';
+import { setPropertyItem } from '../../reducers/propertyReducer';
 
 import '../../styles/map.css'
 
@@ -51,61 +51,58 @@ import waterway from '../../media/addresstype/waterway.png'
 
 
 
-
 const MapOpen = ({mapQueryData, zoom}) => {
 
-
-  const typeImageIcon = {
-    "aeroway" : aeroway,
-    "aerialway":aerialway,
-    "amenity": amenity,
-    "barrier": barrier,
-    "boundary": boundary,
-    "building": building,
-    "craft": craft,
-    "emergency": emergency,
-    "geological": geological,
-    "healthcare": healthcare,
-    "highway": highway,
-    "historic": historic,
-    "landuse": landuse,
-    "leisure": leisure,
-    "man_made": manMade,
-    "natural":natural,
-    "military": military,
-    "office": office,
-    "park":park,
-    "place": place,
-    "power": power,
-    "public_transport": transport,
-    "railway": railway,
-    "residential": residential,
-    "road": route,
-    "shop": shop,
-    "sport": sport,
-    "telecom": telecom,
-    "tourism": tourism,
-    "water": water,
-    "waterway": waterway,
-}
-
-const dispatch = useDispatch()
-
-const navigate = useNavigate();
-
-const property = useSelector(state => state.property)
-
-const handleClickMarker = (dataMap) => {
-  // dispatch(propertyCreation(dataMap))
-  dispatch(setPropertyItem(dataMap))
-}
-
-useEffect(() => {
-  if (property.display_name)
-  {
-    navigate(`/property/`)
+    const typeImageIcon = {
+      "aeroway" : aeroway,
+      "aerialway":aerialway,
+      "amenity": amenity,
+      "barrier": barrier,
+      "boundary": boundary,
+      "building": building,
+      "craft": craft,
+      "emergency": emergency,
+      "geological": geological,
+      "healthcare": healthcare,
+      "highway": highway,
+      "historic": historic,
+      "landuse": landuse,
+      "leisure": leisure,
+      "man_made": manMade,
+      "natural":natural,
+      "military": military,
+      "office": office,
+      "park":park,
+      "place": place,
+      "power": power,
+      "public_transport": transport,
+      "railway": railway,
+      "residential": residential,
+      "road": route,
+      "shop": shop,
+      "sport": sport,
+      "telecom": telecom,
+      "tourism": tourism,
+      "water": water,
+      "waterway": waterway,
   }
-}, [property])
+
+  const dispatch = useDispatch()
+
+  const navigate = useNavigate();
+
+  const property = useSelector(state => state.property)
+
+  const handleClickMarker = (dataMap) => {
+    dispatch(setPropertyItem(dataMap))
+  }
+
+  useEffect(() => {
+    if (property.display_name)
+    {
+      navigate(`/property/`)
+    }
+  }, [property])
 
 
   return (
