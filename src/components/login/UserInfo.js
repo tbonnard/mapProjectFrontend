@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { logoutUser } from '../../reducers/userReducer'
 
+import CloseIcon from '../global/CloseIcon';
+
 
 const UserInfo = () => {
     const dispatch = useDispatch()
@@ -27,12 +29,18 @@ const UserInfo = () => {
     }
 
     return (
-        <div className='container'>
-            <h2>Hi {user.email}!</h2>
-            <button className="submit_button" onClick={handleLogout}>Logout</button> 
-            <div className='divLinksVisitor'>
-                <Link className='divLinksVisitorLinks' to="/">Home</Link>
+        <div className='layerGlobal'>
+
+            <CloseIcon />
+
+            <div className='layerFormDiv'>
+                <h2>Hi {user.email}!</h2>
+                <button className="buttonFour loginSigninSubLink" onClick={handleLogout}>Logout</button> 
+                {/* <div className='loginSigninSubLink'>
+                    <Link className='buttonTier' to="/">Home</Link>
+                </div> */}
             </div>
+
        </div>
     )
 }

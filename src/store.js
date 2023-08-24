@@ -16,7 +16,7 @@ const appReducer = combineReducers({
     projects:projectReducer,
     choices:choiceReducer,
     notificationTemp: notificationTempReducer,
-    user:userReducer
+    user:userReducer,
   })
   
   const rootReducer = (state, action) => {

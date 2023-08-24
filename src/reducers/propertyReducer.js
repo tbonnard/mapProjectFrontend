@@ -1,17 +1,24 @@
 import propertyServices from '../services/propertyServices'
 
-export const propertyCreation = (itemObject) => {
+import { createProject } from './projectReducer'
+
+
+export const propertyCreation = (property, title, description, user) => {
     return async dispatch => {
-        const propertyItem = await propertyServices.propertyCreation(itemObject)
+        const propertyItem = await propertyServices.propertyCreation(property)
         dispatch({
             type: "PROPERTY",
             data: propertyItem
             })
+
+            const projectItem = {title, description, property:propertyItem.id, creator:user.id}
+            dispatch(createProject(projectItem));
     }
 }
 
 export const setPropertyItem = (itemObject) => {
     return async dispatch => {
+        localStorage.setItem('propertyProjectApp', JSON.stringify(itemObject));
         dispatch({
             type: "SET_PROPERTY_ITEM",
             data: itemObject

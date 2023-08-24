@@ -1,5 +1,6 @@
 import projectServices from '../services/projectServices'
 
+
 export const getProjectsfromProperty = (itemObject) => {
     return async dispatch => {
         const projects = await projectServices.getProjectsfromProperty(itemObject)
@@ -41,8 +42,6 @@ const projectReducer = (state=[], action) => {
         case 'NEW_PROJECT':
             let newProjects = state.concat(action.data)
             newProjects.sort(function(a,b){
-                // Turn your strings into dates, and then subtract them
-                // to get a value that is either negative, positive, or zero.
                 return new Date(b.created) - new Date(a.created);
               });
               return newProjects

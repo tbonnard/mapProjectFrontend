@@ -20,21 +20,18 @@ const ProjectsList = () => {
   const projects = useSelector(state => state.projects)
   const property = useSelector(state => state.property)
     
-    // useEffect(() => {
-    //   if (property.length > 0) {
-    //     dispatch(getProjectsfromProperty(property))
-    //   } else if (localStorage.getItem('propertyProjectApp')) {
-    //       const propertyLocal = JSON.parse(localStorage.getItem('propertyProjectApp'));
-    //       dispatch(setPropertyItem(propertyLocal))
-    //       dispatch(getProjectsfromProperty(propertyLocal))
-    //     } else {
-    //       navigate(`/`)
-    //     }
-    // }, [dispatch])
-
     useEffect(() => {
+      if (property.length > 0) {
         dispatch(getProjectsfromProperty(property))
+      } else if (localStorage.getItem('propertyProjectApp')) {
+          const propertyLocal = JSON.parse(localStorage.getItem('propertyProjectApp'));
+          dispatch(setPropertyItem(propertyLocal))
+          dispatch(getProjectsfromProperty(propertyLocal))
+        } else {
+          navigate(`/`)
+        }
     }, [dispatch])
+
 
   if (projects.length === 0) {
     return (
