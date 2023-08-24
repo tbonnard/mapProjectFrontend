@@ -1,0 +1,20 @@
+.choicesGlobal {
+    margin: 40px 0 40px 0;
+}
+
+.buttonChoices{
+    margin: 0 5px;
+    width: auto;
+    padding: 5px 10px;
+    background-color: white;
+    color: var(--main);
+    cursor: pointer;
+    outline: none;
+    border: 1px solid var(--main);
+    font-size: 16px;
+}
+
+.buttonChoices:hover{
+    background-color:  var(--main);
+    color: white;
+}

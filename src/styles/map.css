@@ -1,0 +1,36 @@
+.mapGlobal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 500px;
+}
+
+.mapItem {
+    width: 1000px;
+    height: 1000px;
+    border-radius: 1%;
+}
+
+.layerTitleMap{
+    display: flex;
+    align-items: center;
+}
+
+.layerTitleInternal {
+    padding-right: 20px;
+}
+
+.layerTitleAddressType {
+    display: flex;
+    align-items: center;
+}
+
+.layerTitleAddressType img{
+    padding-right: 10px;
+}
+
+.layerTitleAddressType p{
+    margin: 0;
+}
+

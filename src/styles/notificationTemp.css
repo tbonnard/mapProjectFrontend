@@ -1,0 +1,39 @@
+/* :root {
+    --default: white;
+    --green: #76d45f;
+    --error: #c01f1f;
+    --warning: #d36318;
+  } */
+  
+/* NOTIFICATION */
+.notifGlobal {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 15;
+    height: 75px;
+  }
+  
+  .error {
+    color: var(--default);
+    background-color: var(--error);
+    text-align: center;
+    padding-top: 20px;
+    height: 75px;
+  }
+  
+  .success{
+    background-color: var(--green);
+    color: var(--default);
+    text-align: center;
+    padding-top: 20px;
+    height: 75px;
+  }
+
+  .warning {
+    background-color: var(--warning);
+    color: var(--default);
+    text-align: center;
+    padding-top: 20px;
+    height: 75px;
+  }

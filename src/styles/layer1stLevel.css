@@ -1,0 +1,50 @@
+.closeIcon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 20px;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.closeIcon:hover {
+    opacity: 0.6;
+}
+
+.layerGlobal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--main);
+    z-index: 1000;
+    color: white;
+}
+
+.layerDiv {
+    text-align: center;
+    padding-top: 200px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.layerFormDiv{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputLayer {
+    background-color: white !important;
+}
+
+.layerTitle {
+    text-transform: uppercase;
+    font-size: 20px;
+    text-decoration: underline;
+    text-underline-offset:25px;
+    margin-bottom: 75px;
+}

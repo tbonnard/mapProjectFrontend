@@ -1,0 +1,45 @@
+.App-headerGlobal {
+  background-color: var(--main);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 98;
+}
+
+.App-headerHome {
+  background-color: var(--main);
+  width: 100%;
+  position: relative;
+}
+
+.App-header {
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: center;
+  height: 100px;
+  color: white;
+
+}
+
+.App-header-divLogo a, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
+.App-header-divNumber{
+  font-weight: bold;
+}
+
+
+.notificationIcon{
+  width: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.notificationIcon:hover{
+ opacity: 0.8;
+}

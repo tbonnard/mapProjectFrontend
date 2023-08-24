@@ -1,0 +1,92 @@
+/* https://www.behance.net/gallery/99193441/Message-App-Design-(Freebie)?tracking_source=search_projects_recommended|direct+message */
+
+.projectsGlobal {
+  margin: 0 auto ;
+  max-width: 850px;
+  margin-top: 150px ;
+
+}
+
+.projectsList{
+  margin-bottom: 120px;
+  padding: 0px 20px;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.projectFormInput{
+  background-color: white !important;
+  width: 75%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.projectDateDiv {
+  margin: 5px 0;
+}
+
+.projectDate {
+  font-size: 12px;
+  color:var(--ultraLightText);
+}
+
+
+
+/* PROJECT ITEM */
+.ProjectGlobal{
+  border: 1px solid #e2e2e2;
+  text-align: center;
+  margin: 40px 0;
+  padding: 40px 0;
+  border-radius: 5px;
+}
+
+
+/* PROJECT DIV TO DISPLAY CREATE LAYER */
+.projectPreDiv {
+  background-color: #fff;
+  height: 100px;
+  border-radius: 50% 0 0% 50%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.projectAddIcon {
+  cursor: pointer;
+  background-image: url('../media/add.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+}
+
+.projectAddIcon:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 1080px) {
+  .projectPreDiv{
+    border-radius: 0% 0% 0% 50%;
+    position: fixed;
+    top: 10%;
+    z-index: 1000;
+    background-color: var(--main);
+    height: 90px;
+  }
+  
+.projectAddIcon {
+  background-image: url('../media/addWhite.png');
+}
+}
