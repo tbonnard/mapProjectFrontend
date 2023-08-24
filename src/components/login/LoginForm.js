@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { userLogin } from '../../reducers/userReducer'
 
+import CloseIcon from '../global/CloseIcon';
+
+
 const LoginForm = () => {
     
     const dispatch = useDispatch()
@@ -23,7 +26,6 @@ const LoginForm = () => {
         setPassword('')
     }
 
-
     useEffect(() => {
         if(user) {
             navigate('/profile')     
@@ -32,20 +34,23 @@ const LoginForm = () => {
 
 
     return (
-        <div className='container'>
-            <h2>Login to your account</h2>
-            <form onSubmit={handleLoginSubmit}>
-                <input type="text" placeholder='your username' value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="password" placeholder='your password' value={password} onChange={(e) => setPassword(e.target.value)}/>
-                <div className=''>
-                    <button type='submit'>Login</button>
+        <div className='layerGlobal'>
+
+              <CloseIcon />
+
+            <div className='layerDiv'>
+                <h2 className='layerTitle'>Login to your account</h2>
+                <form onSubmit={handleLoginSubmit} className='layerFormDiv'>
+                    <input type="text" placeholder='your username' value={email} onChange={(e) => setEmail(e.target.value)} className='enterTextNumber projectFormInput' required/>
+                    <input type="password" placeholder='your password' value={password} onChange={(e) => setPassword(e.target.value)} className='enterTextNumber projectFormInput' required/>
+                    <button type='submit' className="buttonFour loginSigninSubLink">Login</button>
+                </form>
+
+                <div className='loginSigninSubLink'>
+                    <p>Don't have an account?
+                    <Link className='buttonTier' to="/signup"> Create an account</Link></p>
                 </div>
-            </form>
-          
-            <p>Don't have an account?
-            <Link className='' to="/signup"> create an account</Link></p>
-            
-            <Link className='' to="/profile">account</Link>
+            </div>
         </div>
     )
 

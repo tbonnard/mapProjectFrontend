@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { createProject } from '../../reducers/projectReducer'
 
@@ -49,7 +49,6 @@ const ProjectForm = ({property, setFlagCreateProject}) => {
             <div className='layerDiv'>
                 <h2 className='layerTitle'>propose a new suggestion or improvement</h2>
                 <p>{property.display_name}</p>
-                {/* <p>propose a new project or an improvement</p> */}
                 <form onSubmit={handleSubmit} >
                     <div className='layerFormDiv'>
                         <input type="text" className='enterTextNumber projectFormInput' placeholder='enter a title' value={title} onChange={(e) => setTitle(e.target.value)} required/>

@@ -25,16 +25,18 @@ export const createAccount = (accountObject) => {
     return async dispatch => {
         try {
             const newUser = await userServices.createAccount(accountObject)
-            let user;
-            let userDetails
-            if (newUser) {
-                user = await userServices.loginUser({ username:accountObject.username, password:accountObject.password })
-                userDetails = await userServices.userDetails()
-            }
             dispatch({
                 type: "USER_CREATE_ACCOUNT",
-                data: userDetails
+                data: newUser
             })
+            // if (newUser) {
+            //     user = await userServices.loginUser({ email:accountObject.email, password:accountObject.password })
+            //     userDetails = await userServices.userDetails()
+            // }
+            // dispatch({
+            //     type: "USER_CREATE_ACCOUNT",
+            //     data: userDetails
+            // })
         } catch(exception) {
             dispatch(setNotification({message:'incorrect username or password (min 4 characters), please try again', style:'error'}))
         }
