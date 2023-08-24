@@ -16,6 +16,7 @@ const Header = () => {
   const dispatch = useDispatch()
 
   const property = useSelector(state => state.property)
+  const user = useSelector(state => state.user)
   
   const [classHeader, setclassHeader] = useState('App-headerGlobal')
 
@@ -41,7 +42,7 @@ const Header = () => {
 
 
   const handleClickNotification = () => {
-
+      
   }
 
 
@@ -52,11 +53,18 @@ const Header = () => {
           <Link className='' to="/" onClick={handleClick}>[appName]</Link>
         </div>
 
-        {property.id &&  <div >
+
+        {user ? 
+          <Link className='' to="/profile">profile</Link>
+          :
+          <Link className='' to="/login">login</Link>
+        }
+                
+
+        {property.display_name &&  <div >
           Property: <span className='App-header-divNumber' title={property.display_name}>{property.display_name.substring(0, 9)} ...</span>
           <img className='notificationIcon' src={notificationIcon} onClick={handleClickNotification}/>
         </div>
-              
         }
             
       </div>

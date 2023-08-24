@@ -5,9 +5,7 @@ import {
   Routes,
   Route,
   Link,
-  Redirect
 } from "react-router-dom"
-import { Navigate } from 'react-router-dom';
 
 import './styles/App.css';
 import './styles/buttons.css';
@@ -20,6 +18,7 @@ import Projects from './components/project/Projects';
 import UserInfo from './components/login/UserInfo';
 import LoginForm from './components/login/LoginForm';
 import AccountForm from './components/login/AccountForm';
+import NotificationTemp from './components/global/NotificationTemp'
 
 import { getChoices } from './reducers/choiceReducer';
 import { getUserInfo } from '../src/reducers/userReducer'
@@ -30,7 +29,7 @@ import csrfServices from '../src/services/csrfService'
 function App() {
   
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     csrfServices.getCsrfToken()
     dispatch(getChoices())
@@ -40,6 +39,7 @@ function App() {
 
   return (
     <div className="App">
+
       <Routes>
       
         <Route path='/property'  element={
@@ -49,7 +49,7 @@ function App() {
             </>
             } />
 
-        <Route path='/profile' element= { <UserInfo /> }  />
+        <Route path='/profile' element= { <UserInfo />  }  />
 
         <Route path='/login' element= { <LoginForm /> } />
 
@@ -65,7 +65,9 @@ function App() {
           } />
 
       </Routes>
-
+      
+      <NotificationTemp />
+      
     </div>
 
   );

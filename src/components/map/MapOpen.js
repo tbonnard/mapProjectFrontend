@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
-import { propertyCreation } from '../../reducers/propertyReducer';
+import { propertyCreation, setPropertyItem } from '../../reducers/propertyReducer';
 
 import '../../styles/map.css'
 
@@ -96,11 +96,12 @@ const navigate = useNavigate();
 const property = useSelector(state => state.property)
 
 const handleClickMarker = (dataMap) => {
-  dispatch(propertyCreation(dataMap))
+  // dispatch(propertyCreation(dataMap))
+  dispatch(setPropertyItem(dataMap))
 }
 
 useEffect(() => {
-  if (property.uuid)
+  if (property.display_name)
   {
     navigate(`/property/`)
   }

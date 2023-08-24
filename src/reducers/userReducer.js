@@ -9,7 +9,7 @@ export const userLogin = (credentials) => {
         try {
             const user = await userServices.loginUser(credentials)
             document.cookie = `jwtTk=${user.jwt}; Path=/ ; samesite=Lax`
-            localStorage.setItem('userPortfolio', JSON.stringify(user.user))
+            localStorage.setItem('userMapProjectDetails', JSON.stringify(user.user))
             dispatch({
                     type: "USER_LOGIN",
                     data: user.user
@@ -45,11 +45,11 @@ export const createAccount = (accountObject) => {
 export const getUserInfo = () =>{
     return async dispatch => {
         let userDetails = null
-        if (localStorage.getItem('userPortfolio')) {
+        if (localStorage.getItem('userMapProjectDetails')) {
             if (document.cookie.replace(/(?:(?:^|.*;\s*)jwtTk\s*=\s*([^;]*).*$)|^.*$/, '$1')) {
-                userDetails = localStorage.getItem('userPortfolio')
+                userDetails = localStorage.getItem('userMapProjectDetails')
             } else {
-                localStorage.removeItem("userPortfolio")
+                localStorage.removeItem("userMapProjectDetails")
             } }
         dispatch({
             type: "GET_USER_INFO",
@@ -62,7 +62,7 @@ export const logoutUser = () => {
     return async dispatch => {
         const user = await userServices.logoutUser()
         document.cookie = "jwtTk=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-        localStorage.removeItem("userPortfolio")
+        localStorage.removeItem("userMapProjectDetails")
         dispatch({
             type: "LOGOUT_USER",
             data: null

@@ -5,7 +5,7 @@ const url = `${baseUrl}api/get-csrf-token/`
 
 const getCsrfToken = async () => {
     const response = await axios.post(`${url}`)
-    document.cookie = `csrftoken=${response.data.csrfToken}; Path=/; samesite=Lax`
+    document.cookie = `csrftoken=${response.data.csrftoken}; Path=/; samesite=Lax`
     return response.data
 }
 

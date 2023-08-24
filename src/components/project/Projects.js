@@ -21,26 +21,27 @@ const Projects = () => {
 
     const navigate = useNavigate();
 
-    const projects = useSelector(state => state.projects)
-    const property = useSelector(state => state.property)
+    // const projects = useSelector(state => state.projects)
+    // const property = useSelector(state => state.property)
     
-    useEffect(() => {
-      if (property.length > 0) {
-        dispatch(getProjectsfromProperty(property))
-      } else if (localStorage.getItem('propertyProjectApp')) {
-          const propertyLocal = JSON.parse(localStorage.getItem('propertyProjectApp'));
-          dispatch(setPropertyItem(propertyLocal))
-          dispatch(getProjectsfromProperty(propertyLocal))
-        } else {
-          navigate(`/`)
-        }
-    }, [dispatch])
+
+    // useEffect(() => {
+    //   if (property.length > 0) {
+    //     dispatch(getProjectsfromProperty(property))
+    //   } else if (localStorage.getItem('propertyProjectApp')) {
+    //       const propertyLocal = JSON.parse(localStorage.getItem('propertyProjectApp'));
+    //       dispatch(setPropertyItem(propertyLocal))
+    //       dispatch(getProjectsfromProperty(propertyLocal))
+    //     } else {
+    //       navigate(`/`)
+    //     }
+    // }, [dispatch])
 
 
     return (
       <>
         <div className='projectsGlobal'>
-          <ProjectsList items={projects} />
+          <ProjectsList  />
           <ProjectFormGlobal />
         </div>
       </>

@@ -8,13 +8,15 @@ import propertyReducer from './reducers/propertyReducer';
 import projectReducer from './reducers/projectReducer'
 import choiceReducer from './reducers/choiceReducer';
 import notificationTempReducer from './reducers/notificationTempReducer';
+import userReducer from './reducers/userReducer';
 
 const appReducer = combineReducers({
     mapQuery:mapQueryReducer,
     property:propertyReducer,
     projects:projectReducer,
     choices:choiceReducer,
-    notificationTemp: notificationTempReducer
+    notificationTemp: notificationTempReducer,
+    user:userReducer
   })
   
   const rootReducer = (state, action) => {

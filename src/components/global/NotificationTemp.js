@@ -7,7 +7,7 @@ import '../../styles/notificationTemp.css'
 
 const NotificationTemp = () => {
 
-    const message = useSelector(state => state.notificationFlag)
+    const message = useSelector(state => state.notificationTemp)
 
     if (!message) {
         return null

@@ -5,26 +5,26 @@ const url = `${baseUrl}api/`
 
 const loginUser = async credentials => {
     const csrftoken = document.cookie.replace(/(?:(?:^|.*;\s*)csrftoken\s*=\s*([^;]*).*$)|^.*$/, '$1');
-    const response = await axios.post(`${baseUrl}login/`, credentials, {headers: {
+    const response = await axios.post(`${url}login/`, credentials, {headers: {
         'X-CSRFToken': csrftoken
       }})
     return response.data
 }
 
 const logoutUser = async ()  => {
-    const response = await axios.post(`${baseUrl}logout/`)
+    const response = await axios.post(`${url}logout/`)
     return response.data
 }
 
 // No need for the portfolio
 const createAccount = async (accountObject) => {
-    const response = await axios.post(`${baseUrl}register/`, accountObject)
+    const response = await axios.post(`${url}register/`, accountObject)
     return response.data
   }
   
   // No need
   const checkUsername = async (username) => {
-    const response = await axios.get(`${baseUrl}validate_username/${username}`)
+    const response = await axios.get(`${url}validate_username/${username}`)
     if (response.data.message === "username available") {return true} else {return false}
   }
   
@@ -32,7 +32,7 @@ const createAccount = async (accountObject) => {
   const userDetails = async () => {
     const loggedUserJSON = window.localStorage.getItem('jwtTk')
     const csrftoken = window.localStorage.getItem('csrftoken')
-    const response = await axios.get(`${baseUrl}user`)
+    const response = await axios.get(`${url}user`)
     return response.data
   }
   

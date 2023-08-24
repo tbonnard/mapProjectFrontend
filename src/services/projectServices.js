@@ -6,7 +6,7 @@ const url = `${baseUrl}api/projects/`
 
 
 const getProjectsfromProperty = async (itemObject) => {
-  const response = await axios.get(`${url}${itemObject.uuid}` );
+  const response = await axios.post(`${url}`, itemObject );
   return response.data
 }
 
