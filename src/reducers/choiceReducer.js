@@ -10,7 +10,6 @@ export const getChoices = () => {
     }
 }
 
-
 const choiceReducer = (state=[], action) => {
     switch(action.type) {
         case 'CHOICES':

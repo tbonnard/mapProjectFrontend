@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { resetProjects } from '../../reducers/projectReducer';
 import { resetProperty } from '../../reducers/propertyReducer';
+import { setNotification } from '../../reducers/notificationTempReducer'
 
 import '../../styles/header.css'
 import notificationIcon from '../../media/notification.png'
@@ -42,7 +43,9 @@ const Header = () => {
 
 
   const handleClickNotification = () => {
-      
+      if (!user) {
+        dispatch(setNotification({message:'you must be logged in to follow that place', style:'warning'}))
+      }
   }
 
 
@@ -65,7 +68,7 @@ const Header = () => {
 
         {property.display_name &&  <div >
           Property: <span className='App-header-divNumber' title={property.display_name}>{property.display_name.substring(0, 9)} ...</span>
-          <img className='notificationIcon' src={notificationIcon} onClick={handleClickNotification}/>
+          <img className='notificationIcon' src={notificationIcon} onClick={handleClickNotification} title={`Follow ${property.display_name.substring(0, 9)} ...`}/>
         </div>
         }
             

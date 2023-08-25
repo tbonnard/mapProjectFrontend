@@ -20,15 +20,17 @@ export const userLogin = (credentials) => {
     }
 }
 
-
 export const createAccount = (accountObject) => {
     return async dispatch => {
         try {
             const newUser = await userServices.createAccount(accountObject)
+            document.cookie = `jwtTk=${newUser.jwt}; Path=/ ; samesite=Lax`
+            localStorage.setItem('userMapProjectDetails', JSON.stringify(newUser.user))
             dispatch({
                 type: "USER_CREATE_ACCOUNT",
-                data: newUser
+                data: newUser.user
             })
+            
             // if (newUser) {
             //     user = await userServices.loginUser({ email:accountObject.email, password:accountObject.password })
             //     userDetails = await userServices.userDetails()

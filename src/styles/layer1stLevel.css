@@ -30,7 +30,8 @@
     left: 0;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow-y:scroll;
+    overflow-x:hidden;
     background-color: var(--main);
     z-index: 1000;
     color: white;
