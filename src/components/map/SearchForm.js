@@ -9,7 +9,7 @@ import '../../styles/searchForm.css'
 
 import { getMapQueryData } from '../../reducers/mapQueryReducer';
 
-const SearchForm = () => {
+const SearchForm = ({setLoading}) => {
     
   const dispatch = useDispatch()
 
@@ -20,6 +20,7 @@ const SearchForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true)
     dispatch(getMapQueryData(placeAddress))
     window.scrollTo({left: 0, top:document.querySelector('#map').offsetTop,  behavior: "smooth"});
   }

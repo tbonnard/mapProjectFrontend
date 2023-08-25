@@ -47,11 +47,12 @@ import telecom from '../../media/addresstype/telecom.png'
 import tourism from '../../media/addresstype/tourism.png'
 import water from '../../media/addresstype/water.png'
 import waterway from '../../media/addresstype/waterway.png'
+import LoadingIcon from '../global/LoadingIcon';
 
 
 
 
-const MapOpen = ({mapQueryData, zoom}) => {
+const MapOpen = ({mapQueryData, zoom, loading}) => {
 
     const typeImageIcon = {
       "aeroway" : aeroway,
@@ -102,12 +103,17 @@ const MapOpen = ({mapQueryData, zoom}) => {
     {
       navigate(`/property/`)
     }
-  }, [property])
+  }, [property, navigate])
 
 
   return (
     <div className=''>
       <MapContainer className='mapItem' key={`${mapQueryData[0].lat}-${mapQueryData[0].lon}-${zoom}`}  center={[mapQueryData[0].lat, mapQueryData[0].lon]} zoom={zoom} scrollWheelZoom={true}>
+      
+      {loading &&
+        <LoadingIcon />
+      }
+      
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

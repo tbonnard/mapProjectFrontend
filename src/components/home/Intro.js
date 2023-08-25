@@ -5,7 +5,8 @@ import { useDispatch } from 'react-redux'
 
 import '../../styles/intro.css'
 
-import SearchForm from './SearchForm';
+import SearchForm from '../map/SearchForm';
+
 
 const Intro = () => {
   
@@ -27,7 +28,7 @@ const Intro = () => {
         [appName] is an easy tool to propose suggestions and 
         improve your neighbourood and your favorite places
         </div>
-        <SearchForm />
+        {/* <SearchForm /> */}
       </div>
       <div className='backimg'></div>
     </div> 

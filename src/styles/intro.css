@@ -1,5 +1,4 @@
 .intro {
-    height: 1000px;
     padding-top: 50px;
     background: var(--main);
     background: linear-gradient(180deg, rgba(53,69,114,1) 6%, rgba(95,108,143,1) 36%, rgba(255,255,255,1) 95%); 
@@ -13,6 +12,13 @@
     margin: 0 auto;
   }
    
+  @media (max-width: 800px) {
+    .introDiv{
+      width: 95%;
+    }
+    
+  }
+
   .backimg {
     background-image: url('../media/backimage.png');
     background-repeat: no-repeat;

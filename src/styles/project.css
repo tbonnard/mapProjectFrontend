@@ -86,7 +86,7 @@
     height: 90px;
   }
   
-.projectAddIcon {
-  background-image: url('../media/addWhite.png');
-}
+  .projectAddIcon {
+    background-image: url('../media/addWhite.png');
+  }
 }

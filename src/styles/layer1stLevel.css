@@ -11,6 +11,19 @@
     opacity: 0.6;
 }
 
+.loadingIcon{
+    position: absolute;
+    z-index:2000;
+    width: 200px;
+    left: 40%;
+    top: 40%;
+}
+
+.loadingIcon:hover {
+    opacity: 0.6;
+}
+
+
 .layerGlobal{
     position: fixed;
     top: 0;

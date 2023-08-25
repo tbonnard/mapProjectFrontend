@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import '../../styles/map.css'
 
 import MapOpen from './MapOpen'
+import SearchForm from './SearchForm';
 
 const MapOpenGlobal = () => {
 
@@ -76,19 +77,29 @@ const MapOpenGlobal = () => {
   
   const mapQueryData = useSelector(state => state.mapQuery)
 
+  const [loading, setLoading] = useState(false)
+
   const [zoom, setZoom] = useState(18)
   //lat - long -- max zoom 18 
 
   useEffect(() => {
+      setLoading(false)
     if (mapQueryData.length > 1) {
       setZoom(13)
     }
   }, [mapQueryData])
 
+
   return (
-    <div className='mapGlobal' id='map' >
-      <MapOpen mapQueryData={mapQueryData.length > 0 ? mapQueryData : defaultData } zoom={zoom} />
-    </div>
+      <div className='divSearchMap'>
+            <div className='introDiv divIntroSearch'>
+            <SearchForm setLoading={setLoading}/>
+            </div>
+            <div className='mapGlobal' id='map' >
+                  <MapOpen loading={loading} setLoading={setLoading} mapQueryData={mapQueryData.length > 0 ? mapQueryData : defaultData } zoom={zoom} />
+            </div>
+      </div>
+
       
   )
 }
