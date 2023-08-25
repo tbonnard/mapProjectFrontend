@@ -43,3 +43,12 @@
 .notificationIcon:hover{
  opacity: 0.8;
 }
+
+.headerTopRight {
+  display: flex;
+flex-direction: column;
+}
+
+.headerTopRightAccount{
+  padding-bottom: 10px !important;
+}

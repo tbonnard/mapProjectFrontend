@@ -54,10 +54,12 @@ const Header = () => {
         </div>
 
 
+      <div className='headerTopRight'>
+
         {user ? 
-          <Link className='' to="/profile">profile</Link>
+          <Link className='headerTopRightAccount buttonTier' to="/profile">profile</Link>
           :
-          <Link className='' to="/login">login</Link>
+          <Link className='headerTopRightAccount buttonTier' to="/login">login</Link>
         }
                 
 
@@ -67,6 +69,7 @@ const Header = () => {
         </div>
         }
             
+            </div>
       </div>
   </div>
   )
