@@ -29,24 +29,27 @@
   color: inherit;
 }
 
-.App-header-divNumber{
+
+
+.headerPropertyDetails{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerPropertyName{
   font-weight: bold;
 }
 
 
 .notificationIcon{
   width: 20px;
-  margin-left: 20px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
 .notificationIcon:hover{
  opacity: 0.8;
-}
-
-.headerTopRight {
-  display: flex;
-flex-direction: column;
 }
 
 .headerTopRightAccount{

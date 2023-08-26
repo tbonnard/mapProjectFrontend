@@ -10,12 +10,12 @@ export const checkFollow = (itemObject) => {
     }
 }
 
-export const removeFollow = (itemObject) => {
+export const removeFollow = (propertyFollowed) => {
     return async dispatch => {
-        const follow = await followServices.removeFollow(itemObject)
+        const follow = await followServices.removeFollow(propertyFollowed)
         dispatch({
             type: "REMOVE_FOLLOW",
-            data: follow
+            data: propertyFollowed
             })
     }
 }
@@ -36,9 +36,10 @@ const followReducer = (state=[], action) => {
         case 'CHECK_FOLLOW':
             return action.data
         case 'REMOVE_FOLLOW':
-                return action.data
+            const newState = state.filter((item) => item.id !==action.data )
+            return newState
         case 'ADD_FOLLOW':
-            return action.data
+            return state.concat(action.data)
         default:
             return state
     }

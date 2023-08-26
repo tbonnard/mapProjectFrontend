@@ -95,7 +95,7 @@ const MapOpen = ({mapQueryData, zoom, loading}) => {
   const property = useSelector(state => state.property)
 
   const handleClickMarker = (dataMap) => {
-    dispatch(setPropertyItem(dataMap))
+     dispatch(setPropertyItem(dataMap))
   }
 
   useEffect(() => {

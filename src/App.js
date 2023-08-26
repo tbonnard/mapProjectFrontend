@@ -22,6 +22,8 @@ import NotificationTemp from './components/global/NotificationTemp'
 
 import { getChoices } from './reducers/choiceReducer';
 import { getUserInfo } from '../src/reducers/userReducer'
+import { checkFollow } from './reducers/followReducer';
+
 
 import csrfServices from '../src/services/csrfService'
 
@@ -30,11 +32,14 @@ function App() {
   
   const dispatch = useDispatch()
 
+  const user = useSelector(state => state.user)
+
   useEffect(() => {
     csrfServices.getCsrfToken()
     dispatch(getChoices())
     dispatch(getUserInfo())
   },[dispatch])
+
 
   return (
     <div className="App">

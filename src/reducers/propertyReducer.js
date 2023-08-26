@@ -18,10 +18,17 @@ export const propertyCreation = (property, title, description, user) => {
 
 export const setPropertyItem = (itemObject) => {
     return async dispatch => {
-        localStorage.setItem('propertyProjectApp', JSON.stringify(itemObject));
+        let newItem = itemObject
+        const propertyItem = await propertyServices.checkIfPropertyCreated(itemObject)
+        if (propertyItem) {
+            newItem = propertyItem
+            localStorage.setItem('propertyProjectApp', JSON.stringify(propertyItem));
+        } else {
+            localStorage.setItem('propertyProjectApp', JSON.stringify(propertyItem));
+        }
         dispatch({
             type: "SET_PROPERTY_ITEM",
-            data: itemObject
+            data: newItem
             })
     }
 }
