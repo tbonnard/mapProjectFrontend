@@ -24,7 +24,7 @@ export const setPropertyItem = (itemObject) => {
             newItem = propertyItem
             localStorage.setItem('propertyProjectApp', JSON.stringify(propertyItem));
         } else {
-            localStorage.setItem('propertyProjectApp', JSON.stringify(propertyItem));
+            localStorage.setItem('propertyProjectApp', JSON.stringify(newItem));
         }
         dispatch({
             type: "SET_PROPERTY_ITEM",
