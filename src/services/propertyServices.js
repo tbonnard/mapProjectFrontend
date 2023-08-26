@@ -27,7 +27,13 @@ const checkIfPropertyCreated = async (itemObject) => {
   return response.data
 }
 
-const exportedObject = { propertyCreation, checkIfPropertyCreated } 
+const getPropertyDetails = async (id) => {
+  const response = await axios.get(`${url}${id}` );
+  localStorage.setItem('propertyProjectApp', JSON.stringify(response.data));
+  return response.data
+}
+
+const exportedObject = { propertyCreation, checkIfPropertyCreated, getPropertyDetails } 
 
 export default exportedObject
 

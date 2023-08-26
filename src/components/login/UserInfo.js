@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { logoutUser } from '../../reducers/userReducer'
 
 import CloseIcon from '../global/CloseIcon';
+import FollowItems from '../follow/FollowItems';
 
 
 const UserInfo = () => {
@@ -41,6 +42,7 @@ const UserInfo = () => {
                 </div> */}
             </div>
 
+                <FollowItems />
        </div>
     )
 }

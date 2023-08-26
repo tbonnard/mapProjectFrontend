@@ -1,5 +1,8 @@
 import propertyServices from '../services/propertyServices'
 
+import { getProjectsfromProperty } from './projectReducer'
+
+
 export const propertyCreation = (property, title, description, user) => {
     return async dispatch => {
         const propertyItem = await propertyServices.propertyCreation(property)
@@ -24,6 +27,17 @@ export const setPropertyItem = (itemObject) => {
             type: "SET_PROPERTY_ITEM",
             data: newItem
             })
+    }
+}
+
+export const getPropertyDetails = (id) => {
+    return async dispatch => {
+        const propertyItem = await propertyServices.getPropertyDetails(id)
+        dispatch({
+            type: "GET_PROPERTY_DETAILS",
+            data: propertyItem
+            })
+            dispatch(getProjectsfromProperty(propertyItem))
     }
 }
 
@@ -54,6 +68,8 @@ const propertyReducer = (state=[], action) => {
         case 'SET_PROPERTY_ITEM':
                 return action.data
         case 'RESET_PROPERTY':
+            return action.data
+        case 'GET_PROPERTY_DETAILS':
             return action.data
         default:
             return state

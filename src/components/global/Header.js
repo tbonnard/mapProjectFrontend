@@ -9,7 +9,8 @@ import { resetProperty } from '../../reducers/propertyReducer';
 
 import '../../styles/header.css'
 
-import Follow from './Follow';
+import Follow from '../follow/Follow';
+
 
 const Header = () => {
     
