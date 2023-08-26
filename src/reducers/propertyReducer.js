@@ -1,8 +1,5 @@
 import propertyServices from '../services/propertyServices'
 
-import { createProject } from './projectReducer'
-
-
 export const propertyCreation = (property, title, description, user) => {
     return async dispatch => {
         const propertyItem = await propertyServices.propertyCreation(property)
@@ -10,9 +7,6 @@ export const propertyCreation = (property, title, description, user) => {
             type: "PROPERTY",
             data: propertyItem
             })
-
-            const projectItem = {title, description, property:propertyItem.id, creator:user.id}
-            dispatch(createProject(projectItem));
     }
 }
 

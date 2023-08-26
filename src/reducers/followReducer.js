@@ -1,5 +1,7 @@
 import followServices from '../services/followServices'
 
+import { setPropertyItem } from './propertyReducer'
+
 export const checkFollow = (itemObject) => {
     return async dispatch => {
         const follow = await followServices.checkFollow(itemObject)
@@ -27,6 +29,7 @@ export const addFollow = (itemObject) => {
             type: "ADD_FOLLOW",
             data: follow
             })
+            dispatch(setPropertyItem(itemObject['property']));
     }
 }
 
@@ -39,7 +42,10 @@ const followReducer = (state=[], action) => {
             const newState = state.filter((item) => item.id !==action.data )
             return newState
         case 'ADD_FOLLOW':
-            return state.concat(action.data)
+            return [
+                ...state,
+                action.data
+              ];
         default:
             return state
     }

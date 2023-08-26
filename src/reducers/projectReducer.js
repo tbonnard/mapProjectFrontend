@@ -1,5 +1,6 @@
 import projectServices from '../services/projectServices'
 
+import { setPropertyItem } from './propertyReducer'
 
 export const getProjectsfromProperty = (itemObject) => {
     return async dispatch => {
@@ -18,7 +19,9 @@ export const createProject = (itemObject) => {
             type: "NEW_PROJECT",
             data: project
             })
+            dispatch(setPropertyItem(itemObject['property']));
             window.scrollTo({left: 0, top:0,  behavior: "smooth"});
+            
     }
 }
 

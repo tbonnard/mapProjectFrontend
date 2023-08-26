@@ -20,7 +20,7 @@ const propertyCreation = async (itemObject) => {
 }
 
 const checkIfPropertyCreated = async (itemObject) => {
-  const response = await axios.post(`${url}`, itemObject );
+  const response = await axios.post(`${urlCheck}`, itemObject );
   if (response.status === 200) {
     localStorage.setItem('propertyProjectApp', JSON.stringify(response.data));
   }

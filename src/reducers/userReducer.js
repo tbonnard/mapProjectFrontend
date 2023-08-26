@@ -56,9 +56,10 @@ export const getUserInfo = () =>{
                 let userToCheck = await userServices.userDetails(userJsonParsed.id)
                 if (userToCheck) {
                     userDetails = userToCheck
-                }         
+                } else {
+                    dispatch(logoutUser());
+                }        
             } else {
-                // localStorage.removeItem("userMapProjectDetails")
                 dispatch(logoutUser());
             } }
         dispatch({

@@ -50,9 +50,6 @@ const Follow = () => {
 
   const handleClickFollow = () => {        
     dispatch(addFollow({follower:user.id, property:property}))
-    // dispatch(addFollow({follower:user.id, property:{osm_id:property.osm_id, osm_type:property.osm_type}}))
-
-    // setPropertyFollowedFlag(false)
   }
 
   const handleClickUnfollow = () => {

@@ -5,7 +5,8 @@ import { useDispatch, useSelector  } from 'react-redux'
 
 import { useNavigate } from 'react-router-dom';
 
-import { propertyCreation } from '../../reducers/propertyReducer';
+import { createProject } from '../../reducers/projectReducer';
+
 
 import '../../styles/project.css'
 import '../../styles/layer1stLevel.css'
@@ -30,7 +31,7 @@ const ProjectForm = ({property, setFlagCreateProject}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(propertyCreation(property, title, description, user))
+        dispatch(createProject({property, title, description, user}))
         setTitle('')
         setDescription('')
         setFlagCreateProject(false)
