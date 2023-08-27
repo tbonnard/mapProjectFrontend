@@ -1,7 +1,3 @@
-// https://react-leaflet.js.org/docs/start-introduction/
-// https://blog.logrocket.com/react-leaflet-tutorial/
-// https://leafletjs.com/examples/quick-start/
-
 import React, {  useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 

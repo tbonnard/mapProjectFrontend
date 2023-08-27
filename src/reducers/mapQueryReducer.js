@@ -25,7 +25,7 @@ export const getMapQueryDataUserLocation = (itemObject) => {
             data: propertyItem
             })
             if (propertyItem.length === 0) {
-                dispatch(setNotification({message:'There are currently no properties with suggestions in a 10km radius! Add new ones!', style:'warning', time:10000}))
+                dispatch(setNotification({message:'There are currently no properties with suggestions in a 10km radius or zoom in!', style:'warning', time:10000}))
             }
     }
 }

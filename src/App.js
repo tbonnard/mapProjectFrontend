@@ -32,8 +32,6 @@ import csrfServices from '../src/services/csrfService'
 // TODO: vote for projects
 // TODO: sort options projects : created / most positive voted / not me voted projects
 // TODO: private groups in property
-// TODO: update bounds based on drag / click
-// TODO: view items near a place (ex, je suis sur Toronto, voir item autour)
 // TODO: share a suggestion
 
 

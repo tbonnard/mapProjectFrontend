@@ -1,15 +1,8 @@
-// https://react-leaflet.js.org/docs/start-introduction/
-// https://blog.logrocket.com/react-leaflet-tutorial/
-// https://leafletjs.com/examples/quick-start/
-// https://nominatim.openstreetmap.org/search.php?q=query&polygon_geojson=1&format=jsonv2
-// https://wiki.openstreetmap.org/wiki/Map_features
-// https://react-leaflet.js.org/docs/example-map-placeholder/
-
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 
 
-import { Marker, Popup, useMap } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
 
 import { setPropertyItem } from '../../reducers/propertyReducer';
 
@@ -55,36 +48,13 @@ import island from '../../media/addresstype/island.png'
 import mountain from '../../media/addresstype/mountain.png'
 import industrial from '../../media/addresstype/industrial.png'
 
-const MapMarker = ({markerData, bounds, setPositionCentered}) => {
+const MapMarker = ({markerData}) => {
 
   const dispatch = useDispatch()
-
-  const map = useMap()
-
 
   const handleClickMarker = (dataMap) => {
      dispatch(setPropertyItem(dataMap))
   }
-
-  useEffect(() => {
-      setPositionCentered(map.getCenter())
-      map.fitBounds(bounds);
-  }, [map, bounds]);
-
-
-  const onMove = useCallback(() => {
-    setPositionCentered(map.getCenter())
-  }, [map])
-
-
-  useEffect(() => {
-    map.on('move', onMove)
-    return () => {
-      map.off('move', onMove)
-    }
-  }, [map, onMove])
-
-
 
   const typeImageIcon = {
     "aeroway" : aeroway,
@@ -136,7 +106,6 @@ const MapMarker = ({markerData, bounds, setPositionCentered}) => {
 
 
   return (    
-
       <Marker position={[markerData['lat'], markerData['lon']]}>
         <Popup>
           <div className='layerTitleMap'>

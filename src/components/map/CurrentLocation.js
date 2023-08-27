@@ -14,7 +14,7 @@ const CurrentLocation = ({defaultCoordinates}) => {
     const [coordinates, setCoordinates] = useState([])
 
     const SuccessGeoLoc = (position) => {
-        dispatch(setNotification({message:' Here are properties with suggestions within a 10km radius ', style:'success', time:5000}))
+        dispatch(setNotification({message:' Here are properties with suggestions within a 10km radius', style:'success', time:5000}))
         dispatch(setUserLocationFlag(false))
         if (position.coords) {
             setCoordinates(position.coords)
