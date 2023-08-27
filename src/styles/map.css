@@ -34,3 +34,11 @@
     margin: 0;
 }
 
+.mapListDiv{
+    display: flex;
+}
+
+.ListDiv{
+    max-width: 100px;
+    padding: 0 10px;
+}

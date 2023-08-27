@@ -5,7 +5,7 @@
 // https://wiki.openstreetmap.org/wiki/Map_features
 
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
 import { useNavigate } from 'react-router-dom';
@@ -47,12 +47,21 @@ import telecom from '../../media/addresstype/telecom.png'
 import tourism from '../../media/addresstype/tourism.png'
 import water from '../../media/addresstype/water.png'
 import waterway from '../../media/addresstype/waterway.png'
-import LoadingIcon from '../global/LoadingIcon';
+import city from '../../media/addresstype/city.png'
+import village from '../../media/addresstype/village.png'
+import suburb from '../../media/addresstype/suburb.png'
+import neighbourhood from '../../media/addresstype/neighbourhood.png'
+import country from '../../media/addresstype/country.png'
+import state from '../../media/addresstype/state.png'
+import island from '../../media/addresstype/island.png'
+import mountain from '../../media/addresstype/mountain.png'
 
+
+import LoadingIcon from '../global/LoadingIcon';
 
 // FIXME: put icons into another file
 
-const MapOpen = ({mapQueryData, zoom, loading}) => {
+const MapOpen = ({mapQueryData, zoom, loading, boundsItems}) => {
 
     const typeImageIcon = {
       "aeroway" : aeroway,
@@ -61,19 +70,28 @@ const MapOpen = ({mapQueryData, zoom, loading}) => {
       "barrier": barrier,
       "boundary": boundary,
       "building": building,
+      "city": city,
+      "county":state,
+      "country":country,
       "craft": craft,
       "emergency": emergency,
       "geological": geological,
+      "hamlet":village,
       "healthcare": healthcare,
       "highway": highway,
       "historic": historic,
+      "island":island,
       "landuse": landuse,
       "leisure": leisure,
       "man_made": manMade,
+      "mountain_pass":mountain,
+      "municipality": city,
+      "neighbourhood":neighbourhood,
       "natural":natural,
       "military": military,
       "office": office,
       "park":park,
+      "peak":mountain,
       "place": place,
       "power": power,
       "public_transport": transport,
@@ -82,8 +100,12 @@ const MapOpen = ({mapQueryData, zoom, loading}) => {
       "road": route,
       "shop": shop,
       "sport": sport,
+      "state":state,
+      "suburb":suburb,
       "telecom": telecom,
       "tourism": tourism,
+      "town": city,
+      "village":village,
       "water": water,
       "waterway": waterway,
   }
@@ -105,10 +127,12 @@ const MapOpen = ({mapQueryData, zoom, loading}) => {
     }
   }, [property, navigate])
 
+  // center={[mapQueryData[0].lat, mapQueryData[0].lon]}
+  // zoom={zoom}
 
   return (
     <div className=''>
-      <MapContainer className='mapItem' key={`${mapQueryData[0].lat}-${mapQueryData[0].lon}-${zoom}`}  center={[mapQueryData[0].lat, mapQueryData[0].lon]} zoom={zoom} scrollWheelZoom={true}>
+      <MapContainer className='mapItem'  bounds={boundsItems ? boundsItems : []} key={`${mapQueryData[0].lat}-${mapQueryData[0].lon}-${zoom}`}   scrollWheelZoom={true} >
       
       {loading &&
         <LoadingIcon />

@@ -9,10 +9,11 @@ import '../../styles/map.css'
 
 import MapOpen from './MapOpen'
 import SearchForm from './SearchForm';
+import ListQueryMapOpen from './ListQueryMapOpen'
 
-// TODO: liste search item à droite map & clic dessus pour marker
+// TODO: liste search item à droite map & clic dessus pour marker --> display all properties received
 // TODO: display items near me -- default country tbc
-//FIXME: adjust zoom based on all items returned
+// FIXME: adjust zoom based on all items returned
 
 
 const MapOpenGlobal = () => {
@@ -78,17 +79,28 @@ const MapOpenGlobal = () => {
 
 ]
   
+const defaultBound = [
+      [50.505, -29.09],
+      [52.505, 29.09],
+    ]
+
   const mapQueryData = useSelector(state => state.mapQuery)
 
   const [loading, setLoading] = useState(false)
+  const [boundsItems, setboundsItems ] = useState(defaultBound)
+  const [mapData, setMapData ] = useState(defaultData)
 
   const [zoom, setZoom] = useState(18)
   //lat - long -- max zoom 18 
 
   useEffect(() => {
       setLoading(false)
-    if (mapQueryData.length > 1) {
-      setZoom(13)
+    if (mapQueryData.length > 0) {
+      setMapData(mapQueryData)
+      // setZoom(13)
+      let newBounds = []
+      mapQueryData.map(item =>  newBounds.push([item.lat, item.lon]) )
+      setboundsItems(newBounds)
     }
   }, [mapQueryData])
 
@@ -99,7 +111,10 @@ const MapOpenGlobal = () => {
             <SearchForm setLoading={setLoading}/>
             </div>
             <div className='mapGlobal' id='map' >
-                  <MapOpen loading={loading} setLoading={setLoading} mapQueryData={mapQueryData.length > 0 ? mapQueryData : defaultData } zoom={zoom} />
+                  <div className='mapListDiv'>
+                        <MapOpen loading={loading} setLoading={setLoading} mapQueryData={mapData} zoom={zoom} boundsItems={boundsItems}/>
+                        {/* <ListQueryMapOpen mapQueryDataList={mapQueryData}/> */}
+                  </div>
             </div>
       </div>
 
