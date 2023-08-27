@@ -7,6 +7,7 @@ import { setNotification } from '../../reducers/notificationTempReducer'
 import { addFollow, removeFollow, checkFollow } from '../../reducers/followReducer';
 
 import '../../styles/header.css'
+import '../../styles/buttons.css'
 
 import notificationIcon from '../../media/notification.png'
 import unfollowIcon from '../../media/unfollow.png'
@@ -65,7 +66,7 @@ const Follow = () => {
   return (
     <div >
 
-      {!user ?  
+      {/* {!user ?  
         <img className='notificationIcon' src={notificationIcon} onClick={handleSetNotifNotLoggedIn} title={`Follow ${property.display_name}`}/>
         :     
         <div>
@@ -73,6 +74,18 @@ const Follow = () => {
             <img className='notificationIcon' src={unfollowIcon} onClick={handleClickUnfollow} title={`Unfollow ${property.display_name}`}/>
             : 
             <img className='notificationIcon' src={notificationIcon} onClick={handleClickFollow} title={`Follow ${property.display_name}`}/>
+            }
+        </div>
+      } */}
+
+    {!user ?  
+        <p className='buttonTier' onClick={handleSetNotifNotLoggedIn} title={`Follow ${property.display_name}`}>follow</p>
+        :     
+        <div>
+          { propertyFollowedFlag ? 
+            <p className='buttonTier' onClick={handleClickUnfollow} title={`Unfollow ${property.display_name}`}>unfollow</p>
+            : 
+            <p className='buttonTier' onClick={handleClickFollow} title={`Follow ${property.display_name}`}>follow</p>
             }
         </div>
       }

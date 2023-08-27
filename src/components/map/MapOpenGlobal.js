@@ -67,7 +67,7 @@ const MapOpenGlobal = () => {
                         dispatch(setLoading(false))
                   }
             }
-      }, [mapQueryData])
+      }, [mapQueryData, dispatch])
 
 
   return (

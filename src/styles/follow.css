@@ -1,0 +1,24 @@
+.followedItems {
+    padding-top: 50px;
+    color: white;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.followedItem {
+    padding: 5px 0;
+}
+
+.buttonFollowed {
+    text-align: left !important;
+}
+
+@media (max-width: 800px) {
+    .buttonFollowed{
+        text-underline-offset: 2px !important;
+    }
+
+    .buttonFollowed:hover{
+        text-underline-offset: 4px !important;
+    }
+  }

@@ -8,6 +8,9 @@ import CloseIcon from '../global/CloseIcon';
 import FollowItems from '../follow/FollowItems';
 
 
+import '../../styles/user.css'
+
+
 const UserInfo = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -35,13 +38,14 @@ const UserInfo = () => {
 
             <div className='layerFormDiv'>
                 <h2>Hi {user.email}!</h2>
-                <button className="buttonFour loginSigninSubLink" onClick={handleLogout}>Logout</button> 
-                {/* <div className='loginSigninSubLink'>
-                    <Link className='buttonTier' to="/">Home</Link>
-                </div> */}
             </div>
 
-                <FollowItems />
+            <FollowItems />
+
+            <div className='logoutDiv'>
+                <button className='buttonTier' onClick={handleLogout}>Logout</button> 
+            </div>
+
        </div>
     )
 }

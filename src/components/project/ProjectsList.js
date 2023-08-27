@@ -30,7 +30,7 @@ const ProjectsList = () => {
         } else {
           navigate(`/`)
         }
-    }, [dispatch])
+    }, [dispatch, navigate])
 
 
   if (projects.length === 0) {

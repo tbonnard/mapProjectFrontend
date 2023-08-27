@@ -6,10 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { checkFollow } from '../../reducers/followReducer';
 import { getPropertyDetails } from '../../reducers/propertyReducer';
 
-import '../../styles/header.css'
+import '../../styles/follow.css'
 
-
-//TODO: css followed items
 
 const FollowItems = () => {
     
@@ -39,14 +37,14 @@ const FollowItems = () => {
   }
 
   return (
-    <div >
-      <h3>properties followed</h3>
+    <div className='followedItems'>
+      <h3 className='layerTitle'>properties followed</h3>
       {followedProperties.map(foll => 
-          <div key={foll.id}>
+          <div key={foll.id} className='followedItem'>
               {foll.properties[0].name ? 
-                <button onClick={(e) => handleClick(e, foll.property)} title={foll.properties[0].display_name}>{foll.properties[0].name}</button> 
+                <button className='buttonTier buttonFollowed' onClick={(e) => handleClick(e, foll.property)} title={foll.properties[0].display_name}>{foll.properties[0].name}</button> 
                 :
-                <button onClick={(e) => handleClick(e, foll.property)} title={foll.properties[0].display_name}>{foll.properties[0].display_name}</button> 
+                <button className='buttonTier buttonFollowed' onClick={(e) => handleClick(e, foll.property)} title={foll.properties[0].display_name}>{foll.properties[0].display_name}</button> 
               }
           </div>
          )
