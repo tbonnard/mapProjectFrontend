@@ -3,7 +3,7 @@
 // https://leafletjs.com/examples/quick-start/
 // https://nominatim.openstreetmap.org/search.php?q=query&polygon_geojson=1&format=jsonv2
 // https://wiki.openstreetmap.org/wiki/Map_features
-
+// https://react-leaflet.js.org/docs/example-map-placeholder/
 
 import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux'
@@ -76,7 +76,7 @@ const MapMarker = ({markerData, bounds, setPositionCentered}) => {
     setPositionCentered(map.getCenter())
   }, [map])
 
-  
+
   useEffect(() => {
     map.on('move', onMove)
     return () => {
