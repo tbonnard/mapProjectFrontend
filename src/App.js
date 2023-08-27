@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
   Routes,
   Route,
-  Link,
 } from "react-router-dom"
 
 import './styles/App.css';
@@ -22,11 +21,17 @@ import NotificationTemp from './components/global/NotificationTemp'
 
 import { getChoices } from './reducers/choiceReducer';
 import { getUserInfo } from '../src/reducers/userReducer'
-import { checkFollow } from './reducers/followReducer';
 
 
 import csrfServices from '../src/services/csrfService'
 
+
+// TODO: Feeds of followed places
+// TODO: display places with project on map near user's location
+// TODO: non logged in, create project ramene à la property sur le détail pour submit
+// TODO: non logged in, follow ramene à la property avec notif followed
+// TODO: vote for projects
+// TODO: sort options projects : created / most positive voted / not me voted projects
 
 function App() {
   

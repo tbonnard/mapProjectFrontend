@@ -1,8 +1,6 @@
 
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react';
 
-import addIcon from '../../media/add.png'
 
 const ProjectPreForm = ({setFlagCreateProject}) => {
     

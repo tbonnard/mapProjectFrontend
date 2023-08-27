@@ -67,3 +67,17 @@
 .loginSigninSubLink{
     margin-top: 30px;
 }
+
+
+@media (max-width: 1300px) {
+    .layerDiv{
+        width: 90%;
+    }
+
+  }
+
+  @media (max-width: 600px) {
+    .layerTitle {
+        text-underline-offset:7px;
+    }
+  }

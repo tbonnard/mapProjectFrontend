@@ -16,11 +16,6 @@ import closeIcon from '../../media/close.png'
 
 const ProjectForm = ({property, setFlagCreateProject}) => {
     
-    // moins de 1000 mots 
-    // be respectful 
-    // Mettre loading
-    // Report message
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
 

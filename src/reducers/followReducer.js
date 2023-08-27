@@ -14,7 +14,7 @@ export const checkFollow = (itemObject) => {
 
 export const removeFollow = (propertyFollowed) => {
     return async dispatch => {
-        const follow = await followServices.removeFollow(propertyFollowed)
+        await followServices.removeFollow(propertyFollowed)
         dispatch({
             type: "REMOVE_FOLLOW",
             data: propertyFollowed

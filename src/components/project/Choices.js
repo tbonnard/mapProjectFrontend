@@ -11,7 +11,7 @@ const Choices = () => {
 
   return (
       <div className='choicesGlobal'>
-            {choices.map((item, index) => <button key={item.id} className='buttonChoices'>{item.description}</button> )}
+            {choices.map(item => <button key={item.id} className='buttonChoices'>{item.description}</button> )}
     </div>
   )
 }

@@ -1,4 +1,5 @@
 // format {message:'bonjour', style:'error'} or style =success
+//donner le time voulu en param
 
 export const setNotification = (messageInfo) => {
     return async dispatch => {
@@ -11,7 +12,7 @@ export const setNotification = (messageInfo) => {
                 type:'HIDE_NOTIF',
                 data:null
             })
-          }, 10000)
+          }, messageInfo.time)
     }
 }
 

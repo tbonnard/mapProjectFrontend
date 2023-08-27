@@ -1,9 +1,8 @@
 
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import '../../styles/searchForm.css'
 
@@ -13,7 +12,6 @@ const SearchForm = ({setLoading}) => {
     
   const dispatch = useDispatch()
 
-  const navigate = useNavigate();
 
   const [placeAddress, setPlaceAddress] = useState('')
 

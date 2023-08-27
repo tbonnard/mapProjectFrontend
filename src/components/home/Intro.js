@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux'
 
 import '../../styles/intro.css'
 
-import SearchForm from '../map/SearchForm';
 
 
 const Intro = () => {

@@ -1,3 +1,14 @@
+.textInfoProdIinfo {
+  position: absolute;
+  text-align: center;
+  color: #ffa96f;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
 .App-headerGlobal {
   background-color: var(--main);
   position: fixed;

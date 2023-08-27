@@ -18,3 +18,12 @@
     background-color:  var(--main);
     color: white;
 }
+
+
+@media (max-width: 400px) {
+    .buttonChoices{
+        margin: 5px;
+
+    }
+
+  }

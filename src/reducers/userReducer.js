@@ -15,7 +15,7 @@ export const userLogin = (credentials) => {
                     data: user.user
                 })
         } catch(exception) {
-            dispatch(setNotification({message:'wrong credentials, please try again', style:'error'}))
+            dispatch(setNotification({message:'wrong credentials, please try again', style:'error', time:10000}))
         }
     }
 }
@@ -40,11 +40,12 @@ export const createAccount = (accountObject) => {
             //     data: userDetails
             // })
         } catch(exception) {
-            dispatch(setNotification({message:'incorrect username or password (min 4 characters), please try again', style:'error'}))
+            dispatch(setNotification({message:'incorrect username or password (min 4 characters), please try again', style:'error', time:10000}))
         }
     }
 }
 
+// FIXME: bug if token expired
 
 export const getUserInfo = () =>{
     return async dispatch => {
@@ -71,7 +72,7 @@ export const getUserInfo = () =>{
 
 export const logoutUser = () => {
     return async dispatch => {
-        const user = await userServices.logoutUser()
+        await userServices.logoutUser()
         document.cookie = "jwtTk=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
         localStorage.removeItem("userMapProjectDetails")
         dispatch({

@@ -50,7 +50,7 @@ import waterway from '../../media/addresstype/waterway.png'
 import LoadingIcon from '../global/LoadingIcon';
 
 
-
+// FIXME: put icons into another file
 
 const MapOpen = ({mapQueryData, zoom, loading}) => {
 

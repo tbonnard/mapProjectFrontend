@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 
@@ -9,6 +9,7 @@ import { getPropertyDetails } from '../../reducers/propertyReducer';
 import '../../styles/header.css'
 
 
+//TODO: css followed items
 
 const FollowItems = () => {
     
@@ -27,7 +28,6 @@ const FollowItems = () => {
 
   
   const handleClick = (e, id) => {
-    console.log(id)
     e.preventDefault()
     dispatch(getPropertyDetails(id))
     navigate('/property')
@@ -44,9 +44,9 @@ const FollowItems = () => {
       {followedProperties.map(foll => 
           <div key={foll.id}>
               {foll.properties[0].name ? 
-                <button onClick={(e) => handleClick(e, foll.property)}>{foll.properties[0].name}</button> 
+                <button onClick={(e) => handleClick(e, foll.property)} title={foll.properties[0].display_name}>{foll.properties[0].name}</button> 
                 :
-                <button onClick={(e) => handleClick(e, foll.property)}>{foll.properties[0].display_name}</button> 
+                <button onClick={(e) => handleClick(e, foll.property)} title={foll.properties[0].display_name}>{foll.properties[0].display_name}</button> 
               }
           </div>
          )

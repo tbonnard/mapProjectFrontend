@@ -46,7 +46,11 @@ const Header = () => {
 
   return (
     <div className={classHeader}>
+
+      { process.env.NODE_ENV === 'production' ? <p className='textInfoProdIinfo'>en cours de dev :)</p>: <></> }
+      
       <div className='App-header'>
+
         <div className='App-header-divLogo'>
           <Link className='' to="/" onClick={handleClick}>[appName]</Link>
         </div>
@@ -63,9 +67,9 @@ const Header = () => {
             }
             </div>
           
-          {user && 
+        
             <Follow />
-            }
+          
 
           </div> }
      

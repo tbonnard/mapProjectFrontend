@@ -10,7 +10,7 @@
 .projectsList{
   margin-bottom: 120px;
   padding: 0px 20px;
-  width: 500px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -23,6 +23,7 @@
   padding: 10px;
   margin: 10px 0;
 }
+
 
 .projectDateDiv {
   margin: 5px 0;
@@ -76,6 +77,13 @@
   opacity: 0.8;
 }
 
+
+@media (max-width: 1200px) {
+  .projectFormInput{
+      width: 70%;
+  }
+}
+
 @media (max-width: 1080px) {
   .projectPreDiv{
     border-radius: 0% 0% 0% 50%;
@@ -89,4 +97,9 @@
   .projectAddIcon {
     background-image: url('../media/addWhite.png');
   }
+
+  .projectFormInput{
+    width: 90%;
+}
+
 }

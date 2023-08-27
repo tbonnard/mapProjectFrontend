@@ -1,4 +1,4 @@
-// dispatch(setNotification({message:'wrong credentials, please try again', style:'error'}))
+// exemple : dispatch(setNotification({message:'you must be logged in to follow that place', style:'warning', time:6000}))
 
 import React from 'react';
 import { useSelector } from 'react-redux'

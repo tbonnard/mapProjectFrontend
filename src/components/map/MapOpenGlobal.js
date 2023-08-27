@@ -3,16 +3,19 @@
 // https://leafletjs.com/examples/quick-start/
 
 import React, {  useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import '../../styles/map.css'
 
 import MapOpen from './MapOpen'
 import SearchForm from './SearchForm';
 
-const MapOpenGlobal = () => {
+// TODO: liste search item à droite map & clic dessus pour marker
+// TODO: display items near me -- default country tbc
+//FIXME: adjust zoom based on all items returned
 
-  const dispatch = useDispatch()
+
+const MapOpenGlobal = () => {
 
   const defaultData = [
 
