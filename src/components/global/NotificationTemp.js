@@ -5,8 +5,6 @@ import { useSelector } from 'react-redux'
 
 import '../../styles/notificationTemp.css'
 
-//TODO: improve because se chauvauche quand plusieurs de suite
-
 const NotificationTemp = () => {
 
     const message = useSelector(state => state.notificationTemp)

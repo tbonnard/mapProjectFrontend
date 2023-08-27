@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux'
 
 import { setNotification } from '../../reducers/notificationTempReducer'
 import { getMapQueryDataUserLocation } from '../../reducers/mapQueryReducer'
+import { setLoading } from '../../reducers/loadingReducer'
+import { setUserLocationFlag } from '../../reducers/userLocationReducer'
 
 const CurrentLocation = ({defaultCoordinates}) => {    
     
@@ -13,6 +15,7 @@ const CurrentLocation = ({defaultCoordinates}) => {
 
     const SuccessGeoLoc = (position) => {
         dispatch(setNotification({message:' Here are properties with suggestions within a 10km radius ', style:'success', time:5000}))
+        dispatch(setUserLocationFlag(false))
         if (position.coords) {
             setCoordinates(position.coords)
         } else {
@@ -22,13 +25,15 @@ const CurrentLocation = ({defaultCoordinates}) => {
 
 
     const updateErrorCount = (error) => {
+        dispatch(setUserLocationFlag(false))
         if (error.code) {
             dispatch(setNotification({message:'Your location is blocked, default location is presented on the map', style:'warning', time:5000}))
             }
         }
 
-    //TODO: add loading
     useEffect(() => {
+        dispatch(setUserLocationFlag(true))
+        dispatch(setLoading(true))
         setCoordinates(defaultCoordinates)
         dispatch(setNotification({message:'Awaiting on loading properties with suggestions in a 10km radios', style:'warning', time:5000}))
          const options = {

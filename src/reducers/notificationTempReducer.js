@@ -1,6 +1,8 @@
 // format {message:'bonjour', style:'error'} or style =success
 //donner le time voulu en param
 
+//TODO: clearTimeout before launching another one
+
 export const setNotification = (messageInfo) => {
     return async dispatch => {
         dispatch({

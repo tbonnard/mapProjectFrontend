@@ -15,7 +15,11 @@ export const getMapQueryData = (parameterData) => {
 
 export const getMapQueryDataUserLocation = (itemObject) => {
     return async dispatch => {
-        const propertyItem = await mapQueryServices.getMapQueryDataUserLocation(itemObject)
+        let propertyItem = await mapQueryServices.getMapQueryDataUserLocation(itemObject)
+        console.log(!propertyItem)
+        if (!propertyItem) {
+            propertyItem = []
+        }
         dispatch({
             type: "MAP_QUERY_USER_LOCATION",
             data: propertyItem

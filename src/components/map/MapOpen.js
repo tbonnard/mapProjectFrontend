@@ -14,6 +14,8 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 
 import '../../styles/map.css'
 
+import SearchNearPoint from './SearchNearPoint';
+
 import LoadingIcon from '../global/LoadingIcon';
 import MapMarker from './MapMarker';
 
@@ -41,6 +43,8 @@ const MapOpen = ({mapQueryData, zoom}) => {
   return (
     <div className=''>
       <MapContainer className='mapItem'  bounds={bounds} key={bounds} scrollWheelZoom={true} >
+      
+      <SearchNearPoint />
       
       {loading &&
         <LoadingIcon />

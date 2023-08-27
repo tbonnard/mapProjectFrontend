@@ -12,6 +12,7 @@ import userReducer from './reducers/userReducer';
 import followReducer from './reducers/followReducer';
 import loadingReducer from './reducers/loadingReducer';
 import boundsReducer from './reducers/boundsReducer';
+import userLocationReducer from './reducers/userLocationReducer';
 
 const appReducer = combineReducers({
     mapQuery:mapQueryReducer,
@@ -22,7 +23,8 @@ const appReducer = combineReducers({
     user:userReducer,
     followedProperties:followReducer,
     loadingFlag : loadingReducer,
-    bounds:boundsReducer
+    bounds:boundsReducer,
+    userLocationFlag:userLocationReducer
   })
   
   const rootReducer = (state, action) => {

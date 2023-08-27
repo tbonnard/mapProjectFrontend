@@ -42,3 +42,18 @@
     max-width: 100px;
     padding: 0 10px;
 }
+
+.searchNearButton {
+    background-color: var(--main);
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 150px;
+    height: 50px;
+    z-index: 1000;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 10%;
+}

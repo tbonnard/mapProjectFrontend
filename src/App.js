@@ -27,11 +27,15 @@ import csrfServices from '../src/services/csrfService'
 
 
 // TODO: Feeds of followed places
-// TODO: display places with project on map near user's location
 // TODO: non logged in, create project ramene à la property sur le détail pour submit
 // TODO: non logged in, follow ramene à la property avec notif followed
 // TODO: vote for projects
 // TODO: sort options projects : created / most positive voted / not me voted projects
+// TODO: private groups in property
+// TODO: update bounds based on drag / click
+// TODO: view items near a place (ex, je suis sur Toronto, voir item autour)
+// TODO: share a suggestion
+
 
 function App() {
   
