@@ -3,24 +3,28 @@
 // https://leafletjs.com/examples/quick-start/
 
 import React, {  useState, useEffect } from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import '../../styles/map.css'
 
+import { setLoading } from '../../reducers/loadingReducer';
+import { setNotification } from '../../reducers/notificationTempReducer'
+import { setBounds } from '../../reducers/boundsReducer';
+
+
 import MapOpen from './MapOpen'
 import SearchForm from './SearchForm';
-import ListQueryMapOpen from './ListQueryMapOpen'
+import CurrentLocation from './CurrentLocation';
 
-// TODO: liste search item à droite map & clic dessus pour marker --> display all properties received
 // TODO: display items near me -- default country tbc
-// FIXME: adjust zoom based on all items returned
-
 
 const MapOpenGlobal = () => {
 
-  const defaultData = [
+      const dispatch = useDispatch()
 
-    {
+      const defaultData = [
+
+      {
           "place_id": 134240591,
           "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
           "osm_type": "way",
@@ -79,41 +83,47 @@ const MapOpenGlobal = () => {
 
 ]
   
-const defaultBound = [
-      [50.505, -29.09],
-      [52.505, 29.09],
-    ]
+      const defaultCityCoordinates = {'latitude':45.5019, 'longitude':-73.5674}
 
-  const mapQueryData = useSelector(state => state.mapQuery)
+      const defaultBound = [
+            [45.539024, -73.576126],
+            [45.470689, -73.630028],
+      ]
 
-  const [loading, setLoading] = useState(false)
-  const [boundsItems, setboundsItems ] = useState(defaultBound)
-  const [mapData, setMapData ] = useState(defaultData)
+      const mapQueryData = useSelector(state => state.mapQuery)
+      const loadingFlag = useSelector(state => state.loadingFlag)
 
-  const [zoom, setZoom] = useState(18)
-  //lat - long -- max zoom 18 
+      // const [bounds, setbounds ] = useState(defaultBound)
+      const [mapData, setMapData ] = useState([])
 
-  useEffect(() => {
-      setLoading(false)
-    if (mapQueryData.length > 0) {
-      setMapData(mapQueryData)
-      // setZoom(13)
-      let newBounds = []
-      mapQueryData.map(item =>  newBounds.push([item.lat, item.lon]) )
-      setboundsItems(newBounds)
-    }
-  }, [mapQueryData])
+      const [zoom, setZoom] = useState(18)
+      //lat - long -- max zoom 18 
+
+      useEffect(() => {
+            if (mapQueryData.length > 0) {
+                  setMapData(mapQueryData)
+                  let newBounds = []
+                  mapQueryData.map((item) =>newBounds.push([item.lat, item.lon]) )
+                  dispatch(setBounds(newBounds))
+                  dispatch(setLoading(false))
+            } else {
+                  if (loadingFlag) {
+                        dispatch(setNotification({message:'No results found related to your search', style:'warning', time:5000}))
+                  }
+                  dispatch(setLoading(false))
+            }
+      }, [mapQueryData])
 
 
   return (
       <div className='divSearchMap'>
+            <CurrentLocation defaultCoordinates={defaultCityCoordinates} />
             <div className='introDiv divIntroSearch'>
-            <SearchForm setLoading={setLoading}/>
+            <SearchForm />
             </div>
             <div className='mapGlobal' id='map' >
                   <div className='mapListDiv'>
-                        <MapOpen loading={loading} setLoading={setLoading} mapQueryData={mapData} zoom={zoom} boundsItems={boundsItems}/>
-                        {/* <ListQueryMapOpen mapQueryDataList={mapQueryData}/> */}
+                        <MapOpen mapQueryData={mapData} zoom={zoom} />
                   </div>
             </div>
       </div>

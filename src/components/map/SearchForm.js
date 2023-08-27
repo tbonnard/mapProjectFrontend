@@ -1,26 +1,24 @@
 
 import React, { useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 
 import '../../styles/searchForm.css'
 
 import { getMapQueryData } from '../../reducers/mapQueryReducer';
+import { setLoading } from '../../reducers/loadingReducer';
 
-const SearchForm = ({setLoading}) => {
+const SearchForm = () => {
     
   const dispatch = useDispatch()
 
-
   const [placeAddress, setPlaceAddress] = useState('')
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true)
+    dispatch(setLoading(true))
     dispatch(getMapQueryData(placeAddress))
-    window.scrollTo({left: 0, top:document.querySelector('#map').offsetTop,  behavior: "smooth"});
+    window.scrollTo({left: 0, top:(document.querySelector('#map').offsetTop)-145,  behavior: "smooth"});
   }
 
 

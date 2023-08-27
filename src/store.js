@@ -10,6 +10,8 @@ import choiceReducer from './reducers/choiceReducer';
 import notificationTempReducer from './reducers/notificationTempReducer';
 import userReducer from './reducers/userReducer';
 import followReducer from './reducers/followReducer';
+import loadingReducer from './reducers/loadingReducer';
+import boundsReducer from './reducers/boundsReducer';
 
 const appReducer = combineReducers({
     mapQuery:mapQueryReducer,
@@ -18,7 +20,9 @@ const appReducer = combineReducers({
     choices:choiceReducer,
     notificationTemp: notificationTempReducer,
     user:userReducer,
-    followedProperties:followReducer
+    followedProperties:followReducer,
+    loadingFlag : loadingReducer,
+    bounds:boundsReducer
   })
   
   const rootReducer = (state, action) => {
