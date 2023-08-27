@@ -5,7 +5,7 @@
 // https://wiki.openstreetmap.org/wiki/Map_features
 
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux'
 
 
@@ -55,19 +55,36 @@ import island from '../../media/addresstype/island.png'
 import mountain from '../../media/addresstype/mountain.png'
 import industrial from '../../media/addresstype/industrial.png'
 
-const MapMarker = ({markerData, bounds}) => {
+const MapMarker = ({markerData, bounds, setPositionCentered}) => {
 
   const dispatch = useDispatch()
 
   const map = useMap()
+
 
   const handleClickMarker = (dataMap) => {
      dispatch(setPropertyItem(dataMap))
   }
 
   useEffect(() => {
+      setPositionCentered(map.getCenter())
       map.fitBounds(bounds);
   }, [map, bounds]);
+
+
+  const onMove = useCallback(() => {
+    setPositionCentered(map.getCenter())
+  }, [map])
+
+  
+  useEffect(() => {
+    map.on('move', onMove)
+    return () => {
+      map.off('move', onMove)
+    }
+  }, [map, onMove])
+
+
 
   const typeImageIcon = {
     "aeroway" : aeroway,
@@ -116,6 +133,7 @@ const MapMarker = ({markerData, bounds}) => {
     "water": water,
     "waterway": waterway,
 }
+
 
   return (    
 

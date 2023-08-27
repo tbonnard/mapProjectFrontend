@@ -5,7 +5,7 @@
 // https://wiki.openstreetmap.org/wiki/Map_features
 
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {  useSelector } from 'react-redux'
 
 import { useNavigate } from 'react-router-dom';
@@ -28,6 +28,7 @@ const MapOpen = ({mapQueryData, zoom}) => {
   const loading = useSelector(state => state.loadingFlag)
   const bounds = useSelector(state => state.bounds)
  
+  const [positionCentered, setPositionCentered] = useState([])
 
   useEffect(() => {
     if (property.display_name)
@@ -44,7 +45,7 @@ const MapOpen = ({mapQueryData, zoom}) => {
     <div className=''>
       <MapContainer className='mapItem'  bounds={bounds} key={bounds} scrollWheelZoom={true} >
       
-      <SearchNearPoint />
+      <SearchNearPoint positionCentered={positionCentered} />
       
       {loading &&
         <LoadingIcon />
@@ -58,7 +59,7 @@ const MapOpen = ({mapQueryData, zoom}) => {
          {mapQueryData.map((map, index) => {
             const position = [map['lat'], map['lon']];
                 return (
-                  <MapMarker key={index} markerData={map} bounds={bounds} />
+                  <MapMarker key={index} markerData={map} bounds={bounds} setPositionCentered={setPositionCentered}/>
                 );
               })}
 

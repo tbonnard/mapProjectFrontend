@@ -9,6 +9,7 @@ export const getMapQueryData = (parameterData) => {
             type: "MAP_QUERY",
             data: propertyItem
             })
+            dispatch(setNotification({message:'Only exact matching results are displayed! For places with suggestions near, click on the "near button"', style:'success', time:7000}))
     }
 }
 
@@ -16,7 +17,6 @@ export const getMapQueryData = (parameterData) => {
 export const getMapQueryDataUserLocation = (itemObject) => {
     return async dispatch => {
         let propertyItem = await mapQueryServices.getMapQueryDataUserLocation(itemObject)
-        console.log(!propertyItem)
         if (!propertyItem) {
             propertyItem = []
         }

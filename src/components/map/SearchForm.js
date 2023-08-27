@@ -30,7 +30,7 @@ const SearchForm = () => {
   return (
     <div className="uploadGlobalForm">
         <form onSubmit={handleSubmit} className='enterTextForm'>
-            <input className="enterTextNumber" type="text" placeholder='Enter a place, an address' value={placeAddress} onChange={(e) => setPlaceAddress(e.target.value)} required/>
+            <input className="enterTextNumber" type="text" placeholder='Search for a place, an address, a location' value={placeAddress} onChange={(e) => setPlaceAddress(e.target.value)} required/>
             <button className="buttonPrimary" type='submit'>submit</button>
         </form>
         

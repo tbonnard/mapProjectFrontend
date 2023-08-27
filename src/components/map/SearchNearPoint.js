@@ -46,7 +46,7 @@ function getLatLngCenter(latLngInDegr) {
 }
 
 
-const SearchNearPoint = () => {
+const SearchNearPoint = ({positionCentered}) => {
     
     const dispatch = useDispatch()
     
@@ -54,8 +54,10 @@ const SearchNearPoint = () => {
 
     
     const handleClick = () => {
-        const positionCalculted = getLatLngCenter(bounds)
-        const itemObject = {latitude:positionCalculted[0], longitude:positionCalculted[1]}
+        console.log(positionCentered)
+        // const positionCalculted = getLatLngCenter(bounds)
+        const itemObject = {latitude:positionCentered['lat'], longitude:positionCentered['lng']}
+        console.log(itemObject)
         dispatch(getMapQueryDataUserLocation(itemObject))
      }
 
