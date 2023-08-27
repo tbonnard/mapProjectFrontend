@@ -35,7 +35,7 @@ const CurrentLocation = ({defaultCoordinates}) => {
         dispatch(setUserLocationFlag(true))
         dispatch(setLoading(true))
         setCoordinates(defaultCoordinates)
-        dispatch(setNotification({message:'Awaiting on loading properties with suggestions in a 10km radios', style:'warning', time:5000}))
+        dispatch(setNotification({message:'Awaiting on loading properties with suggestions in a 10km radius', style:'warning', time:5000}))
          const options = {
             enableHighAccuracy: true,
             };
