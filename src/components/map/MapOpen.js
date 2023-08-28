@@ -13,8 +13,6 @@ import { MapContainer } from 'react-leaflet';
 
 import '../../styles/map.css'
 
-import SearchNearPoint from './SearchNearPoint';
-
 import LoadingIcon from '../global/LoadingIcon';
 import MapOpenMid from './MapOpenMid';
 
@@ -27,8 +25,6 @@ const MapOpen = ({mapQueryData, zoom}) => {
   const loading = useSelector(state => state.loadingFlag)
   const bounds = useSelector(state => state.bounds)
  
-  const [positionCentered, setPositionCentered] = useState([])
-
 
   useEffect(() => {
     if (property.display_name)
@@ -43,7 +39,7 @@ const MapOpen = ({mapQueryData, zoom}) => {
 
   return (
     <div className=''>
-      <MapContainer className='mapItem'  bounds={bounds} key={bounds} scrollWheelZoom={true} >
+      <MapContainer className='mapItem' bounds={bounds} key={bounds} scrollWheelZoom={true} >
       
       {/* <SearchNearPoint positionCentered={positionCentered} /> */}
       
@@ -51,7 +47,7 @@ const MapOpen = ({mapQueryData, zoom}) => {
         <LoadingIcon />
       }
 
-      <MapOpenMid positionCentered={positionCentered} mapQueryData={mapQueryData} bounds={bounds} setPositionCentered={setPositionCentered}/>
+      <MapOpenMid mapQueryData={mapQueryData} bounds={bounds} />
     
       </MapContainer>
     </div>

@@ -8,31 +8,28 @@ import * as L from "leaflet";
 import SearchNearPoint from './SearchNearPoint';
 import Legend from './Legend';
 
-import blueIconPng from '../../media/marker/blue.png'
-import greenIconPng from '../../media/marker/green.png'
-import markerShadowPng from '../../media/marker/marker-shadow.png'
 
-const MapOpenMid = ({mapQueryData, bounds, setPositionCentered, positionCentered}) => {
+const MapOpenMid = ({mapQueryData, bounds}) => {
 
   const map = useMap()
 
-  useEffect(() => {
-    setPositionCentered(map.getCenter())
-    map.fitBounds(bounds);
-  }, [map, bounds]);
+  
+  // useEffect(() => {
+  //   setPositionCentered(map.getCenter())
+  //   map.fitBounds(bounds);
+  // }, [map, bounds]);
+
+  // const onMove = useCallback(() => {
+  //   setPositionCentered(map.getCenter())
+  // }, [map])
 
 
-  const onMove = useCallback(() => {
-    setPositionCentered(map.getCenter())
-  }, [map])
-
-
-  useEffect(() => {
-    map.on('move', onMove)
-    return () => {
-      map.off('move', onMove)
-    }
-  }, [map, onMove])
+  // useEffect(() => {
+  //   map.on('move', onMove)
+  //   return () => {
+  //     map.off('move', onMove)
+  //   }
+  // }, [map, onMove])
 
 
   
@@ -59,7 +56,7 @@ const MapOpenMid = ({mapQueryData, bounds, setPositionCentered, positionCentered
 
   return (
     <>
-        <SearchNearPoint map={map} positionCentered={positionCentered}/>
+        <SearchNearPoint map={map} bounds={bounds}/>
 
         <Legend icons={iconsList}/>
 
@@ -72,7 +69,7 @@ const MapOpenMid = ({mapQueryData, bounds, setPositionCentered, positionCentered
             let sourceOSM = true
             if (mapData['id']) {sourceOSM = false}   
                 return (
-                  <MapMarker icon={sourceOSM ? blueIcon : greenIcon } key={index} markerData={mapData} bounds={bounds} setPositionCentered={setPositionCentered}/>
+                  <MapMarker icon={sourceOSM ? blueIcon : greenIcon } key={index} markerData={mapData} />
                 );
               })}
     </>

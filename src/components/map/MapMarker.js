@@ -106,6 +106,7 @@ const MapMarker = ({icon, markerData}) => {
     
     return (    
       <Marker position={[markerData['lat'], markerData['lon']]} icon={icon}>
+        
         <Popup>
           <div className='layerTitleMap'>
             <div className='layerTitleInternal'>
@@ -121,6 +122,7 @@ const MapMarker = ({icon, markerData}) => {
             }>select</button>
           </div>
         </Popup>
+        
       </Marker>
   )
 }
