@@ -50,12 +50,6 @@ import industrial from '../../media/addresstype/industrial.png'
 
 const MapMarker = ({icon, markerData}) => {
 
-  const dispatch = useDispatch()
-
-  const handleClickMarker = (dataMap) => {
-     dispatch(setPropertyItem(dataMap))
-  }
-
   const typeImageIcon = {
     "aeroway" : aeroway,
     "aerialway":aerialway,
@@ -104,6 +98,12 @@ const MapMarker = ({icon, markerData}) => {
     "waterway": waterway,
 }
     
+  const dispatch = useDispatch()
+
+  const handleClickMarker = (dataMap) => {
+    dispatch(setPropertyItem(dataMap))
+  }
+
     return (    
       <Marker position={[markerData['lat'], markerData['lon']]} icon={icon}>
         

@@ -7,6 +7,8 @@ import { setNotification } from '../../reducers/notificationTempReducer';
 
 
 // TODO: search near based on zoom and zoom level = km specific
+// TODO: Search in specific area with coordinates- https://overpass-turbo.eu/
+
 
 const SearchNearPoint = ({map, bounds}) => {
     
@@ -14,6 +16,7 @@ const SearchNearPoint = ({map, bounds}) => {
 
     const handleClick = () => {
         const coordinates = map.getCenter()
+        console.log(coordinates)
         if (map.getZoom() >= 12) {
             const itemObject = {latitude:coordinates['lat'], longitude:coordinates['lng']}
             dispatch(getMapQueryDataUserLocation(itemObject))
@@ -21,6 +24,10 @@ const SearchNearPoint = ({map, bounds}) => {
             dispatch(setNotification({message:'Please zoom in to search within a 10km radius', style:'warning', time:5000}))
         }
      }
+
+    useEffect(() => {
+    map.fitBounds(bounds);
+  }, [map, bounds]);
 
     return (
         <button className='searchNearButton' onClick={handleClick}>serch near here for suggestions</button>

@@ -32,6 +32,13 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
   // }, [map, onMove])
 
 
+   // TODO: custom images in icon based on type
+  // https://blogs.absyz.com/2019/04/03/customizing-the-markers-in-your-leaflet-map
+  // https://github.com/lennardv2/Leaflet.awesome-markers
+  // upload images on server and update url
+  
+
+  // FIXME: search only returns items osm donc sans suggestions...
   
   var greenIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
