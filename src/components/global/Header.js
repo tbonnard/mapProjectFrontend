@@ -34,8 +34,8 @@ const Header = () => {
 
 
   const handleClick = () => {
-    dispatch(resetProperty())
-    dispatch(resetProjects())
+    // dispatch(resetProperty())
+    // dispatch(resetProjects())
     window.scrollTo(0,0);
     // if (window.location.pathname === '/')
     // {

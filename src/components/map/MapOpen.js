@@ -26,12 +26,12 @@ const MapOpen = ({mapQueryData, zoom}) => {
   const bounds = useSelector(state => state.bounds)
  
 
-  useEffect(() => {
-    if (property.display_name)
-    {
-      navigate(`/property/`)
-    }
-  }, [property, navigate])
+  // useEffect(() => {
+  //   if (property.display_name)
+  //   {
+  //     navigate(`/property/`)
+  //   }
+  // }, [property, navigate])
 
   // center={[mapQueryData[0].lat, mapQueryData[0].lon]}
   // zoom={zoom}

@@ -6,6 +6,8 @@ import { getMapQueryDataUserLocation } from '../../reducers/mapQueryReducer';
 import { setNotification } from '../../reducers/notificationTempReducer';
 
 
+import navigationIcon from '../../media/navigation.png'
+
 // TODO: search near based on zoom and zoom level = km specific
 // TODO: Search in specific area with coordinates- https://overpass-turbo.eu/
 
@@ -30,7 +32,10 @@ const SearchNearPoint = ({map, bounds}) => {
   }, [map, bounds]);
 
     return (
-        <button className='searchNearButton' onClick={handleClick}>serch near here for suggestions</button>
+        <div className='searchNearButtonMap'>
+            <img className='navigationIcon' src={navigationIcon}/>
+            <button className='searchNearButton' onClick={handleClick}>search in places with suggestions nearby</button>
+        </div>
         )
     }
 

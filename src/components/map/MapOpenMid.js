@@ -74,7 +74,7 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
     
          {mapQueryData.map((mapData, index) => {
             let sourceOSM = true
-            if (mapData['id']) {sourceOSM = false}   
+            if (mapData['with_suggestions']) {sourceOSM = false}   
                 return (
                   <MapMarker icon={sourceOSM ? blueIcon : greenIcon } key={index} markerData={mapData} />
                 );

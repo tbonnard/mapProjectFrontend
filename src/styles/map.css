@@ -43,27 +43,46 @@
     padding: 0 10px;
 }
 
+.searchNearButtonMap{
+    position: relative;
+}
+
 .searchNearButton {
     background-color: var(--main);
     color: white;
     position: absolute;
     right: 0;
     top: 0;
-    width: 130px;
+    width: 170px;
     height: 50px;
     z-index: 1000;
     padding: 5px 10px;
-    margin: 5px;
+    margin: 10px 5px;
     cursor: pointer;
-    border-radius: 10%;
+    border-radius: 5%;
+    border: 1px solid var(--main);
 }
+
+.searchNearButton:hover {
+    background-color: white;
+    color:var(--main);
+}
+
+.navigationIcon {
+    position: absolute;
+    width: 17px;
+    right: 154px;
+    top:28px;
+    z-index: 1001;
+}
+
 
 .legendGlobalDiv{
     background-color: white;
     color: var(--main);
     position: absolute;
     right: 0;
-    top: 65px;
+    top: 70px;
     width: auto;
     height: auto;
     z-index: 1000;

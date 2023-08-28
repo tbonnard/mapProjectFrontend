@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 
+import { useNavigate } from 'react-router-dom';
 
 import { Marker, Popup } from 'react-leaflet';
 
@@ -99,13 +100,24 @@ const MapMarker = ({icon, markerData}) => {
 }
     
   const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const handleClickMarker = (dataMap) => {
     dispatch(setPropertyItem(dataMap))
   }
 
+  const handleClickButtonMarker = () => {
+    navigate(`/property/`)
+  }
+
     return (    
-      <Marker position={[markerData['lat'], markerData['lon']]} icon={icon}>
+      <Marker position={[markerData['lat'], markerData['lon']]} icon={icon} 
+      eventHandlers={{
+        click: (e) => {
+          handleClickMarker(markerData)
+        },
+      }}
+        >
         
         <Popup>
           <div className='layerTitleMap'>
@@ -118,8 +130,7 @@ const MapMarker = ({icon, markerData}) => {
               {markerData.display_name}
               </p>
             </div>
-            <button className='buttonPrimary' onClick={() =>{ handleClickMarker(markerData)}
-            }>select</button>
+            <button className='buttonPrimary' onClick={handleClickButtonMarker}>select</button>
           </div>
         </Popup>
         

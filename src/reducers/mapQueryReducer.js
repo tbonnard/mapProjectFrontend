@@ -9,7 +9,8 @@ export const getMapQueryData = (parameterData) => {
             type: "MAP_QUERY",
             data: propertyItem
             })
-            dispatch(setNotification({message:'Only exact matching results are displayed! For places with suggestions near, click on the "near button"', style:'success', time:7000}))
+            dispatch(getMapQueryDataDBData(propertyItem))
+            dispatch(setNotification({message:'Only results exactly matching are displayed! For other near places with suggestions, click on the "near button"', style:'success', time:7000}))
     }
 }
 
@@ -30,6 +31,18 @@ export const getMapQueryDataUserLocation = (itemObject) => {
     }
 }
 
+
+export const getMapQueryDataDBData = (parameterData) => {
+    return async dispatch => {
+        const propertyItem = await mapQueryServices.getMapQueryDataDBData(parameterData)
+        dispatch({
+            type: "MAP_QUERY_DB_DATA",
+            data: propertyItem
+            })
+    }
+}
+
+
 export const resetMapQuery = () => {
     return async dispatch => {
         dispatch({
@@ -46,6 +59,8 @@ const mapQueryReducer = (state=[], action) => {
         case 'RESET_MAP_QUERY':
                 return action.data
         case 'MAP_QUERY_USER_LOCATION':
+                return action.data
+        case 'MAP_QUERY_DB_DATA':
             return action.data
         default:
             return state

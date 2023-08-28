@@ -45,6 +45,10 @@
   border-radius: 5px;
 }
 
+.ProjectGlobal h2 {
+  padding: 0 10px;
+}
+
 
 /* PROJECT DIV TO DISPLAY CREATE LAYER */
 .projectPreDiv {
