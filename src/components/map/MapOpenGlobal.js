@@ -56,16 +56,12 @@ const MapOpenGlobal = () => {
                   let newBounds = []
                   mapQueryData.map((item) =>newBounds.push([item.lat, item.lon]) )
                   dispatch(setBounds(newBounds))
-                  if (!userLocationFlag) {
-                        dispatch(setLoading(false))
-                  }
+                  dispatch(setLoading(false))
             } else {
                   if (loadingFlag) {
                         dispatch(setNotification({message:'No results found related to your search', style:'warning', time:5000}))
                   }
-                  if (!userLocationFlag) {
-                        dispatch(setLoading(false))
-                  }
+                  dispatch(setLoading(false))
             }
       }, [mapQueryData, dispatch])
 

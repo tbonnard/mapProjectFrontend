@@ -33,7 +33,7 @@ import csrfServices from '../src/services/csrfService'
 // TODO: sort options projects : created / most positive voted / not me voted projects
 // TODO: private groups in property
 // TODO: share a suggestion
-
+// FIXME: mobile optim map
 
 function App() {
   

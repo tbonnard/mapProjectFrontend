@@ -70,6 +70,7 @@ export const getUserInfo = () =>{
     }
 }
 
+
 export const logoutUser = () => {
     return async dispatch => {
         await userServices.logoutUser()

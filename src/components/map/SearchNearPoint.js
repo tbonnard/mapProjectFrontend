@@ -18,7 +18,6 @@ const SearchNearPoint = ({map, bounds}) => {
 
     const handleClick = () => {
         const coordinates = map.getCenter()
-        console.log(coordinates)
         if (map.getZoom() >= 12) {
             const itemObject = {latitude:coordinates['lat'], longitude:coordinates['lng']}
             dispatch(getMapQueryDataUserLocation(itemObject))

@@ -37,8 +37,6 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
   // https://github.com/lennardv2/Leaflet.awesome-markers
   // upload images on server and update url
   
-
-  // FIXME: search only returns items osm donc sans suggestions...
   
   var greenIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',

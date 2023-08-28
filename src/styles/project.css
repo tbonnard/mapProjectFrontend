@@ -92,7 +92,7 @@
   .projectPreDiv{
     border-radius: 0% 0% 0% 50%;
     position: fixed;
-    top: 10%;
+    top: 13%;
     z-index: 1000;
     background-color: var(--main);
     height: 90px;
