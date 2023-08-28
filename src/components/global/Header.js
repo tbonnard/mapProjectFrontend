@@ -20,16 +20,19 @@ const Header = () => {
   const user = useSelector(state => state.user)
   
   const [classHeader, setclassHeader] = useState('App-headerGlobal')
+  const [propertyUrl, setPropertyUrl] = useState(false)
 
 
 
   useEffect(() => {
-    if (window.location.pathname !== '/')  {
-       setclassHeader('App-headerGlobal' );
+    if (window.location.pathname === '/property/' || window.location.pathname === '/property') {
+      setclassHeader('App-headerGlobal' );
+      setPropertyUrl(true)
     } else {
       setclassHeader('App-headerHome')
+      setPropertyUrl(false)
     }
-  },[property])
+  },[window.location.pathname])
 
 
 
@@ -55,12 +58,12 @@ const Header = () => {
           <Link className='' to="/" onClick={handleClick}>[appName]</Link>
         </div>
 
-        {property.display_name  &&  
+        {propertyUrl &&  
 
         <div className='headerPropertyDetails' >
           
             <div>
-              {property.name === null? 
+              {property.name === null ? 
             <p className='headerPropertyName' title={property.display_name}>{property.display_name.substring(0, 9)} ...</p>
                 :           
             <p className='headerPropertyName' title={property.display_name}>{property.name}</p>
