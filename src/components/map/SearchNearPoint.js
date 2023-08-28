@@ -5,6 +5,9 @@ import {  useDispatch } from 'react-redux'
 import { getMapQueryDataUserLocation } from '../../reducers/mapQueryReducer';
 import { setNotification } from '../../reducers/notificationTempReducer';
 
+
+// TODO: search near based on zoom and zoom level = km specific
+
 const SearchNearPoint = ({map, positionCentered}) => {
     
     const dispatch = useDispatch()
@@ -20,7 +23,7 @@ const SearchNearPoint = ({map, positionCentered}) => {
      }
 
     return (
-        <button className='searchNearButton' onClick={handleClick}>serch near here</button>
+        <button className='searchNearButton' onClick={handleClick}>serch near here for suggestions</button>
         )
     }
 

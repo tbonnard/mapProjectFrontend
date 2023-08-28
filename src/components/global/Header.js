@@ -37,10 +37,10 @@ const Header = () => {
     dispatch(resetProperty())
     dispatch(resetProjects())
     window.scrollTo(0,0);
-    if (window.location.pathname === '/')
-    {
-    window.location.reload(false);
-    }
+    // if (window.location.pathname === '/')
+    // {
+    // window.location.reload(false);
+    // }
   }
 
 

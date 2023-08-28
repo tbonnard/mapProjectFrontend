@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 
 
@@ -48,7 +48,7 @@ import island from '../../media/addresstype/island.png'
 import mountain from '../../media/addresstype/mountain.png'
 import industrial from '../../media/addresstype/industrial.png'
 
-const MapMarker = ({markerData}) => {
+const MapMarker = ({icon, markerData}) => {
 
   const dispatch = useDispatch()
 
@@ -103,10 +103,9 @@ const MapMarker = ({markerData}) => {
     "water": water,
     "waterway": waterway,
 }
-
-
-  return (    
-      <Marker position={[markerData['lat'], markerData['lon']]}>
+    
+    return (    
+      <Marker position={[markerData['lat'], markerData['lon']]} icon={icon}>
         <Popup>
           <div className='layerTitleMap'>
             <div className='layerTitleInternal'>
