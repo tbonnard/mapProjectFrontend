@@ -28,5 +28,16 @@
   .descriptionText{
     /* width: 95%; */
     padding: 10px;
-    width: 100%;
+    width: 95%;
   }
+
+  
+
+  
+  @media (max-width: 500px) {
+    .standardContainer {
+      margin-top: 200px;
+    }
+  }
+
+ 

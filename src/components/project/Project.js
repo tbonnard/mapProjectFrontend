@@ -25,7 +25,7 @@ const Project = ({item}) => {
           <h2 className=''>{item.title}</h2>
           <p>{item.description}</p>
         </div>
-        <Choices />
+        <Choices project={item} />
         <div className='projectDateDiv'>
           <p className='projectDate'>{date}</p>
         </div>
