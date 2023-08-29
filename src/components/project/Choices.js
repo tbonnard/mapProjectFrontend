@@ -9,7 +9,9 @@ import { addVoteUserProperty } from '../../reducers/voteUserPropertyReducer';
 import { removeVoteUserProperty } from '../../reducers/voteUserPropertyReducer';
 import Choice from './Choice';
 
-//TODO: add chart or info on % des votes
+//TODO: add chart or info on % des votes (bar sous choice couleur diff et montent based on %)
+
+
 
 const Choices = ({project}) => {
     
@@ -52,9 +54,12 @@ const Choices = ({project}) => {
     }  
   }
 
+
+
   return (
       <div className='choicesGlobal'>        
         {choices.map(item => <Choice key={item.id} choiceItem={item} handleClick={handleClick} votesProjUser={votesProjUser}/>)} 
+        
     </div>
   )
 }

@@ -25,8 +25,7 @@ import { getUserInfo } from '../src/reducers/userReducer'
 
 import csrfServices from '../src/services/csrfService'
 
-
-// TODO: Feeds of followed places
+// TODO: Feeds of followed places dans profile
 // TODO: non logged in, create project ramene à la property sur le détail pour submit
 // TODO: non logged in, follow ramene à la property avec notif followed
 // TODO: sort options projects : created / most positive voted / not me voted projects
