@@ -41,13 +41,13 @@ const MapOpen = ({mapQueryData, zoom}) => {
     <div className=''>
       <MapContainer className='mapItem' bounds={bounds} key={bounds} scrollWheelZoom={true} >
       
-      {/* <SearchNearPoint positionCentered={positionCentered} /> */}
-      
-      {loading &&
-        <LoadingIcon />
-      }
+        {/* <SearchNearPoint positionCentered={positionCentered} /> */}
+        
+        {loading &&
+          <LoadingIcon />
+        }
 
-      <MapOpenMid mapQueryData={mapQueryData} bounds={bounds} />
+        <MapOpenMid mapQueryData={mapQueryData} bounds={bounds} />
     
       </MapContainer>
     </div>

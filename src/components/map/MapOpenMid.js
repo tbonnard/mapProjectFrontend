@@ -59,6 +59,8 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
   const iconsList = [{'icon': blueIcon, 'description':'without suggestions'}, {'icon': greenIcon, 'description':'with suggestions'} ]
   
 
+  // FIXME: when new project, marker icon does not update (need to research)
+
   return (
     <>
         <SearchNearPoint map={map} bounds={bounds}/>

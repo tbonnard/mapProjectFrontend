@@ -1,5 +1,8 @@
 .choicesGlobal {
     margin: 40px 0 40px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .buttonChoices{
@@ -10,20 +13,37 @@
     color: var(--main);
     cursor: pointer;
     outline: none;
-    border: 1px solid var(--main);
+    border: 1px solid var(--projectInputDescrition);
     font-size: 16px;
+    border-radius: 5px;
 }
 
 .buttonChoices:hover{
-    background-color:  var(--main);
+    background-color:  var(--greenMain);
     color: white;
+    border: 1px solid var(--greenMain);
+
 }
 
+.buttonChoicesSelected {
+    background-color: var(--greenLight);
+    color: white;
+    border: 1px solid var(--greenLight);
+}
+
+.buttonChoicesSelected:hover {
+    background-color: var(--remove);
+    color: white;
+    border: 1px solid var(--remove);
+
+}
 
 @media (max-width: 400px) {
     .buttonChoices{
         margin: 5px;
-
+    }
+    .buttonChoicesSelected {
+        margin: 5px;
     }
 
   }

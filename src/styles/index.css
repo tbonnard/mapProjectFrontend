@@ -16,12 +16,17 @@
   --colorText : #262729;
   --colorSmallText: #696969;
   --ultraLightText:#999;
+  --remove: #de6060;
   --default: white;
 
   /* NOTIFICATION */
   --green: #5d924f;
   --error: #c01f1f;
   --warning: #d36318;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

@@ -108,6 +108,7 @@ const MapMarker = ({icon, markerData}) => {
 
   const handleClickButtonMarker = () => {
     navigate(`/property/`)
+    window.scrollTo(0,0);
   }
 
     return (    

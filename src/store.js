@@ -13,6 +13,8 @@ import followReducer from './reducers/followReducer';
 import loadingReducer from './reducers/loadingReducer';
 import boundsReducer from './reducers/boundsReducer';
 import userLocationReducer from './reducers/userLocationReducer';
+import votePropProjReducer from './reducers/votePropProjReducer'
+import voteUserPropertyReducer from './reducers/voteUserPropertyReducer'
 
 const appReducer = combineReducers({
     mapQuery:mapQueryReducer,
@@ -24,7 +26,9 @@ const appReducer = combineReducers({
     followedProperties:followReducer,
     loadingFlag : loadingReducer,
     bounds:boundsReducer,
-    userLocationFlag:userLocationReducer
+    userLocationFlag:userLocationReducer,
+    votePropProj : votePropProjReducer,
+    voteUserProperty : voteUserPropertyReducer
   })
   
   const rootReducer = (state, action) => {
