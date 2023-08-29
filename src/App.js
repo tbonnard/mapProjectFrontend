@@ -32,7 +32,7 @@ import csrfServices from '../src/services/csrfService'
 // TODO: sort options projects : created / most positive voted / not me voted projects
 // TODO: private groups in property
 // TODO: share a suggestion
-
+// TODO: report proj
 
 function App() {
   
