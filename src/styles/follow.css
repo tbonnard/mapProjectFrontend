@@ -1,8 +1,10 @@
 .followedItems {
-    padding: 40px 0 0 10px;
+    padding: 40px 0 0 0px;
     color: white;
     max-width: 900px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .followedItem {
@@ -11,6 +13,43 @@
 
 .buttonFollowed {
     text-align: left !important;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.tab {
+    padding: 0 50px
+}
+
+.tabTitle {
+    text-transform: uppercase;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.tabSelected {
+    text-transform: uppercase;
+    font-size: 20px;
+    text-decoration: underline;
+    text-underline-offset:25px;
+}
+
+.tabTitle:hover {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.tabItems{
+    display: flex;
+    justify-content: center;
+}
+
+.noFollowedItems {
+    margin-top: 100px;
 }
 
 @media (max-width: 800px) {

@@ -33,12 +33,13 @@ const FollowItems = () => {
 
 
   if (followedProperties.length === 0) {
-    return null
+    return  <div className='projectsList'>
+    <p className='noFollowedItems'>No followed properties yet</p>
+</div>
   }
 
   return (
     <div className='followedItems'>
-      <h3 className='layerTitle'>properties followed</h3>
       {followedProperties.map(foll => 
           <div key={foll.id} className='followedItem'>
               {foll.properties[0].name ? 

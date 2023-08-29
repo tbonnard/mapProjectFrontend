@@ -1,7 +1,7 @@
 import voteServices from '../services/voteServices'
 
-import { addVote } from './votePropProjReducer'
-import { removeVote } from './votePropProjReducer'
+import { addVote } from './votePropertyProjectReducer'
+import { removeVote } from './votePropertyProjectReducer'
 
 //when lot of data, might change to get votes per project and not per property
 export const checkVotesUserProperty = (itemObject) => {
@@ -9,6 +9,16 @@ export const checkVotesUserProperty = (itemObject) => {
         const votes = await voteServices.checkUserVotes(itemObject)
         dispatch({
             type: "CHECK_VOTES_USER_PROPERTY",
+            data: votes
+            })
+    }
+}
+
+export const checkUserVotesAllPropertiesFollowed = (itemObject) => {
+    return async dispatch => {
+        const votes = await voteServices.checkUserVotesAllPropertiesFollowed(itemObject)
+        dispatch({
+            type: "CHECK_VOTES_USER_ALL_PROPERTIES_FOLLOWED",
             data: votes
             })
     }
@@ -38,8 +48,10 @@ export const addVoteUserProperty = (itemObject) => {
 }
 
 
-const voteUserPropertyReducer = (state=[], action) => {
+const voteUserPropertyProjectReducer = (state=[], action) => {
     switch(action.type) {
+        case 'CHECK_VOTES_USER_ALL_PROPERTIES_FOLLOWED':
+            return action.data
         case 'CHECK_VOTES_USER_PROPERTY':
             return action.data
         case 'REMOVE_VOTE_USER_PROPERTY':
@@ -55,4 +67,4 @@ const voteUserPropertyReducer = (state=[], action) => {
     }
 }
 
-export default voteUserPropertyReducer
+export default voteUserPropertyProjectReducer

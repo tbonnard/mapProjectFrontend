@@ -4,7 +4,6 @@
   margin: 0 auto ;
   max-width: 850px;
   margin-top: 150px ;
-
 }
 
 .projectsList{
@@ -49,6 +48,38 @@
   padding: 0 10px;
 }
 
+.ProjectGlobalProfile {
+  border: 1px solid #e2e2e2;
+  text-align: center;
+  margin: 40px 0;
+  padding: 20px 0;
+  border-radius: 5px;
+  background-color: white;
+  color: var(--main);
+  height: 250px;
+}
+
+.projectDiv{
+  position: relative;
+}
+
+.propertyTitleProfile{
+  position: absolute;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: var(--colorSmallText);
+  text-decoration: underline;
+  cursor: pointer;
+  text-underline-offset:10px;
+  top: -30px;
+  right: 10px;
+}
+
+.propertyTitleProfile:hover{
+  text-underline-offset:12px;
+}
+
 
 /* PROJECT DIV TO DISPLAY CREATE LAYER */
 .projectPreDiv {
@@ -80,6 +111,7 @@
 .projectAddIcon:hover {
   opacity: 0.8;
 }
+
 
 
 @media (max-width: 1200px) {

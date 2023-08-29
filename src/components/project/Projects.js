@@ -7,9 +7,9 @@ import '../../styles/project.css'
 
 import ProjectFormGlobal from './ProjectFormGlobal';
 
-
 const Projects = () => {
-    
+  
+  
     return (
       <>
         <div className='projectsGlobal'>

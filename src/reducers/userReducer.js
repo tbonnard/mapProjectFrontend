@@ -46,6 +46,7 @@ export const createAccount = (accountObject) => {
 }
 
 // FIXME: bug if token expired
+// https://www.bezkoder.com/react-logout-token-expired/
 
 export const getUserInfo = () =>{
     return async dispatch => {

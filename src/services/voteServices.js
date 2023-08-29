@@ -5,7 +5,8 @@ const url = `${baseUrl}api/vote/`
 //when too many projects per property, need to check per project instead of per property
 const urlAllProject = `${baseUrl}api/votesproject/`
 const urlAllProperty = `${baseUrl}api/votesproperty/`
-const urlUser = `${baseUrl}api/voteuser/`
+const urlUser = `${baseUrl}api/voteuserproporties/`
+const urlUserAllFromFolllowedProperties =  `${baseUrl}api/voteuserfollowedproperties/`
 
 
 const checkVotes = async (objectId) => {
@@ -61,7 +62,22 @@ const addVote = async (itemObject) => {
 }
 
 
-const exportedObject = { checkVotes,checkUserVotes, removeVote, addVote } 
+const checkUserVotesAllPropertiesFollowed = async (itemObject) => {
+  axios.defaults.withCredentials = true;
+  const userToken = document.cookie.replace(/(?:(?:^|.*;\s*)jwtTk\s*=\s*([^;]*).*$)|^.*$/, '$1');
+  const csrftoken = document.cookie.replace(/(?:(?:^|.*;\s*)csrftoken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+
+  const response = await axios.post(`${urlUserAllFromFolllowedProperties}`, itemObject,
+  {
+    headers: {
+      Authorization: `Bearer ${userToken}`,
+      'X-CSRFToken': csrftoken,
+      'Content-Type': 'application/json',
+    }} );
+  return response.data
+}
+
+const exportedObject = { checkVotes,checkUserVotes, removeVote, addVote, checkUserVotesAllPropertiesFollowed } 
 
 export default exportedObject
 

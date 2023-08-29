@@ -13,8 +13,10 @@ import followReducer from './reducers/followReducer';
 import loadingReducer from './reducers/loadingReducer';
 import boundsReducer from './reducers/boundsReducer';
 import userLocationReducer from './reducers/userLocationReducer';
-import votePropProjReducer from './reducers/votePropProjReducer'
-import voteUserPropertyReducer from './reducers/voteUserPropertyReducer'
+import votePropertyProjectReducer from './reducers/votePropertyProjectReducer'
+import voteUserPropertyProjectReducer from './reducers/voteUserPropertyProjectReducer'
+import followPropertiesGetProjectsReducer from './reducers/followPropertiesGetProjectsReducer'
+import OLDvoteUserAllPropertiesFollowedReducer from './reducers/OLDvoteUserAllPropertiesFollowedReducer'
 
 const appReducer = combineReducers({
     mapQuery:mapQueryReducer,
@@ -27,8 +29,10 @@ const appReducer = combineReducers({
     loadingFlag : loadingReducer,
     bounds:boundsReducer,
     userLocationFlag:userLocationReducer,
-    votePropProj : votePropProjReducer,
-    voteUserProperty : voteUserPropertyReducer
+    votePropProj : votePropertyProjectReducer,
+    voteUserProperty : voteUserPropertyProjectReducer,
+    followPropertiesGetProjects:followPropertiesGetProjectsReducer,
+    voteUserAllPropertiesFollowed:OLDvoteUserAllPropertiesFollowedReducer,
   })
   
   const rootReducer = (state, action) => {

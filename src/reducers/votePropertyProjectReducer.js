@@ -42,7 +42,7 @@ export const addVote = (itemObject) => {
     }
 }
 
-const votePropProjReducer = (state=[], action) => {
+const votePropertyProjectReducer = (state=[], action) => {
     switch(action.type) {
         case 'CHECK_VOTES_PROPERTY':
             return action.data
@@ -64,4 +64,4 @@ const votePropProjReducer = (state=[], action) => {
     }
 }
 
-export default votePropProjReducer
+export default votePropertyProjectReducer

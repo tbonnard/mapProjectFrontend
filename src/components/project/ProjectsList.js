@@ -9,8 +9,8 @@ import Project from './Project'
 
 import { setPropertyItem } from '../../reducers/propertyReducer';
 import { getProjectsfromProperty } from '../../reducers/projectReducer';
-import { checkVotesProperty } from '../../reducers/votePropProjReducer';
-import { checkVotesUserProperty } from '../../reducers/voteUserPropertyReducer';
+import { checkVotesProperty } from '../../reducers/votePropertyProjectReducer';
+import { checkVotesUserProperty } from '../../reducers/voteUserPropertyProjectReducer';
 
 const ProjectsList = () => {
         
@@ -21,34 +21,28 @@ const ProjectsList = () => {
   const projects = useSelector(state => state.projects)
   const property = useSelector(state => state.property)
   const user = useSelector(store => store.user)
-
-    useEffect(() => {
-      if (property.length > 0) {
-        dispatch(getProjectsfromProperty(property))
-      } else if (localStorage.getItem('propertyProjectApp')) {
-          const propertyLocal = JSON.parse(localStorage.getItem('propertyProjectApp'));
-          dispatch(setPropertyItem(propertyLocal))
-          dispatch(getProjectsfromProperty(propertyLocal))
-        } else {
-          navigate(`/`)
-        }
-    }, [dispatch, navigate])
-
-
+  
     useEffect(() =>{
-      if (projects.length > 0) {
+      if (property.osm_id) {
+        dispatch(getProjectsfromProperty(property))
         if (property.id) {
           dispatch(checkVotesProperty(property.id))
         }
         if (user && property.id) {
           dispatch(checkVotesUserProperty({'property':property.id, 'voter': user.id}))
         }
+      }  else if (localStorage.getItem('propertyProjectApp')) {
+              const propertyLocal = JSON.parse(localStorage.getItem('propertyProjectApp'));
+              dispatch(setPropertyItem(propertyLocal))
+              dispatch(getProjectsfromProperty(propertyLocal))
+      }  else {
+        navigate(`/`)
       }
 
-    },[dispatch, projects, property, user])
+    },[dispatch, navigate, property, user])
 
 
-  
+
   if (projects.length === 0) {
     return (
         <div className='projectsList'>

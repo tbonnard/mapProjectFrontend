@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux'
 
 import { useNavigate } from 'react-router-dom';
@@ -107,7 +107,7 @@ const MapMarker = ({icon, markerData}) => {
   }
 
   const handleClickButtonMarker = () => {
-    navigate(`/property/`)
+    navigate(`/property`)
     window.scrollTo(0,0);
   }
 
