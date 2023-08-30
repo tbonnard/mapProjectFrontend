@@ -63,21 +63,23 @@
 .searchNearButtonMap{
     position: relative;
 }
+.searchNearButtonDiv{
+    position: absolute;
+    left: 0;
+    top: 80px;
+    z-index: 500;
+    width: 165px;
+    height: 50px;
+    margin: 10px 5px;
+}
 
 .searchNearButton {
     background-color: var(--main);
     color: white;
-    position: absolute;
-    left: 0;
-    top: 80px;
-    width: 170px;
-    height: 50px;
-    z-index: 500;
     padding: 5px 10px;
-    margin: 10px 5px;
     cursor: pointer;
+    border: none;
     border-radius: 5%;
-    border: 1px solid var(--main);
 }
 
 .searchNearButton:hover {
@@ -87,9 +89,9 @@
 
 .navigationIcon {
     position: absolute;
-    width: 17px;
-    right: 154px;
-    top:28px;
+    width: 15px;
+    left: 2px;
+    top:17px;
     z-index: 501;
 }
 
@@ -99,7 +101,7 @@
     color: var(--main);
     position: absolute;
     left: 0;
-    top: 140px;
+    top: 130px;
     width: auto;
     height: auto;
     z-index: 500;

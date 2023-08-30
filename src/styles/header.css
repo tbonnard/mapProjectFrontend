@@ -1,8 +1,8 @@
 .MenuGlobal {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0px;
-  z-index: 500;
+  z-index: 501;
 }
 
 .MenuGlobalMenu {
@@ -17,6 +17,7 @@
 .menuIcon {
   cursor: pointer;
   margin: 10px 10px;
+  cursor: pointer;
 }
 
 .menuIcon:hover {
@@ -45,7 +46,6 @@
   top: 0;
   margin: 10px;
   cursor: pointer;
-  z-index: 99;
 }
 
 .closeIconMenu:hover {

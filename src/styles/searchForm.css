@@ -60,3 +60,19 @@
   padding: 10px 5px !important;
   border-radius: 10px;
 }
+
+
+
+@media (max-width: 1400px) {
+  .enterTextForm {
+    width: 80%;
+  }
+
+}
+
+@media (max-width: 500px) {
+  .enterTextForm {
+    width: 70%;
+  }
+}
+

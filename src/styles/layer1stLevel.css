@@ -4,7 +4,7 @@
     top: 0;
     margin: 20px;
     cursor: pointer;
-    z-index: 99;
+    z-index: 501;
 }
 
 .closeIcon:hover {

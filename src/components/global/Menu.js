@@ -19,7 +19,7 @@ const Menu = () => {
     return (
     <div className='MenuGlobal'>
         {!menuDisplayed && 
-            <div className='MenuGlobalMenu'>
+            <div className='MenuGlobalMenu' onClick={handleClick}>
                 <img className='menuIcon' 
                                 src={menuIcon}  
                                 onClick={handleClick}
