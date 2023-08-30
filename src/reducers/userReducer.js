@@ -45,6 +45,7 @@ export const createAccount = (accountObject) => {
     }
 }
 
+// FIXME: bug login ca logout et login ensuite
 // FIXME: bug if token expired
 // https://www.bezkoder.com/react-logout-token-expired/
 

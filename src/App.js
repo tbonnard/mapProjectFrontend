@@ -25,13 +25,19 @@ import { getUserInfo } from '../src/reducers/userReducer'
 
 import csrfServices from '../src/services/csrfService'
 
-// TODO: Feeds of followed places dans profile
+
+// TODO: Map full width  80% feeds à droite 
+// TODO: Dans pop up, display liste suggestion hot & votes + un add yours
+// TODO: environment var django
 // TODO: non logged in, create project ramene à la property sur le détail pour submit
 // TODO: non logged in, follow ramene à la property avec notif followed
 // TODO: sort options projects : created / most positive voted / not me voted projects
 // TODO: private groups in property
 // TODO: share a suggestion
 // TODO: report proj
+// TODO: drag & see stuff
+// TODO: Actions à droite avec legend
+// TODO: add marker / put marker on click
 
 function App() {
   
