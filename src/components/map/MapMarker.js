@@ -7,6 +7,7 @@ import { Marker, Popup } from 'react-leaflet';
 
 import { setPropertyItem } from '../../reducers/propertyReducer';
 
+import Follow from '../follow/Follow';
 
 import aeroway from '../../media/addresstype/aeroway.png'
 import aerialway from '../../media/addresstype/aeroway.png'
@@ -112,6 +113,10 @@ const MapMarker = ({icon, markerData}) => {
     window.scrollTo(0,0);
   }
 
+  const handleClick = () => {
+    navigate('/suggestion')
+}
+
     return (    
       <Marker position={[markerData['lat'], markerData['lon']]} icon={icon} 
       eventHandlers={{
@@ -136,6 +141,12 @@ const MapMarker = ({icon, markerData}) => {
           </div>
         
           <MarkerProjectsList markerData={markerData}/>
+
+          <div className='addSuggestionMarkerItem'>
+              <button onClick={handleClick} className='buttonTier MainColor'>add your suggestion</button>
+            </div>
+
+            <Follow />
      
         </Popup>
         
