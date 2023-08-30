@@ -13,13 +13,11 @@ const ProjectFormGlobal = () => {
     
 
     const [flagCreateProject, setFlagCreateProject] = useState(false)
-
-    const property = useSelector(state => state.property)
    
         return (
             <div className=''>
                 { flagCreateProject ? 
-                <ProjectForm property={property} setFlagCreateProject={setFlagCreateProject}/>
+                <ProjectForm setFlagCreateProject={setFlagCreateProject}/>
                 :
                 <ProjectPreForm setFlagCreateProject={setFlagCreateProject}/>
                 }

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector  } from 'react-redux'
 
@@ -14,31 +14,37 @@ import '../../styles/layer1stLevel.css'
 import closeIcon from '../../media/close.png'
 
 
-const ProjectForm = ({property, setFlagCreateProject}) => {
-    
+const ProjectForm = () => {
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const user = useSelector(state => state.user)
+    const property = useSelector(state => state.property)
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(createProject({property, title, description, user}))
         setTitle('')
         setDescription('')
-        setFlagCreateProject(false)
     }
 
     const closeLayer = () => {
-        setFlagCreateProject(false)
+        window.history.back()        
     }
 
     const handleClick = () => {
         navigate('/login')
     }
+
+    if (!property) {
+        return null
+    }
+
 
     return (
 

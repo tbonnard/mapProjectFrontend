@@ -1,13 +1,14 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
-const ProjectPreForm = ({setFlagCreateProject}) => {
+const ProjectPreForm = () => {
     
+    const navigate = useNavigate()
     
-    const handleClick = (e) => {
-        e.preventDefault()
-        setFlagCreateProject(true)
+    const handleClick = () => {
+        navigate('/suggestion')
     }
 
 

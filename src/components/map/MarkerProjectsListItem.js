@@ -27,7 +27,9 @@ const MarkerProjectsListItem = ({project}) => {
     return (
         <div className='markerProjectDivItem'>
             <p>{project.title}</p>
+
             <Choices project={project}/>
+
         </div>      
       )
 }

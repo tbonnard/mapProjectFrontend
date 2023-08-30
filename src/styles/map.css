@@ -133,7 +133,9 @@
     padding: 0 10px;
 }
 
-
+.addSuggestionMarkerItem{
+    text-align: center;
+}
 /* 
 @media (max-width: 1050px) {
     .mapItem {

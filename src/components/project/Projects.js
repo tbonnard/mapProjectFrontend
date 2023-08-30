@@ -5,7 +5,7 @@ import ProjectsList from './ProjectsList';
 
 import '../../styles/project.css'
 
-import ProjectFormGlobal from './ProjectFormGlobal';
+import ProjectPreForm from './ProjectPreForm';
 
 const Projects = () => {
   
@@ -14,7 +14,7 @@ const Projects = () => {
       <>
         <div className='projectsGlobal'>
           <ProjectsList  />
-          <ProjectFormGlobal />
+          <ProjectPreForm />
         </div>
       </>
 
