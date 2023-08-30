@@ -27,7 +27,7 @@ const FollowItemsProjects = () => {
   
   if (followUserPropertyProjects.length === 0) {
     return  <div className='projectsList'>
-      <p className='noFollowedItems'>No suggestions related to your followed properties yet</p>
+      <p className='noFollowedItems'>No suggestions related to your followed properties yet. {!user && 'Login to start following places!'}</p>
   </div>
   }
 
