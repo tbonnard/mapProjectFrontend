@@ -10,6 +10,7 @@ import navigationIcon from '../../media/navigation.png'
 
 // TODO: search near based on zoom and zoom level = km specific
 // TODO: Search in specific area with coordinates- https://overpass-turbo.eu/
+//data=(way (around:5000,50.10707,8.76040);); out center;
 
 
 const SearchNearPoint = ({map, bounds}) => {

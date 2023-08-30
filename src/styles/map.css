@@ -91,7 +91,7 @@
     position: absolute;
     width: 15px;
     left: 2px;
-    top:17px;
+    top:14px;
     z-index: 501;
 }
 
@@ -121,6 +121,18 @@
     width: 15px;
     padding: 0 10px;
 }
+
+
+.divPopUpProjects{
+    height: auto;
+    width: auto;
+}
+
+.markerProjectDivItem {
+    border: 1px solid rgb(239, 239, 239);
+    padding: 0 10px;
+}
+
 
 /* 
 @media (max-width: 1050px) {

@@ -27,15 +27,19 @@ const Project = ({item, source=0}) => {
 
   return (
     <div className={classProjectSource}>
+      
         <div className='projectDiv'>   
             {source === 1 && <ProjectPropertyNameProfile item={item} />}
-          <h2 className=''>{item.title}</h2>
-          <p>{item.description}</p>
+            <h2 className=''>{item.title}</h2>
+            <p>{item.description}</p>
         </div>
+        
         <Choices project={item} />
+        
         <div className='projectDateDiv'>
           <p className='projectDate'>{date}</p>
         </div>
+
     </div>
   )
 }

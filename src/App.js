@@ -40,6 +40,9 @@ import Menu from './components/global/Menu';
 // TODO: Actions à droite avec legend
 // TODO: add marker / put marker on click
 
+//INFO: download all OSM data --> https://planet.openstreetmap.org/
+
+
 function App() {
   
   const dispatch = useDispatch()

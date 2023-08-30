@@ -48,6 +48,7 @@ import state from '../../media/addresstype/state.png'
 import island from '../../media/addresstype/island.png'
 import mountain from '../../media/addresstype/mountain.png'
 import industrial from '../../media/addresstype/industrial.png'
+import MarkerProjectsList from './MarkerProjectsList';
 
 const MapMarker = ({icon, markerData}) => {
 
@@ -118,7 +119,7 @@ const MapMarker = ({icon, markerData}) => {
           handleClickMarker(markerData)
         },
       }}
-        >
+      >
         
         <Popup>
           <div className='layerTitleMap'>
@@ -133,8 +134,13 @@ const MapMarker = ({icon, markerData}) => {
             </div>
             <button className='buttonPrimary' onClick={handleClickButtonMarker}>select</button>
           </div>
+        
+          <MarkerProjectsList markerData={markerData}/>
+     
         </Popup>
         
+        
+
       </Marker>
   )
 }
