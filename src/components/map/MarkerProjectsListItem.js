@@ -29,7 +29,6 @@ const MarkerProjectsListItem = ({project}) => {
             <p>{project.title}</p>
 
             <Choices project={project}/>
-
         </div>      
       )
 }

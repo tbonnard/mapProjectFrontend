@@ -9,6 +9,7 @@ import AccountDetails from '../login/AccountDetails';
 import '../../styles/follow.css'
 
 
+
 const FollowGlobal = () => {
   
   const [tab, setTab] = useState(1)

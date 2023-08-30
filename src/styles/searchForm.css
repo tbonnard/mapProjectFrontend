@@ -59,6 +59,7 @@
   color: var(--main);
   padding: 10px 5px !important;
   border-radius: 10px;
+  text-align: center;
 }
 
 

@@ -31,6 +31,7 @@ const ProjectForm = () => {
         dispatch(createProject({property, title, description, user}))
         setTitle('')
         setDescription('')
+        window.history.back() 
     }
 
     const closeLayer = () => {

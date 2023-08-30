@@ -79,13 +79,13 @@ const Follow = () => {
       } */}
 
     {!user ?  
-        <p className='buttonTier' onClick={handleSetNotifNotLoggedIn} title={`Follow ${property.display_name}`}>follow</p>
+        <p className='buttonTier MainColor' onClick={handleSetNotifNotLoggedIn} title={`Follow ${property.display_name}`}>follow</p>
         :     
         <div>
           { propertyFollowedFlag ? 
-            <p className='buttonTier' onClick={handleClickUnfollow} title={`Unfollow ${property.display_name}`}>unfollow</p>
+            <p className='buttonTier MainColor' onClick={handleClickUnfollow} title={`Unfollow ${property.display_name}`}>unfollow</p>
             : 
-            <p className='buttonTier' onClick={handleClickFollow} title={`Follow ${property.display_name}`}>follow</p>
+            <p className='buttonTier MainColor' onClick={handleClickFollow} title={`Follow ${property.display_name}`}>follow</p>
             }
         </div>
       }

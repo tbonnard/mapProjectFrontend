@@ -2,9 +2,15 @@
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getProjectsfromProperty } from '../../reducers/projectReducer';
-import MarkerProjectsListItem from './MarkerProjectsListItem';
+
 import { useNavigate } from 'react-router-dom';
+
+
+import { getProjectsfromProperty } from '../../reducers/projectReducer';
+
+import MarkerProjectsListItem from './MarkerProjectsListItem';
+import Follow from '../follow/Follow'
+
 
 const MarkerProjectsList = ({markerData}) => {
             
@@ -34,6 +40,8 @@ const MarkerProjectsList = ({markerData}) => {
             <div className='addSuggestionMarkerItem'>
               <button onClick={handleClick} className='buttonTier MainColor'>add your suggestion</button>
             </div>
+
+            <Follow />
 
         </div>      
       )
