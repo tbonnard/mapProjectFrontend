@@ -6,12 +6,14 @@ import voteIcon from '../../media/vote.png'
 import locationIcon from '../../media/location.png'
 
 import '../../styles/howItWorks.css'
+import Menu from '../global/Menu';
 
 
 const HowItWorks = () => {
     
   return (
     <div className='standardContainer' id='howItWorks'>
+      <Menu />
       <div className='standardDiv'>
         <h3 className='descriptionText '>HOW IT WORKS</h3>
         <div className='descriptionDivFlex'>

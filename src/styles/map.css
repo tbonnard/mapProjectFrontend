@@ -1,16 +1,35 @@
-.mapGlobal {
+.divSearchMap{
     width: 100%;
+    height: 100vh;
+}
+
+.mapGlobal {
+    /* width: 100%;
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 500px;
+    top: 500px; */
+    width: 100%;
+    height: 100vh;
+}
+
+
+.mapGlobalWidth {
+    /* width: 90%; */
 }
 
 .mapItem {
-    width: 1000px;
+    /* width: 1000px;
     height: 1000px;
-    border-radius: 1%;
+    border-radius: 1%; */
+    width: 100%;
+    height: 100vh;
 }
+
+.mapListDiv{
+    /* display: flex; */
+}
+
 
 .layerTitleMap{
     display: flex;
@@ -34,14 +53,7 @@
     margin: 0;
 }
 
-.mapListDiv{
-    display: flex;
-}
 
-
-.mapGlobalWidth {
-    width: 90%;
-}
 
 .ListDiv{
     max-width: 100px;
@@ -56,11 +68,11 @@
     background-color: var(--main);
     color: white;
     position: absolute;
-    right: 0;
-    top: 0;
+    left: 0;
+    top: 80px;
     width: 170px;
     height: 50px;
-    z-index: 1000;
+    z-index: 500;
     padding: 5px 10px;
     margin: 10px 5px;
     cursor: pointer;
@@ -78,7 +90,7 @@
     width: 17px;
     right: 154px;
     top:28px;
-    z-index: 1001;
+    z-index: 501;
 }
 
 
@@ -86,12 +98,14 @@
     background-color: white;
     color: var(--main);
     position: absolute;
-    right: 0;
-    top: 70px;
+    left: 0;
+    top: 140px;
     width: auto;
     height: auto;
-    z-index: 1000;
+    z-index: 500;
     padding: 10px;
+    margin: 10px 5px;
+    border-radius: 5%;
 }
 
 .legendDivItems {
@@ -106,7 +120,7 @@
     padding: 0 10px;
 }
 
-
+/* 
 @media (max-width: 1050px) {
     .mapItem {
         width: 900px;
@@ -144,4 +158,4 @@
         width: 350px;
         height: 700px;
     }
-  }
+  } */

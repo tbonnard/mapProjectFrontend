@@ -1,5 +1,5 @@
 
-import React, { useEffect, useCallback, useState } from 'react';
+import React from 'react';
 
 import { TileLayer, useMap } from 'react-leaflet';
 import MapMarker from './MapMarker';
@@ -13,26 +13,8 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
 
   const map = useMap()
 
-  
-  // useEffect(() => {
-  //   setPositionCentered(map.getCenter())
-  //   map.fitBounds(bounds);
-  // }, [map, bounds]);
 
-  // const onMove = useCallback(() => {
-  //   setPositionCentered(map.getCenter())
-  // }, [map])
-
-
-  // useEffect(() => {
-  //   map.on('move', onMove)
-  //   return () => {
-  //     map.off('move', onMove)
-  //   }
-  // }, [map, onMove])
-
-
-   // TODO: custom images in icon based on type
+  // TODO: custom images in icon based on type
   // https://blogs.absyz.com/2019/04/03/customizing-the-markers-in-your-leaflet-map
   // https://github.com/lennardv2/Leaflet.awesome-markers
   // upload images on server and update url

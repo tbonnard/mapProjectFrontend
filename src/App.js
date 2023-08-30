@@ -24,6 +24,7 @@ import { getUserInfo } from '../src/reducers/userReducer'
 
 
 import csrfServices from '../src/services/csrfService'
+import Menu from './components/global/Menu';
 
 
 // TODO: Map full width  80% feeds à droite 
@@ -70,12 +71,14 @@ function App() {
 
         <Route path='/signup' element= { <AccountForm /> } />
 
+        <Route path='/howitworks' element= { <HowItWorks /> } />
+
         <Route path='/'  element={
           <>
-            <Header />
-            <Intro />
+            {/* <Header /> */}
+            {/* <Intro /> */}
+            <Menu />
             <MapOpenGlobal />
-            <HowItWorks />
           </>
           } />
 

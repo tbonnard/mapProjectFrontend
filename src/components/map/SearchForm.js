@@ -33,10 +33,6 @@ const SearchForm = () => {
             <input className="enterTextNumber" type="text" placeholder='Search for a place, an address, a location' value={placeAddress} onChange={(e) => setPlaceAddress(e.target.value)} required/>
             <button className="buttonPrimary" type='submit'>submit</button>
         </form>
-        
-        <div className='formUploadButtons'>
-            <button className='buttonTier' onClick={handleHowItWorks}>see how it works</button>
-        </div>
     </div>
 
   )

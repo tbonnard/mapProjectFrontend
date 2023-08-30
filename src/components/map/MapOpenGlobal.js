@@ -69,13 +69,9 @@ const MapOpenGlobal = () => {
   return (
       <div className='divSearchMap'>
             <CurrentLocation defaultCoordinates={defaultCityCoordinates} />
-            <div className='introDiv divIntroSearch'>
-            <SearchForm />
-            </div>
+            {/* <SearchForm /> */}
             <div className='mapGlobal' id='map' >
-                  <div className='mapListDiv'>
-                        <MapOpen mapQueryData={mapData} zoom={zoom} />
-                  </div>
+                  <MapOpen mapQueryData={mapData} zoom={zoom} />
             </div>
       </div>
 

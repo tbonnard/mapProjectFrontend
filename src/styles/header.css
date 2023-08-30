@@ -1,3 +1,57 @@
+.MenuGlobal {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  z-index: 500;
+}
+
+.MenuGlobalMenu {
+  margin-top: 15px;
+  background-color: white;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.menuIcon {
+  cursor: pointer;
+  margin: 10px 10px;
+}
+
+.menuIcon:hover {
+  opacity: 0.6;
+}
+
+.MenuGlobalSubMenu {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 125px;
+  height: auto;
+  margin-right: 0px !important;
+  padding: 10px 5px;
+  border-bottom-left-radius: 10px;
+}
+ 
+.subMenuButtonDiv{
+  padding-left: 10px;
+}
+
+
+.closeIconMenu{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.closeIconMenu:hover {
+  opacity: 0.6;
+}
+
 .textInfoProdIinfo {
   position: absolute;
   text-align: center;
@@ -66,3 +120,4 @@
 .headerTopRightAccount{
   padding-bottom: 10px !important;
 }
+
