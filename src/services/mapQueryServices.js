@@ -21,7 +21,16 @@ const getMapQueryDataDBData = async (itemObject) => {
     return response.data
 }
 
-const exportedObject = { getMapQueryData, getMapQueryDataSearchNearLocation, getMapQueryDataDBData } 
+const getMapQueryDataOverpassTurbo =  async (data) => {
+    axios.defaults.withCredentials = false;
+    // const urlOverpassTurbo = `https://www.overpass-api.de/api/interpreter?${parameterData}`
+    const urlOverpassTurbo = `https://www.overpass-api.de/api/interpreter?`
+    const response = await axios.post(`${urlOverpassTurbo}`, {body:data})
+    return response.data
+}
+
+
+const exportedObject = { getMapQueryData, getMapQueryDataSearchNearLocation, getMapQueryDataDBData, getMapQueryDataOverpassTurbo } 
 
 export default exportedObject
 

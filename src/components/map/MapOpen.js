@@ -23,7 +23,9 @@ const MapOpen = ({mapQueryData}) => {
 
   const loading = useSelector(state => state.loadingFlag)
   const bounds = useSelector(state => state.bounds)
- 
+
+  // on Map maxZoom={30}
+
   return (
     <>
       <MapContainer className='mapItem' bounds={bounds} key={bounds} scrollWheelZoom={true} >

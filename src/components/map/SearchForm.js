@@ -21,6 +21,7 @@ import { setLoading } from '../../reducers/loadingReducer';
 // 1 : "user recherche un lieu specifique" . 
 // 2 : "user veut voir tout ce qu'il y a avec suggestions deja". 
 // 3 : "user veut voir toutes les lieux possibles de Open street map dans un radius de x"
+//https://www.geoapify.com/reverse-geocoding-api
 
 const SearchForm = () => {
     

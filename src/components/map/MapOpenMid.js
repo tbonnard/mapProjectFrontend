@@ -6,6 +6,8 @@ import MapMarker from './MapMarker';
 import * as L from "leaflet";
 
 import SearchNearPoint from './SearchNearPoint';
+import SearchTurboPass from './SearchTurboPass';
+
 import Legend from './Legend';
 
 
@@ -46,6 +48,8 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
   return (
     <>
         <SearchNearPoint map={map} bounds={bounds}/>
+
+        {/* <SearchTurboPass map={map} bounds={bounds}/> */}
 
         <Legend icons={iconsList}/>
 

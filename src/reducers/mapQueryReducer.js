@@ -42,6 +42,15 @@ export const getMapQueryDataDBData = (parameterData) => {
     }
 }
 
+export const getMapQueryDataOverpassTurbo = (parameterData) => {
+    return async dispatch => {
+        const propertyItem = await mapQueryServices.getMapQueryDataOverpassTurbo(parameterData)
+        dispatch({
+            type: "MAP_QUERY_OVERPASS_DATA",
+            data: propertyItem
+            })
+    }
+}
 
 export const resetMapQuery = () => {
     return async dispatch => {
@@ -61,6 +70,8 @@ const mapQueryReducer = (state=[], action) => {
         case 'MAP_QUERY_USER_LOCATION':
                 return action.data
         case 'MAP_QUERY_DB_DATA':
+                    return action.data
+        case 'MAP_QUERY_OVERPASS_DATA':
             return action.data
         default:
             return state

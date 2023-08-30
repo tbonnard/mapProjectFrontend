@@ -96,6 +96,17 @@
 }
 
 
+.searchTurboPassButtonDiv {
+    position: absolute;
+    left: 10px;
+    top: 120px;
+    z-index: 500;
+    width: 180px;
+    height: auto;
+    margin: 10px 5px;
+}
+
+
 .legendGlobalDiv{
     background-color: white;
     color: var(--main);

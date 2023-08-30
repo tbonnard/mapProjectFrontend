@@ -39,8 +39,8 @@ import SearchForm from './components/map/SearchForm';
 // TODO: share a suggestion
 // TODO: report proj
 
-//INFO: download all OSM data --> https://planet.openstreetmap.org/
-
+//TODO: download all OSM data --> https://planet.openstreetmap.org/
+//https://www.geoapify.com/ways-to-get-openstreetmap-data
 
 function App() {
   
