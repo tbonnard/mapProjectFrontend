@@ -12,7 +12,7 @@ import expandIcon from '../../media/expand.png'
 
 const Legend = ({icons}) => {
 
-    const [statusExpand, setStatusExpand] = useState(false)
+    const [statusExpand, setStatusExpand] = useState(true)
            
     const handleClick = () => {
         setStatusExpand(!statusExpand)

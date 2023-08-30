@@ -16,7 +16,6 @@ import userLocationReducer from './reducers/userLocationReducer';
 import votePropertyProjectReducer from './reducers/votePropertyProjectReducer'
 import voteUserPropertyProjectReducer from './reducers/voteUserPropertyProjectReducer'
 import followPropertiesGetProjectsReducer from './reducers/followPropertiesGetProjectsReducer'
-import OLDvoteUserAllPropertiesFollowedReducer from './reducers/OLDvoteUserAllPropertiesFollowedReducer'
 
 const appReducer = combineReducers({
     mapQuery:mapQueryReducer,
@@ -32,7 +31,6 @@ const appReducer = combineReducers({
     votePropProj : votePropertyProjectReducer,
     voteUserProperty : voteUserPropertyProjectReducer,
     followPropertiesGetProjects:followPropertiesGetProjectsReducer,
-    voteUserAllPropertiesFollowed:OLDvoteUserAllPropertiesFollowedReducer,
   })
   
   const rootReducer = (state, action) => {

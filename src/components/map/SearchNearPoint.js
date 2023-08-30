@@ -1,8 +1,8 @@
 
-import React , { useState, useEffect } from 'react';
+import React , { useEffect } from 'react';
 import {  useDispatch } from 'react-redux'
 
-import { getMapQueryDataUserLocation } from '../../reducers/mapQueryReducer';
+import { getMapQueryDataSearchNearLocation } from '../../reducers/mapQueryReducer';
 import { setNotification } from '../../reducers/notificationTempReducer';
 
 
@@ -21,7 +21,7 @@ const SearchNearPoint = ({map, bounds}) => {
         const coordinates = map.getCenter()
         if (map.getZoom() >= 12) {
             const itemObject = {latitude:coordinates['lat'], longitude:coordinates['lng']}
-            dispatch(getMapQueryDataUserLocation(itemObject))
+            dispatch(getMapQueryDataSearchNearLocation(itemObject))
         } else {
             dispatch(setNotification({message:'Please zoom in to search within a 10km radius', style:'warning', time:5000}))
         }

@@ -3,7 +3,7 @@ import React , {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { setNotification } from '../../reducers/notificationTempReducer'
-import { getMapQueryDataUserLocation } from '../../reducers/mapQueryReducer'
+import { getMapQueryDataSearchNearLocation } from '../../reducers/mapQueryReducer'
 import { setLoading } from '../../reducers/loadingReducer'
 import { setUserLocationFlag } from '../../reducers/userLocationReducer'
 
@@ -47,7 +47,7 @@ const CurrentLocation = ({defaultCoordinates}) => {
     useEffect(() => {
         if (coordinates.latitude) {
             const itemObject = {latitude:coordinates.latitude, longitude:coordinates.longitude}
-            dispatch(getMapQueryDataUserLocation(itemObject))
+            dispatch(getMapQueryDataSearchNearLocation(itemObject))
         } 
     },[coordinates, dispatch])
 

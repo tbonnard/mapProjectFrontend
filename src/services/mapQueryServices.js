@@ -11,7 +11,7 @@ const getMapQueryData = async (parameterData) => {
     return response.data
 }
 
-const getMapQueryDataUserLocation = async (itemObject) => {
+const getMapQueryDataSearchNearLocation = async (itemObject) => {
     const response = await axios.post(`${url}`, {itemObject})
     return response.data
 }
@@ -21,7 +21,7 @@ const getMapQueryDataDBData = async (itemObject) => {
     return response.data
 }
 
-const exportedObject = { getMapQueryData, getMapQueryDataUserLocation, getMapQueryDataDBData } 
+const exportedObject = { getMapQueryData, getMapQueryDataSearchNearLocation, getMapQueryDataDBData } 
 
 export default exportedObject
 

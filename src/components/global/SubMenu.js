@@ -19,6 +19,10 @@ const SubMenu = ({setMenuDisplayed}) => {
         navigate('/profile')
     }
 
+    const handleHome = () => {
+        navigate('/')
+    }
+
     const handleHowItWorks = () => {
         navigate('/howitworks')
     }
@@ -36,16 +40,25 @@ const SubMenu = ({setMenuDisplayed}) => {
             alt='cancel - close'
             width={"30px"}
         />
-        <div className='subMenuButtonDiv'>
-        {user ? 
-            <button className='buttonTier MainColor' onClick={handleProfile}>profile</button>
+
+        {window.location.pathname !== '/' && 
+            <div className='subMenuButtonDiv'>
+                <button className='buttonTier MainColor' onClick={handleHome}>Home</button>
+            </div>
+        }
+
+        <div className='subMenuButtonDiv'>   
+            {user ? 
+                <button className='buttonTier MainColor' onClick={handleProfile}>profile</button>
             :
-              <button className='buttonTier MainColor' onClick={handleLogin}>login</button>
+                  <button className='buttonTier MainColor' onClick={handleLogin}>login</button>
             }
         </div>
+
         <div className='subMenuButtonDiv'>
             <button className='buttonTier MainColor' onClick={handleHowItWorks}>see how it works</button>
         </div>
+
     </div>
     )
 }
