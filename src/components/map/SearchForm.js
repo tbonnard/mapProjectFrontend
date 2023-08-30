@@ -8,6 +8,17 @@ import '../../styles/searchForm.css'
 import { getMapQueryData } from '../../reducers/mapQueryReducer';
 import { setLoading } from '../../reducers/loadingReducer';
 
+
+//TODO: search optim based on center / zoom
+// search near based on zoom and zoom level = km specific
+// Search in specific area with coordinates- https://overpass-turbo.eu/
+// data=(way (around:5000,50.10707,8.76040);); out center;
+// if center has changed, search near new center point
+// Search based on zoom center & si no result search plus glibal
+// button reload here
+//https://nominatim.org/release-docs/latest/api/Lookup/
+
+
 const SearchForm = () => {
     
   const dispatch = useDispatch()
@@ -18,19 +29,12 @@ const SearchForm = () => {
     e.preventDefault();
     dispatch(setLoading(true))
     dispatch(getMapQueryData(placeAddress))
-    window.scrollTo({left: 0, top:(document.querySelector('#map').offsetTop)-145,  behavior: "smooth"});
   }
-
-
-  const handleHowItWorks = () => {
-    window.scrollTo({left: 0, top:document.querySelector('#howItWorks').offsetTop,  behavior: "smooth"});
-  }
-
 
   return (
     <div className="uploadGlobalForm">
         <form onSubmit={handleSubmit} className='enterTextForm'>
-            <input className="enterTextNumber" type="text" placeholder='Search for a place, an address, a location' value={placeAddress} onChange={(e) => setPlaceAddress(e.target.value)} required/>
+            <input id='searchFormInputTextSearchId' className="enterTextNumber" type="text" placeholder='Search for a specific place, an address, a location' value={placeAddress} onChange={(e) => setPlaceAddress(e.target.value)} required/>
             <button className="buttonPrimary" type='submit'>submit</button>
         </form>
     </div>

@@ -8,9 +8,8 @@ import { setNotification } from '../../reducers/notificationTempReducer';
 
 import navigationIcon from '../../media/navigation.png'
 
-// TODO: search near based on zoom and zoom level = km specific
-// TODO: Search in specific area with coordinates- https://overpass-turbo.eu/
-//data=(way (around:5000,50.10707,8.76040);); out center;
+
+// TODO: drag & reload
 
 
 const SearchNearPoint = ({map, bounds}) => {
@@ -18,6 +17,7 @@ const SearchNearPoint = ({map, bounds}) => {
     const dispatch = useDispatch()
 
     const handleClick = () => {
+        removeInputTextContent()
         const coordinates = map.getCenter()
         if (map.getZoom() >= 12) {
             const itemObject = {latitude:coordinates['lat'], longitude:coordinates['lng']}
@@ -27,6 +27,15 @@ const SearchNearPoint = ({map, bounds}) => {
         }
      }
 
+    const removeInputTextContent = () => {
+        if (document.querySelector('#searchFormInputTextSearchId'))
+        {
+            let inputTextToReset = document.querySelector('#searchFormInputTextSearchId')
+            inputTextToReset.value=''
+        }
+    } 
+
+
     useEffect(() => {
     map.fitBounds(bounds);
   }, [map, bounds]);
@@ -35,7 +44,7 @@ const SearchNearPoint = ({map, bounds}) => {
         <div className='searchNearButtonMap'>
             <div className='searchNearButtonDiv'>
                 <img className='navigationIcon' src={navigationIcon}/>
-                <button className='searchNearButton' onClick={handleClick}>search in places with suggestions nearby</button>
+                <button className='searchNearButton' onClick={handleClick}>or search for any nearby places with suggestions</button>
             </div>
         </div>
         )

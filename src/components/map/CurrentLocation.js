@@ -16,7 +16,6 @@ const CurrentLocation = ({defaultCoordinates}) => {
 
     const SuccessGeoLoc = (position) => {
         dispatch(setNotification({message:' Here are properties with suggestions within a 10km radius', style:'success', time:5000}))
-        // dispatch(setUserLocationFlag(false))
         if (position.coords) {
             setCoordinates(position.coords)
         } else {
@@ -26,7 +25,6 @@ const CurrentLocation = ({defaultCoordinates}) => {
 
 
     const updateErrorCount = (error) => {
-        // dispatch(setUserLocationFlag(false))
         if (error.code) {
             dispatch(setNotification({message:'Your location is blocked, default location is presented on the map', style:'warning', time:5000}))
             }

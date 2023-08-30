@@ -16,39 +16,13 @@ import FollowItemsProjects from '../follow/FollowItemsProjects';
 const MapOpenGlobal = () => {
 
       const dispatch = useDispatch()
-
-      const defaultData = [
-            {
-            "place_id": 134240591,
-            "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
-            "osm_type": "way",
-            "osm_id": 124401312,
-            "lat": "45.49974115",
-            "lon": "-73.57727986884024",
-            "category": "building",
-            "type": "commercial",
-            "place_rank": 30,
-            "importance": 9.99999999995449e-06,
-            "addresstype": "building",
-            "name": "Cossette",
-            "display_name": "Cossette, 2100, Rue Drummond, Ville-Marie, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H3G 1X1, Canada",
-            }
-      ]
   
-      const defaultCityCoordinates = {'latitude':45.5019, 'longitude':-73.5674}
-
-      const defaultBound = [
-            [45.539024, -73.576126],
-            [45.470689, -73.630028],
-      ]
-
       const mapQueryData = useSelector(state => state.mapQuery)
       const loadingFlag = useSelector(state => state.loadingFlag)
-      const userLocationFlag = useSelector(state => state.userLocationFlag)
 
       const [mapData, setMapData ] = useState([])
-      const [zoom, setZoom] = useState(18)
-      //lat - long -- max zoom 18 
+ 
+      const defaultCityCoordinates = {'latitude':45.5019, 'longitude':-73.5674}
 
       useEffect(() => {
             setMapData(mapQueryData)
@@ -69,10 +43,11 @@ const MapOpenGlobal = () => {
   return (
       <div className='divSearchMap'>
             <CurrentLocation defaultCoordinates={defaultCityCoordinates} />
-            {/* <SearchForm /> */}
+
             <div className='mapGlobal' id='map' >
-                  <MapOpen mapQueryData={mapData} zoom={zoom} />
+                  <MapOpen mapQueryData={mapData} />
             </div>
+
             <div className='feedsHome'>
                   <FollowItemsProjects />
             </div>

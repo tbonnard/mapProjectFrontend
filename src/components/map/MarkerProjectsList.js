@@ -12,6 +12,9 @@ import MarkerProjectsListItem from './MarkerProjectsListItem';
 import Follow from '../follow/Follow'
 
 
+// TODO: hot suggestions only
+
+
 const MarkerProjectsList = ({markerData}) => {
             
     const dispatch = useDispatch()

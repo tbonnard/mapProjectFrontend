@@ -8,15 +8,18 @@ import React from 'react';
 import {  useSelector } from 'react-redux'
 
 import { MapContainer } from 'react-leaflet';
-import SearchForm from './SearchForm';
 
 import '../../styles/map.css'
 
 import LoadingIcon from '../global/LoadingIcon';
 import MapOpenMid from './MapOpenMid';
 
-const MapOpen = ({mapQueryData}) => {
 
+// TODO: add marker / put marker on click
+
+
+
+const MapOpen = ({mapQueryData}) => {
 
   const loading = useSelector(state => state.loadingFlag)
   const bounds = useSelector(state => state.bounds)
@@ -24,10 +27,7 @@ const MapOpen = ({mapQueryData}) => {
   return (
     <>
       <MapContainer className='mapItem' bounds={bounds} key={bounds} scrollWheelZoom={true} >
-      
-        <SearchForm />
-
-        
+             
         {loading &&
           <LoadingIcon />
         }

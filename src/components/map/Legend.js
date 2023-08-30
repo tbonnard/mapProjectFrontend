@@ -1,17 +1,47 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+
+
+//collapse
+
+import Icons from './Icons';
+
+import collapseIcon from '../../media/collapse.png'
+import expandIcon from '../../media/expand.png'
+
 
 const Legend = ({icons}) => {
-            
+
+    const [statusExpand, setStatusExpand] = useState(false)
+           
+    const handleClick = () => {
+        setStatusExpand(!statusExpand)
+    }
+
     return (
         <div className='legendGlobalDiv'>
             <h4>Legend</h4>
-            {icons.map((icon, index) =>  
-                <div key={index} className='legendDivItems'>
-                    <img src={icon.icon.options.iconUrl} className='imageLegend'/>
-                    <p>{icon.description}</p>
-                </div>
-            )}
+            
+            {statusExpand ? 
+                <img className='closeIcon' 
+                    src={collapseIcon}  
+                    onClick={handleClick}
+                    alt='cancel - close'
+                    width={"30px"}
+                />
+                :
+                <img className='closeIcon' 
+                    src={expandIcon}  
+                    onClick={handleClick}
+                    alt='cancel - close'
+                    width={"30px"}
+                />
+            }
+
+            {statusExpand && 
+            <Icons icons={icons} />
+            }
+
         </div>      
       )
 }
