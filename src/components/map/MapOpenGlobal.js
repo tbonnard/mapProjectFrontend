@@ -9,8 +9,8 @@ import { setBounds } from '../../reducers/boundsReducer';
 
 
 import MapOpen from './MapOpen'
-import SearchForm from './SearchForm';
 import CurrentLocation from './CurrentLocation';
+import FollowItemsProjects from '../follow/FollowItemsProjects';
 
 
 const MapOpenGlobal = () => {
@@ -72,6 +72,9 @@ const MapOpenGlobal = () => {
             {/* <SearchForm /> */}
             <div className='mapGlobal' id='map' >
                   <MapOpen mapQueryData={mapData} zoom={zoom} />
+            </div>
+            <div className='feedsHome'>
+                  <FollowItemsProjects />
             </div>
       </div>
 

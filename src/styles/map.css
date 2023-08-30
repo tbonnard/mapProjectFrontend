@@ -136,6 +136,22 @@
 .addSuggestionMarkerItem{
     text-align: center;
 }
+
+
+.feedsHome {
+    padding-top: 50px;
+    height: 100%;
+    overflow: auto;
+}
+
+
+@media (max-width: 1000px) {
+    .feedsHome {
+      display: none;
+    }
+  
+  }
+
 /* 
 @media (max-width: 1050px) {
     .mapItem {
