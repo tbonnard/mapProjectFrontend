@@ -42,11 +42,11 @@ export const getMapQueryDataDBData = (parameterData) => {
     }
 }
 
-export const getMapQueryDataOverpassTurbo = (parameterData) => {
+export const getMapQueryDataAroundCenterAll = (parameterData) => {
     return async dispatch => {
-        const propertyItem = await mapQueryServices.getMapQueryDataOverpassTurbo(parameterData)
+        const propertyItem = await mapQueryServices.getMapQueryDataAroundCenterAll(parameterData)
         dispatch({
-            type: "MAP_QUERY_OVERPASS_DATA",
+            type: "MAP_QUERY_AROUND_CENTER_ALL",
             data: propertyItem
             })
     }

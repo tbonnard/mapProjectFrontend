@@ -6,7 +6,7 @@ import MapMarker from './MapMarker';
 import * as L from "leaflet";
 
 import SearchNearPoint from './SearchNearPoint';
-import SearchTurboPass from './SearchTurboPass';
+import SearchAroundCenterAll from './SearchAroundCenterAll';
 
 import Legend from './Legend';
 
@@ -14,7 +14,6 @@ import Legend from './Legend';
 const MapOpenMid = ({mapQueryData, bounds}) => {
 
   const map = useMap()
-
 
   // TODO: custom images in icon based on type
   // https://blogs.absyz.com/2019/04/03/customizing-the-markers-in-your-leaflet-map
@@ -44,12 +43,14 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
   
 
   // FIXME: when new project, marker icon does not update (need to research)
+  //TODO: clic sur map et ca va search l'item OSM
+
 
   return (
     <>
         <SearchNearPoint map={map} bounds={bounds}/>
 
-        {/* <SearchTurboPass map={map} bounds={bounds}/> */}
+        {/* <SearchAroundCenterAll map={map} bounds={bounds}/> */}
 
         <Legend icons={iconsList}/>
 

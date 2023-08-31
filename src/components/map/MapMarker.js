@@ -9,6 +9,8 @@ import { setPropertyItem } from '../../reducers/propertyReducer';
 
 import Follow from '../follow/Follow';
 
+import goIcon from '../../media/gogreen.png'
+
 import aeroway from '../../media/addresstype/aeroway.png'
 import aerialway from '../../media/addresstype/aeroway.png'
 import amenity from '../../media/addresstype/building.png'
@@ -128,26 +130,39 @@ const MapMarker = ({icon, markerData}) => {
         
         <Popup>
           <div className='layerTitleMap'>
+
             <div className='layerTitleInternal'>
               <div className='layerTitleAddressType'>
                 <img src={typeImageIcon[markerData.addresstype]} alt={markerData.addresstype} title={markerData.addresstype}/>
                 <p>{markerData.addresstype}</p>
               </div>
-              <p>
-              {markerData.display_name}
-              </p>
+              
+              <div className='popUpNameGoIcon'>
+                {markerData.name ? <h3>{markerData.name}</h3> : <h3>{markerData.display_name}</h3>}
+              
+                <img className='goIcon' 
+                        src={goIcon}  
+                        onClick={handleClickButtonMarker}
+                        alt='See details'
+                        width={"30px"}
+                    />
+              </div>
+
             </div>
-            <button className='buttonPrimary' onClick={handleClickButtonMarker}>select</button>
+
+            {/* <button className='buttonPrimary' onClick={handleClickButtonMarker}>select</button> */}
           </div>
         
           <MarkerProjectsList markerData={markerData}/>
 
-          <div className='addSuggestionMarkerItem'>
-              <button onClick={handleClick} className='buttonTier MainColor'>add your suggestion</button>
-            </div>
+          <div className='bottomMarkerActions'>
+            <div className='addSuggestionMarkerItem'>
+                <button onClick={handleClick} className='buttonTier MainColor'>add your suggestion</button>
+              </div>
 
-            <Follow />
-     
+              <Follow />
+          </div>
+
         </Popup>
         
         

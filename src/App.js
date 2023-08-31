@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import {
   Routes,
@@ -11,7 +11,6 @@ import './styles/buttons.css';
 
 import MapOpenGlobal from './components/map/MapOpenGlobal'
 import Header from './components/global/Header'
-import Intro from './components/home/Intro';
 import HowItWorks from './components/home/HowItWorks';
 import Projects from './components/project/Projects';
 import UserInfo from './components/login/UserInfo';
@@ -19,9 +18,7 @@ import LoginForm from './components/login/LoginForm';
 import AccountForm from './components/login/AccountForm';
 import NotificationTemp from './components/global/NotificationTemp'
 
-import { getChoices } from './reducers/choiceReducer';
 import { getUserInfo } from '../src/reducers/userReducer'
-
 
 import csrfServices from '../src/services/csrfService'
 
@@ -38,19 +35,21 @@ import SearchForm from './components/map/SearchForm';
 // TODO: sort options projects : created / most positive voted / not me voted projects
 // TODO: share a suggestion
 // TODO: report proj
+// TODO: Get user data for analytics, country api…
+// TODO: add new item > search near in OSM (all radius small) > if none, creaate new
+
+
 
 //TODO: download all OSM data --> https://planet.openstreetmap.org/
 //https://www.geoapify.com/ways-to-get-openstreetmap-data
+
 
 function App() {
   
   const dispatch = useDispatch()
 
-  const user = useSelector(state => state.user)
-
   useEffect(() => {
     csrfServices.getCsrfToken()
-    dispatch(getChoices())
     dispatch(getUserInfo())
   },[dispatch])
 
@@ -79,8 +78,6 @@ function App() {
 
         <Route path='/'  element={
           <>
-            {/* <Header /> */}
-            {/* <Intro /> */}
             <SearchForm />
             <Menu />
             <MapOpenGlobal />

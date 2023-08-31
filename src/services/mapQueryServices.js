@@ -3,6 +3,7 @@ import axios from 'axios'
 const baseUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PROD_URL : process.env.REACT_APP_DEV_URL;
 const url = `${baseUrl}api/querylocation/`
 const urldb = `${baseUrl}api/querylocationdb/`
+const urlSearchNearbyPosition = `${baseUrl}api/querylocationaround/`
 
 const getMapQueryData = async (parameterData) => {
     axios.defaults.withCredentials = false;
@@ -21,16 +22,18 @@ const getMapQueryDataDBData = async (itemObject) => {
     return response.data
 }
 
-const getMapQueryDataOverpassTurbo =  async (data) => {
-    axios.defaults.withCredentials = false;
+const getMapQueryDataAroundCenterAll =  async (itemObject) => {
     // const urlOverpassTurbo = `https://www.overpass-api.de/api/interpreter?${parameterData}`
-    const urlOverpassTurbo = `https://www.overpass-api.de/api/interpreter?`
-    const response = await axios.post(`${urlOverpassTurbo}`, {body:data})
+    const exam = "[out:json](node(51.249,7.148,51.251,7.152);<;);out+body;"
+    const urlOverpassTurbo = `https://overpass-api.de/api/interpreter?data=${exam}`
+    const response = await axios.post(`${urlOverpassTurbo}`, {data:"(node(51.249,7.148,51.251,7.152);<;);out+meta;"} )
+
+    // const response = await axios.post(`${urlSearchNearbyPosition}`, {itemObject} )
+    console.log(response.data)
     return response.data
 }
 
-
-const exportedObject = { getMapQueryData, getMapQueryDataSearchNearLocation, getMapQueryDataDBData, getMapQueryDataOverpassTurbo } 
+const exportedObject = { getMapQueryData, getMapQueryDataSearchNearLocation, getMapQueryDataDBData, getMapQueryDataAroundCenterAll } 
 
 export default exportedObject
 
