@@ -18,7 +18,6 @@ import MapOpenMid from './MapOpenMid';
 // TODO: add marker / put marker on click
 
 
-
 const MapOpen = ({mapQueryData}) => {
 
   const loading = useSelector(state => state.loadingFlag)

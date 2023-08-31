@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Marker, Popup } from 'react-leaflet';
 
 import { setPropertyItem } from '../../reducers/propertyReducer';
+import { getProjectsfromProperty } from '../../reducers/projectReducer';
 
 import Follow from '../follow/Follow';
 
@@ -52,6 +53,8 @@ import island from '../../media/addresstype/island.png'
 import mountain from '../../media/addresstype/mountain.png'
 import industrial from '../../media/addresstype/industrial.png'
 import MarkerProjectsList from './MarkerProjectsList';
+
+
 
 const MapMarker = ({icon, markerData}) => {
 
@@ -108,6 +111,8 @@ const MapMarker = ({icon, markerData}) => {
 
   const handleClickMarker = (dataMap) => {
     dispatch(setPropertyItem(dataMap))
+    dispatch(getProjectsfromProperty(dataMap))
+
   }
 
   const handleClickButtonMarker = () => {
@@ -119,6 +124,7 @@ const MapMarker = ({icon, markerData}) => {
     navigate('/suggestion')
 }
 
+ 
     return (    
       <Marker position={[markerData['lat'], markerData['lon']]} icon={icon} 
       eventHandlers={{

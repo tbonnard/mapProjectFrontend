@@ -16,7 +16,6 @@ const ChoicesWithVotes = ({votesProjUser, project, user}) => {
 
   const handleClick = (e) => {
       e.preventDefault()
-      console.log(e.target.getAttribute('data-value-option'))
       const itemVoted = {'voter':user.id, 'project':project.id, 'property':project.property, 'value':parseInt(e.target.getAttribute('data-value-option'))}
       if (votesProjUser[0].value === parseInt(e.target.getAttribute('data-value-option'))) {
           dispatch(removeVoteUserProperty(votesProjUser[0].id))
