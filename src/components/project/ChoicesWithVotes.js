@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux'
 
 import '../../styles/choices.css'
 
-import { addVoteUserProperty, removeVoteUserProperty } from '../../reducers/voteUserPropertyProjectReducer';
+import { addVoteAllPropertyFollowed, removeVoteAllPropertyFollowed} from '../../reducers/voteAllPropertiesFollowedReducer'
+
 
 const ChoicesWithVotes = ({votesProjUser, project, user}) => {
     
@@ -18,10 +19,10 @@ const ChoicesWithVotes = ({votesProjUser, project, user}) => {
       e.preventDefault()
       const itemVoted = {'voter':user.id, 'project':project.id, 'property':project.property, 'value':parseInt(e.target.getAttribute('data-value-option'))}
       if (votesProjUser[0].value === parseInt(e.target.getAttribute('data-value-option'))) {
-          dispatch(removeVoteUserProperty(votesProjUser[0].id))
+        dispatch(removeVoteAllPropertyFollowed(votesProjUser[0].id))
       } else {
-          dispatch(removeVoteUserProperty(votesProjUser[0].id))
-          dispatch(addVoteUserProperty(itemVoted))
+        dispatch(removeVoteAllPropertyFollowed(votesProjUser[0].id))
+        dispatch(addVoteAllPropertyFollowed(itemVoted))
         }   
   }
 

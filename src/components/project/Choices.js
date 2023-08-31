@@ -17,7 +17,8 @@ import ChoicesWithVotes from './ChoicesWithVotes';
 const Choices = ({project}) => {
     
   const user = useSelector(state => state.user)
-  const voteUserProperty = useSelector(state => state.voteUserProperty)
+  // const voteUserProperty = useSelector(state => state.voteUserProperty)
+  const voteUserProperty = useSelector(state => state.voteAllPropertiesFollowed)
 
   const [votesProjUser, setVotesProjUser] = useState([])
   

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Project from '../project/Project';
 
 import { followPropertiesGetProjects } from '../../reducers/followPropertiesGetProjectsReducer';
-import {checkUserVotesAllPropertiesFollowed } from '../../reducers/voteUserPropertyProjectReducer'
+import {checkUserVotesAllPropertiesFollowed } from '../../reducers/voteAllPropertiesFollowedReducer'
 
 import '../../styles/follow.css'
 

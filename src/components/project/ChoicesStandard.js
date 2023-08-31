@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux'
 
 import '../../styles/choices.css'
 
-import { addVoteUserProperty } from '../../reducers/voteUserPropertyProjectReducer';
+
+import { addVoteAllPropertyFollowed} from '../../reducers/voteAllPropertiesFollowedReducer'
 import { setNotification } from '../../reducers/notificationTempReducer';
 
 
@@ -18,7 +19,7 @@ const ChoicesStandard = ({project, user}) => {
       dispatch(setNotification({message:'you must be logged in to vote', style:'warning', time:4000}))
     } else {
       const itemVoted = {'voter':user.id, 'project':project.id, 'property':project.property, 'value':parseInt(e.target.getAttribute('data-value-option'))}
-      dispatch(addVoteUserProperty(itemVoted))
+      dispatch(addVoteAllPropertyFollowed(itemVoted))
     }
 
   }
