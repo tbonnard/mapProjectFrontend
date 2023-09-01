@@ -90,7 +90,7 @@ export const expiredToken = () => {
             data: null
             })
             dispatch(logoutUser())
-            dispatch(setNotification({message:'You must re-login', style:'error', time:10000}))
+            dispatch(setNotification({message:'Your authentication has expired, you must re-login. Thank you !', style:'error', time:10000}))
     }
 }
 
