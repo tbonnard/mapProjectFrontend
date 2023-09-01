@@ -7,6 +7,9 @@ import '../../styles/project.css'
 
 import ProjectPreForm from './ProjectPreForm';
 
+
+// TODO: go to map coordinates
+
 const Projects = () => {
   
   

@@ -18,6 +18,8 @@ import voteUserPropertyProjectReducer from './reducers/voteUserPropertyProjectRe
 import followPropertiesGetProjectsReducer from './reducers/followPropertiesGetProjectsReducer'
 import voteAllPropertiesFollowedReducer from './reducers/voteAllPropertiesFollowedReducer';
 
+import {logger} from './utils/middleware';
+
 const appReducer = combineReducers({
     mapQuery:mapQueryReducer,
     property:propertyReducer,
@@ -42,6 +44,8 @@ const appReducer = combineReducers({
     return appReducer(state, action)
   }
   
-  const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
+  const store = createStore(rootReducer, 
+                  composeWithDevTools(applyMiddleware(thunk, logger))
+                )
   
   export default store

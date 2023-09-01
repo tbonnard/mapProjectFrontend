@@ -18,7 +18,7 @@ import LoginForm from './components/login/LoginForm';
 import AccountForm from './components/login/AccountForm';
 import NotificationTemp from './components/global/NotificationTemp'
 
-import { getUserInfo } from '../src/reducers/userReducer'
+import { expiredToken, getUserInfo } from '../src/reducers/userReducer'
 
 import csrfServices from '../src/services/csrfService'
 
@@ -39,10 +39,10 @@ import SearchForm from './components/map/SearchForm';
 // TODO: add new item > search near in OSM (all radius small) > if none, creaate new
 
 
-
 //TODO: download all OSM data --> https://planet.openstreetmap.org/
 //https://www.geoapify.com/ways-to-get-openstreetmap-data
 
+import { isCookieExpired } from './services/checkToken';
 
 function App() {
   
@@ -51,6 +51,7 @@ function App() {
   useEffect(() => {
     csrfServices.getCsrfToken()
     dispatch(getUserInfo())
+
   },[dispatch])
 
 

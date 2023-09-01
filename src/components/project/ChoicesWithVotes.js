@@ -27,7 +27,6 @@ const ChoicesWithVotes = ({votesProjUser, project, user}) => {
   }
 
   useEffect(() => {
-    console.log(votesProjUser[0])
     if (votesProjUser[0].value ===1 ) {
       setclassVoteYes1('voteIconAllDefault voteYesIconSelected')
       setclassVoteNo2('voteIconAllDefault voteNoIcon')

@@ -45,9 +45,6 @@ export const createAccount = (accountObject) => {
     }
 }
 
-// FIXME: bug login ca logout et login ensuite - how to reproduce ?
-// FIXME: bug if token expired
-// https://www.bezkoder.com/react-logout-token-expired/
 
 export const getUserInfo = () =>{
     return async dispatch => {
@@ -86,9 +83,23 @@ export const logoutUser = () => {
 }
 
 
+export const expiredToken = () => {
+    return async dispatch => {
+        dispatch({
+            type: "EXPIRED_TOKEN_USER",
+            data: null
+            })
+            dispatch(logoutUser())
+            dispatch(setNotification({message:'You must re-login', style:'error', time:10000}))
+    }
+}
+
+
 const userReducer = (state=null, action) => {
     switch(action.type) {
         case 'USER_LOGIN':
+            return action.data
+        case 'EXPIRED_TOKEN_USER':
             return action.data
         case 'LOGOUT_USER':
             return action.data
