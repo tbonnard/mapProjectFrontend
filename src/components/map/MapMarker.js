@@ -55,6 +55,8 @@ import industrial from '../../media/addresstype/industrial.png'
 import MarkerProjectsList from './MarkerProjectsList';
 
 
+import '../../styles/map.css'
+
 
 const MapMarker = ({icon, markerData}) => {
 

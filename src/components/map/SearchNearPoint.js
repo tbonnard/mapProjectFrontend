@@ -45,6 +45,7 @@ const SearchNearPoint = ({map, bounds}) => {
             <div className='searchNearButtonDiv'>
                 <img className='navigationIcon' src={navigationIcon}/>
                 <button className='searchNearButton' onClick={handleClick}>or search for any nearby places with suggestions</button>
+                {/* <button className='searchNearButton' onClick={handleClick}>nearby with suggestions</button> */}
             </div>
         </div>
         )

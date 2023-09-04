@@ -9,6 +9,7 @@ import SearchNearPoint from './SearchNearPoint';
 import SearchAroundCenterAll from './SearchAroundCenterAll';
 
 import Legend from './Legend';
+import MapDraggable from './MapDraggable';
 
 
   // FIXME: when new project, marker icon does not update (need to research)
@@ -48,6 +49,7 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
 
   return (
     <>
+        <MapDraggable />
         <SearchNearPoint map={map} bounds={bounds}/>
 
         {/* <SearchAroundCenterAll map={map} bounds={bounds}/> */}

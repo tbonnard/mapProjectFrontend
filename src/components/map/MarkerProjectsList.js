@@ -10,6 +10,8 @@ import { getProjectsfromProperty } from '../../reducers/projectReducer';
 
 import MarkerProjectsListItem from './MarkerProjectsListItem';
 
+import '../../styles/map.css'
+
 
 // TODO: hot suggestions only
 
