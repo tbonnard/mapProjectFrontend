@@ -52,6 +52,7 @@
 .layerTitleMap{
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .layerTitleInternal {
@@ -70,6 +71,7 @@
 .goIcon {
     cursor: pointer;
     z-index: 501;
+    width: 20px;
 }
 
 .goIcon:hover {
@@ -177,9 +179,13 @@
 }
 
 
+.markerMap {
+    width: 350px !important;
+}
+
 .divPopUpProjects{
     height: auto;
-    width: auto;
+    width: 100%;
 }
 
 .markerProjectDivItem {

@@ -136,7 +136,7 @@ const MapMarker = ({icon, markerData}) => {
       }}
       >
         
-        <Popup>
+        <Popup  className='markerMap'>
           <div className='layerTitleMap'>
 
             <div className='layerTitleInternal'>
@@ -152,6 +152,7 @@ const MapMarker = ({icon, markerData}) => {
                         src={goIcon}  
                         onClick={handleClickButtonMarker}
                         alt='See details'
+                        title='See details'
                         width={"30px"}
                     />
               </div>

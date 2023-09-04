@@ -19,6 +19,7 @@ const CloseIcon = () => {
                     onClick={closeLayer}
                     alt='cancel - close'
                     width={"30px"}
+                    title='cancel - close'
                 />
     )
 }

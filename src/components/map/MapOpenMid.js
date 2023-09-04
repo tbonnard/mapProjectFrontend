@@ -50,6 +50,7 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
   return (
     <>
         <MapDraggable />
+        
         <SearchNearPoint map={map} bounds={bounds}/>
 
         {/* <SearchAroundCenterAll map={map} bounds={bounds}/> */}

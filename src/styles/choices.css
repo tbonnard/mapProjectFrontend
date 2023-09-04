@@ -1,5 +1,4 @@
 .choicesGlobal {
-    padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -39,7 +38,8 @@
 
 
 .voteIconsDiv {
-    width: 40px;
+    width: 30px;
+    padding: 0 5px;
 }
 
 .voteIconAllDefault {
