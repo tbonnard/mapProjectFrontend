@@ -18,8 +18,8 @@ const MapDraggable = () => {
 
   const map = useMapEvents({
     dragend: (e) => {
-      console.log("mapCenter", e.target.getCenter());
-      console.log("map bounds", e.target.getBounds());
+      // console.log("mapCenter", e.target.getCenter());
+      // console.log("map bounds", e.target.getBounds());
 
       const boundsToSet = [[parseFloat(e.target.getBounds()['_northEast']['lat']), parseFloat(e.target.getBounds()['_northEast']['lng'])], [parseFloat(e.target.getBounds()['_southWest']['lat']), parseFloat(e.target.getBounds()['_southWest']['lat'])]]
       // console.log(boundsToSet)
