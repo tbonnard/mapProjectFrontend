@@ -36,7 +36,7 @@ const MapOpenGlobal = () => {
             }
       }, [mapQueryData, dispatch])
 
-
+      
   return (
       <div className='divSearchMap'>
             <CurrentLocation defaultCoordinates={defaultCityCoordinates} />

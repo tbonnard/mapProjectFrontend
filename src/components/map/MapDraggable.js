@@ -22,12 +22,17 @@ const MapDraggable = () => {
       console.log("map bounds", e.target.getBounds());
 
       const boundsToSet = [[parseFloat(e.target.getBounds()['_northEast']['lat']), parseFloat(e.target.getBounds()['_northEast']['lng'])], [parseFloat(e.target.getBounds()['_southWest']['lat']), parseFloat(e.target.getBounds()['_southWest']['lat'])]]
-      console.log(boundsToSet)
+      // console.log(boundsToSet)
       // dispatch(setBounds(boundsToSet))
       
       const itemObject = {latitude:e.target.getCenter()['lat'], longitude:e.target.getCenter()['lng']}
       // dispatch(getMapQueryDataSearchNearLocation(itemObject))
-    }
+    },
+    click: (e) => {
+      const zoomCurrent = map.getZoom()
+      // console.log(e.latlng.lat,e.latlng.lng);
+      map.flyTo([e.latlng.lat,e.latlng.lng], zoomCurrent)
+        }
   });
 
   return (

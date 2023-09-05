@@ -61,37 +61,33 @@ export const getMapQueryDataAroundCenterAll = (parameterData) => {
         dispatch(setLongLoading(true))
         const propertyItem = await mapQueryServices.getMapQueryDataAroundCenterAll(parameterData)
         const newObjects = []
+        let typesIds = ''
         for (const i in propertyItem['elements']) {
-            const typeId = propertyItem['elements'][i]['type'].charAt(0).toUpperCase()+propertyItem['elements'][i]['id']
-            
-            const newObjectOSM = await mapQueryServices.getItemsIdsToOSM(typeId)
-            if (newObjectOSM) {
-                newObjects.push(newObjectOSM[0])
-            }
-
-            // const newObject = {
-            //     'place_id': null, //call OSM to get placeId if needed to create the item
-            //     'osm_type': propertyItem['elements'][i]['type'],
-            //     'osm_id': propertyItem['elements'][i]['id'],
-            //     'lat': propertyItem['elements'][i]['lat'],
-            //     'lon': propertyItem['elements'][i]['lon'],
-            //     'category': propertyItem['elements'][i]['tags']['amenity'],
-            //     'type': propertyItem['elements'][i]['tags']['amenity'],
-            //     'place_rank': null,
-            //     'importance': null,
-            //     'addresstype': null,
-            //     'name': propertyItem['elements'][i]['tags']['name'],
-            //     'display_name': propertyItem['elements'][i]['tags']['name'],
-            // }
-        
+            if (typesIds.length === 0) {
+                typesIds = propertyItem['elements'][i]['type'].charAt(0).toUpperCase()+propertyItem['elements'][i]['id'] 
+            } else {
+                typesIds = typesIds + ',' + propertyItem['elements'][i]['type'].charAt(0).toUpperCase()+propertyItem['elements'][i]['id'] 
+            }       
         }
-        // let newObjectsJson = JSON.stringify(newObjects);
+
+        const newObjectOSM = await mapQueryServices.getItemsIdsToOSM(typesIds)
+        
+        if (!newObjectOSM) {
+
+            for (const i in propertyItem['elements']) {
+                const typeId = propertyItem['elements'][i]['type'].charAt(0).toUpperCase()+propertyItem['elements'][i]['id']
+                newObjectOSM = await mapQueryServices.getItemsIdsToOSM(typeId)
+                if (newObjectOSM) {
+                    newObjects.push(newObjectOSM[0])
+                }
+            }
+        }
 
         dispatch({
             type: "MAP_QUERY_AROUND_CENTER_ALL",
-            data: newObjects
+            data: newObjectOSM
             })
-            dispatch(getMapQueryDataDBData(newObjects))
+            dispatch(getMapQueryDataDBData(newObjectOSM))
             dispatch(setLoading(false))
     }
 }

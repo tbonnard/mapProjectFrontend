@@ -21,7 +21,7 @@ const SearchAroundCenterAll = ({map, bounds}) => {
         removeInputTextContent()
         const coordinates = map.getCenter()
         const bounding = map.getBounds()
-        map.setZoom(16);
+        map.setZoom(18);
         if (map.getZoom() >= 12) {
             dispatch(getMapQueryDataAroundCenterAll(coordinates))
         } else {

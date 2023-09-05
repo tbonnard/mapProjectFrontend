@@ -40,6 +40,9 @@ const getItemsIdsToOSM =  async (itemObject) => {
     const url = `https://nominatim.openstreetmap.org/lookup?osm_ids=${itemObject}&polygon_geojson=1&format=jsonv2`
     const response = await axios.get(`${url}` )
     console.log(response.data)
+    if (response.status !== 200) {
+        return false
+    }
     return response.data
 }
 

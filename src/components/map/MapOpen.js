@@ -7,6 +7,8 @@
 import React from 'react';
 import {  useSelector } from 'react-redux'
 
+import { Helmet } from 'react-helmet';
+
 import { MapContainer } from 'react-leaflet';
 
 import '../../styles/map.css'
@@ -24,15 +26,18 @@ const MapOpen = ({mapQueryData}) => {
 
   // on Map maxZoom={30}
 
+
   return (
     <>
+    
       <MapContainer className='mapItem' bounds={bounds} key={bounds} scrollWheelZoom={true} >
-             
-          <LoadingIcon />
+          
+        <LoadingIcon />
 
         <MapOpenMid mapQueryData={mapQueryData} bounds={bounds} />
     
       </MapContainer>
+
     </>
       
   )
