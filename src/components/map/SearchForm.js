@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux'
 import '../../styles/searchForm.css'
 
 import { getMapQueryData } from '../../reducers/mapQueryReducer';
-import { setLoading } from '../../reducers/loadingReducer';
 
 
 //TODO: search optim based on center / zoom
@@ -31,7 +30,6 @@ const SearchForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setLoading(true))
     dispatch(getMapQueryData(placeAddress))
   }
 
@@ -42,7 +40,6 @@ const SearchForm = () => {
             <button className="buttonPrimary" type='submit'>submit</button>
         </form>
     </div>
-
   )
 }
 

@@ -4,12 +4,15 @@ import loadingGifIcon from '../../media/loadinggif.gif'
 
 
 import '../../styles/layer1stLevel.css'
+import { useSelector } from 'react-redux'
 
 const LoadingIcon = ({}) => {
 
+    const loadingIconState = useSelector(store => store.loadingFlag)
 
-    const closeLayer = () => {
-        
+
+    if (!loadingIconState) {
+        return null
     }
 
     return (

@@ -27,6 +27,10 @@ const SubMenu = ({setMenuDisplayed}) => {
         navigate('/howitworks')
     }
 
+    const handleWhy = () => {
+        navigate('/why')
+    }
+
     const closeLayer = () => {
         setMenuDisplayed(false)
     }
@@ -53,6 +57,11 @@ const SubMenu = ({setMenuDisplayed}) => {
             :
                   <button className='buttonTier MainColor' onClick={handleLogin}>login</button>
             }
+        </div>
+
+
+        <div className='subMenuButtonDiv'>
+            <button className='buttonTier MainColor' onClick={handleWhy}>why?</button>
         </div>
 
         <div className='subMenuButtonDiv'>

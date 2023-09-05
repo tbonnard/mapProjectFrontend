@@ -17,8 +17,9 @@ import UserInfo from './components/login/UserInfo';
 import LoginForm from './components/login/LoginForm';
 import AccountForm from './components/login/AccountForm';
 import NotificationTemp from './components/global/NotificationTemp'
+import Why from './components/home/Why';
 
-import { expiredToken, getUserInfo } from '../src/reducers/userReducer'
+import { getUserInfo } from '../src/reducers/userReducer'
 
 import csrfServices from '../src/services/csrfService'
 
@@ -37,12 +38,11 @@ import SearchForm from './components/map/SearchForm';
 // TODO: report proj
 // TODO: Get user data for analytics, country api…
 // TODO: add new item > search near in OSM (all radius small) > if none, creaate new
-
+//TODO: Language file
 
 //TODO: download all OSM data --> https://planet.openstreetmap.org/
 //https://www.geoapify.com/ways-to-get-openstreetmap-data
 
-import { isCookieExpired } from './services/checkToken';
 
 function App() {
   
@@ -74,6 +74,8 @@ function App() {
         <Route path='/signup' element= { <AccountForm /> } />
 
         <Route path='/howitworks' element= { <HowItWorks /> } />
+
+        <Route path='/why' element= { <Why /> } />
 
         <Route path='/suggestion' element= { <ProjectForm /> } />
 

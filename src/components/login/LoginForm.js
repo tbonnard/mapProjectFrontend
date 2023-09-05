@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { userLogin } from '../../reducers/userReducer'
 
 import CloseIcon from '../global/CloseIcon';
+import LoadingIcon from '../global/LoadingIcon';
 
 
 const LoginForm = () => {
@@ -35,6 +36,8 @@ const LoginForm = () => {
 
     return (
         <div className='layerGlobal'>
+        
+              <LoadingIcon />
 
               <CloseIcon />
 

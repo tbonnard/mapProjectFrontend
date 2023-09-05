@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { setNotification } from '../../reducers/notificationTempReducer'
 import { getMapQueryDataSearchNearLocation } from '../../reducers/mapQueryReducer'
-import { setLoading } from '../../reducers/loadingReducer'
 import { setUserLocationFlag } from '../../reducers/userLocationReducer'
 
 const CurrentLocation = ({defaultCoordinates}) => {    
@@ -32,7 +31,6 @@ const CurrentLocation = ({defaultCoordinates}) => {
 
     useEffect(() => {
         if (!userLocationFlag) { 
-            dispatch(setLoading(true))
             setCoordinates(defaultCoordinates)
             dispatch(setNotification({message:'Awaiting on loading properties with suggestions in a 10km radius', style:'warning', time:5000}))
             const options = {

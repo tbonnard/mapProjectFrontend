@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import '../../styles/map.css'
 
-import { setLoading } from '../../reducers/loadingReducer';
 import { setNotification } from '../../reducers/notificationTempReducer'
 import { setBounds } from '../../reducers/boundsReducer';
 
@@ -30,12 +29,10 @@ const MapOpenGlobal = () => {
                   let newBounds = []
                   mapQueryData.map((item) =>newBounds.push([item.lat, item.lon]) )
                   dispatch(setBounds(newBounds))
-                  dispatch(setLoading(false))
             } else {
                   if (loadingFlag) {
                         dispatch(setNotification({message:'No results found related to your search', style:'warning', time:5000}))
                   }
-                  dispatch(setLoading(false))
             }
       }, [mapQueryData, dispatch])
 

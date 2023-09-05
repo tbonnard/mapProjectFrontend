@@ -94,7 +94,7 @@
     /* left: 10px; */
     top: 90px;
     z-index: 500;
-    width: 190px;
+    width: 170px;
     height: auto;
     /* margin: 10px 5px; */
     left: 0; 
@@ -108,11 +108,12 @@
     color: white; */
     background-color: white;
     color: var(--main);
-    padding: 7px 0px 7px 10px;
+    padding: 7px 15px 7px 10px;
     cursor: pointer;
     border: none;
     border-radius: 5%;
     text-align: left;
+    width: 100%;
 }
 
 .searchNearButton:hover {
@@ -122,9 +123,9 @@
 
 .navigationIcon {
     position: absolute;
-    width: 15px;
-    right: 8px;
-    top:19px;
+    width: 13px;
+    right: 3px;
+    top:10px;
     z-index: 501;
 }
 

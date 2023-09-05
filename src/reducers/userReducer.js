@@ -2,10 +2,11 @@ import userServices from '../services/userServices'
 
 
 import { setNotification } from './notificationTempReducer'
-
+import { setLoading } from './loadingReducer'
 
 export const userLogin = (credentials) => {
     return async dispatch => {
+        dispatch(setLoading(true))
         try {
             const user = await userServices.loginUser(credentials)
             document.cookie = `jwtTk=${user.jwt}; Path=/ ; samesite=Lax`
@@ -17,11 +18,13 @@ export const userLogin = (credentials) => {
         } catch(exception) {
             dispatch(setNotification({message:'wrong credentials, please try again', style:'error', time:10000}))
         }
+        dispatch(setLoading(false))
     }
 }
 
 export const createAccount = (accountObject) => {
     return async dispatch => {
+        dispatch(setLoading(true))
         try {
             const newUser = await userServices.createAccount(accountObject)
             document.cookie = `jwtTk=${newUser.jwt}; Path=/ ; samesite=Lax`
@@ -30,7 +33,7 @@ export const createAccount = (accountObject) => {
                 type: "USER_CREATE_ACCOUNT",
                 data: newUser.user
             })
-            
+            dispatch(setLoading(false))
             // if (newUser) {
             //     user = await userServices.loginUser({ email:accountObject.email, password:accountObject.password })
             //     userDetails = await userServices.userDetails()
