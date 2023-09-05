@@ -44,8 +44,11 @@ const appReducer = combineReducers({
     return appReducer(state, action)
   }
   
-  const store = createStore(rootReducer, 
-                  composeWithDevTools(applyMiddleware(thunk, logger))
-                )
-  
+  const middlewares = [thunk, logger]
+
+  const store = createStore(
+            rootReducer,
+            composeWithDevTools(applyMiddleware(...middlewares))
+            )
+
   export default store

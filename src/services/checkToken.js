@@ -22,10 +22,18 @@ export function isCookieExpired() {
     let decodedToken = jwt_decode(`${token}`);
     // console.log("Decoded Token", decodedToken);
     let currentDate = new Date();
+    // console.log(decodedToken.exp)
     
+    // const birthday = new Date(1970, 0, 1);
+    // console.log(birthday)
+    // console.log(birthday.getTime())
+
+
     // JWT exp is in seconds
-    if (decodedToken.exp * 1000 < currentDate.getTime()) {
+    if (decodedToken.exp * 1000 < currentDate.getTime() && decodedToken.exp * 1000 > 0 ) {
     //   console.log("Token expired.");
+    document.cookie = "jwtTk=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+
       return true
     } else {
     //   console.log("Valid token");   
