@@ -9,6 +9,8 @@ import { setPropertyItem } from '../../reducers/propertyReducer';
 import { getProjectsfromProperty } from '../../reducers/projectReducer';
 
 import Follow from '../follow/Follow';
+import MarkerProjectsList from './MarkerProjectsList';
+
 
 import goIcon from '../../media/gogreen.png'
 
@@ -52,7 +54,53 @@ import state from '../../media/addresstype/state.png'
 import island from '../../media/addresstype/island.png'
 import mountain from '../../media/addresstype/mountain.png'
 import industrial from '../../media/addresstype/industrial.png'
-import MarkerProjectsList from './MarkerProjectsList';
+import bar from '../../media/addresstype/bar.png'
+import cafe from '../../media/addresstype/coffee.png'
+import burger from '../../media/addresstype/burger.png'
+import food from '../../media/addresstype/food.png'
+import icecream from '../../media/addresstype/icecream.png'
+import pub from '../../media/addresstype/pub.png'
+import school from '../../media/addresstype/school.png'
+import music from '../../media/addresstype/music.png'
+import book from '../../media/addresstype/book.png'
+import bicycle from '../../media/addresstype/bicycle.png'
+import boat from '../../media/addresstype/boat.png'
+import bus from '../../media/addresstype/bus.png'
+import car from '../../media/addresstype/car.png'
+import moto from '../../media/addresstype/moto.png'
+import fuel from '../../media/addresstype/fuel.png'
+import taxi from '../../media/addresstype/taxi.png'
+import currency from '../../media/addresstype/currency.png'
+import art from '../../media/addresstype/art.png'
+import casino from '../../media/addresstype/casino.png'
+import cinema from '../../media/addresstype/cinema.png'
+import people from '../../media/addresstype/people.png'
+import fountain from '../../media/addresstype/fountain.png'
+import planet from '../../media/addresstype/planet.png'
+import major from '../../media/addresstype/major.png'
+import theater from '../../media/addresstype/theater.png'
+import law from '../../media/addresstype/law.png'
+import fire from '../../media/addresstype/fire.png'
+import police from '../../media/addresstype/police.png'
+import mailbox from '../../media/addresstype/mailbox.png'
+import townhall from '../../media/addresstype/townhall.png'
+import barbecue from '../../media/addresstype/barbecue.png'
+import bench from '../../media/addresstype/bench.png'
+import animal from '../../media/addresstype/animal.png'
+import clothes from '../../media/addresstype/clothes.png'
+import shelter from '../../media/addresstype/shelter.png'
+import toilet from '../../media/addresstype/toilet.png'
+import phone from '../../media/addresstype/phone.png'
+import recycling from '../../media/addresstype/recycling.png'
+import bake_oven from '../../media/addresstype/bake_oven.png'
+import child from '../../media/addresstype/child.png'
+import time from '../../media/addresstype/time.png'
+import dive from '../../media/addresstype/dive.png'
+import hunt from '../../media/addresstype/hunt.png'
+import web from '../../media/addresstype/web.png'
+import kitchen from '../../media/addresstype/kitchen.png'
+import religion from '../../media/addresstype/religion.png'
+import dock from '../../media/addresstype/dock.png'
 
 
 import '../../styles/map.css'
@@ -61,50 +109,181 @@ import '../../styles/map.css'
 const MapMarker = ({icon, markerData}) => {
 
   const typeImageIcon = {
+    "arts_centre" : art,
     "aeroway" : aeroway,
     "aerialway":aerialway,
     "amenity": amenity,
+    "animal_boarding": animal,
+    "animal_bleeding": animal,
+    "animal_shelter": animal,
+    "animal_training": animal,
+    "atm" : currency,
+    "baking_oven":bake_oven,
+    "bank" : currency,
+    "bar":bar,
+    "barbecue":barbecue,
     "barrier": barrier,
+    "bench": bench,
+    "brothel": building,
+    "bicycle_parking": bicycle,
+    "bicycle_repair_station": bicycle,
+    "bicycle_rental": bicycle,
+    "boat_rental": boat,
+    "boat_sharing": boat,
+    "bureau_de_change" : currency,
+    "bus_station": bus,
+    "biergarten":bar,
     "boundary": boundary,
     "building": building,
+    "baby_hatch": healthcare,
+    "clinic": healthcare,
+    "crematorium": healthcare,
+    "clock": time,
+    "childcare":child,
+    "cafe": cafe,
+    "casino": casino,
+    "car_rental":car,
+    "car_sharing":car,
+    "car_wash":car,
+    "cinema": cinema,
     "city": city,
+    "college":school,
     "county":state,
     "country":country,
     "craft": craft,
+    "compressed_air":car,
+    "community_centre": people,
+    "conference_centre": school,
+    "courthouse": law,
+    "charging_station":power,
+    "dive_centre": dive,
+    "dog_toilet": animal,
+    "dentist": healthcare,
+    "doctors": healthcare,
+    "driver_training":car,
+    "dressing_room":clothes,
+    "drinking_water":fountain,
+    "dentist": healthcare,
     "emergency": emergency,
+    "events_venue": building,
+    "exhibition_centre": building,
+    "ferry_terminal": boat,
+    "fire_station": fire,
+    "funeral_hall": healthcare, 
+    "fast_food": burger,
+    "food_court": food,
+    "fuel":fuel,
+    "fountain": fountain,
+    "gambling": casino,
+    "give_box": people,
+    "grave_yard": healthcare, 
     "geological": geological,
+    "hunting_stand": hunt, 
     "hamlet":village,
     "healthcare": healthcare,
+    "hospital": healthcare,
     "highway": highway,
     "historic": historic,
+    "ice_cream":icecream,
     "island":island,
     "industrial": industrial,
+    "internet_cafe":web,
+    "kindergarten":school,
+    "kitchen":kitchen,
+    "kneipp_water_cure":water,
+    "language_school":school,
     "landuse": landuse,
     "leisure": leisure,
+    "libray": book,
+    "loading_dock":dock,
+    "lounger":bench,
+    "love_hotel": major,
+    "mailbox": mailbox,
+    "mailroom": mailbox,
     "man_made": manMade,
+    "marketplace": shop,
+    "monastery":religion,
     "mountain_pass":mountain,
+    "motorcycle_parking": moto,
     "municipality": city,
+    "music_school": music,
+    "music_venue": music,
     "neighbourhood":neighbourhood,
+    "nightclub": music,
     "natural":natural,
+    "nursing_home": healthcare,
     "military": military,
     "office": office,
+    "parcel_locker": mailbox,
+    "parking":car,
+    "parking_entrance":car,
+    "parking_space":car,
+    "pharmacy": healthcare,
+    "photo_booth": cinema,
     "park":park,
     "peak":mountain,
     "place": place,
+    "place_of_mourning": people,
+    "place_of_worship": religion,
+    "police": police,
+    "post_depot": mailbox,
+    "post_box": mailbox,
+    "post_office": mailbox,
+    "planetarium": planet,
+    "prison": police,
     "power": power,
+    "pub":pub,
+    "public_bath": water,
+    "public_bookcase": book,
     "public_transport": transport,
+    "ranger_station": police,
     "railway": railway,
+    "recycling":recycling,
+    "refugee_site": shelter,
+    "reasearch_institute":school,
     "residential": residential,
+    "restaurant": food,
     "road": route,
+    "sanitary_dump_station":recycling,
+    "security": police,
+    "shelter":shelter,
+    "shower":water,
+    "school":school,
+    "social_facility": healthcare,
+    "social_centre": people,
+    "stripclub": major,
+    "studio": music,
     "shop": shop,
     "sport": sport,
     "state":state,
+    "stage":theater,
     "suburb":suburb,
+    "swingerclub": major,
     "telecom": telecom,
+    "taxi":taxi,
+    "telephone": phone,
+    "theater":theater,
+    "theatre":theater,
+    "toilet":toilet,
+    "toilets":toilet,
     "tourism": tourism,
     "town": city,
+    "townhall": townhall,
+    "toy_libray": book,
+    "training":school,
+    "traffic_park":school,
+    "university":school,
     "village":village,
+    "veterinary": healthcare,
+    "vehicle_inspection":car,
+    "vending_machine": shop,
+    "waste_basket":recycling,
+    "waste_basket;recycling":recycling,
+    "waste_disposal":recycling,
+    "waste_transfer_station":recycling,
     "water": water,
+    "water_point": water,
+    "watering_place": water,
     "waterway": waterway,
 }
     
@@ -141,11 +320,16 @@ const MapMarker = ({icon, markerData}) => {
 
             <div className='layerTitleInternal'>
               <div className='layerTitleAddressType'>
-                <img src={typeImageIcon[markerData.addresstype]} alt={markerData.addresstype} title={markerData.addresstype}/>
-                {markerData.addresstype === 'amenity' ?
-                  <p>{markerData.type}</p>
+              {markerData.addresstype === 'amenity' ?  
+                  <>
+                    <img src={typeImageIcon[markerData.type]} alt={markerData.type} title={markerData.type}/>
+                    <p>{markerData.type}</p>
+                  </>              
                   :
-                  <p>{markerData.addresstype}</p>
+                  <>
+                    <img src={typeImageIcon[markerData.addresstype]} alt={markerData.addresstype} title={markerData.addresstype}/>
+                    <p>{markerData.addresstype}</p>
+                  </>
                   }
               </div>
               
