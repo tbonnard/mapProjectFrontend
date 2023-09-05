@@ -2,6 +2,7 @@ import mapQueryServices from '../services/mapQueryServices'
 
 import { setNotification } from './notificationTempReducer'
 import { setLoading } from './loadingReducer'
+import { setLongLoading } from './loadingReducer'
 
 export const getMapQueryData = (parameterData) => {
     return async dispatch => {
@@ -11,8 +12,12 @@ export const getMapQueryData = (parameterData) => {
             type: "MAP_QUERY",
             data: propertyItem
             })
-            dispatch(getMapQueryDataDBData(propertyItem))
-            dispatch(setNotification({message:'Only results exactly matching are displayed! For other near places with suggestions, click on the "near button"', style:'success', time:7000}))
+            if (propertyItem.length === 0) {
+                dispatch(setNotification({message:'No results. Please try again with other text', style:'warning', time:7000}))
+            } else {
+                dispatch(getMapQueryDataDBData(propertyItem))
+                dispatch(setNotification({message:'Only results exactly matching are displayed! For other near places with suggestions, click on the "near button"', style:'success', time:7000}))
+            }
             dispatch(setLoading(false))
         }
 }
@@ -49,14 +54,44 @@ export const getMapQueryDataDBData = (parameterData) => {
     }
 }
 
+
+
 export const getMapQueryDataAroundCenterAll = (parameterData) => {
     return async dispatch => {
-        dispatch(setLoading(true))
+        dispatch(setLongLoading(true))
         const propertyItem = await mapQueryServices.getMapQueryDataAroundCenterAll(parameterData)
+        const newObjects = []
+        for (const i in propertyItem['elements']) {
+            const typeId = propertyItem['elements'][i]['type'].charAt(0).toUpperCase()+propertyItem['elements'][i]['id']
+            
+            const newObjectOSM = await mapQueryServices.getItemsIdsToOSM(typeId)
+            if (newObjectOSM) {
+                newObjects.push(newObjectOSM[0])
+            }
+
+            // const newObject = {
+            //     'place_id': null, //call OSM to get placeId if needed to create the item
+            //     'osm_type': propertyItem['elements'][i]['type'],
+            //     'osm_id': propertyItem['elements'][i]['id'],
+            //     'lat': propertyItem['elements'][i]['lat'],
+            //     'lon': propertyItem['elements'][i]['lon'],
+            //     'category': propertyItem['elements'][i]['tags']['amenity'],
+            //     'type': propertyItem['elements'][i]['tags']['amenity'],
+            //     'place_rank': null,
+            //     'importance': null,
+            //     'addresstype': null,
+            //     'name': propertyItem['elements'][i]['tags']['name'],
+            //     'display_name': propertyItem['elements'][i]['tags']['name'],
+            // }
+        
+        }
+        // let newObjectsJson = JSON.stringify(newObjects);
+
         dispatch({
             type: "MAP_QUERY_AROUND_CENTER_ALL",
-            data: propertyItem
+            data: newObjects
             })
+            dispatch(getMapQueryDataDBData(newObjects))
             dispatch(setLoading(false))
     }
 }
@@ -80,7 +115,7 @@ const mapQueryReducer = (state=[], action) => {
                 return action.data
         case 'MAP_QUERY_DB_DATA':
                     return action.data
-        case 'MAP_QUERY_OVERPASS_DATA':
+        case 'MAP_QUERY_AROUND_CENTER_ALL':
             return action.data
         default:
             return state

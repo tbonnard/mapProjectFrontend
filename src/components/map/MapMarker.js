@@ -142,7 +142,11 @@ const MapMarker = ({icon, markerData}) => {
             <div className='layerTitleInternal'>
               <div className='layerTitleAddressType'>
                 <img src={typeImageIcon[markerData.addresstype]} alt={markerData.addresstype} title={markerData.addresstype}/>
-                <p>{markerData.addresstype}</p>
+                {markerData.addresstype === 'amenity' ?
+                  <p>{markerData.type}</p>
+                  :
+                  <p>{markerData.addresstype}</p>
+                  }
               </div>
               
               <div className='popUpNameGoIcon'>

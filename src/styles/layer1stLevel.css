@@ -19,8 +19,21 @@
     top: 40%;
 }
 
-.loadingIcon:hover {
+/* .loadingIcon:hover {
     opacity: 0.6;
+} */
+
+.longLoadingDiv {
+    background-color: white;
+    width: 200px;
+    position: absolute;
+    z-index:2000;
+    left: 39%;
+    top: 67%;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: var(--remove);
 }
 
 

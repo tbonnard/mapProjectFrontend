@@ -17,7 +17,7 @@ const MapOpenGlobal = () => {
       const dispatch = useDispatch()
   
       const mapQueryData = useSelector(state => state.mapQuery)
-      const loadingFlag = useSelector(state => state.loadingFlag)
+      const loadingFlag = useSelector(state => state.loadingFlag.loadingFlag)
 
       const [mapData, setMapData ] = useState([])
  

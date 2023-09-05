@@ -20,7 +20,6 @@ import MapOpenMid from './MapOpenMid';
 
 const MapOpen = ({mapQueryData}) => {
 
-  const loading = useSelector(state => state.loadingFlag)
   const bounds = useSelector(state => state.bounds)
 
   // on Map maxZoom={30}
@@ -29,9 +28,7 @@ const MapOpen = ({mapQueryData}) => {
     <>
       <MapContainer className='mapItem' bounds={bounds} key={bounds} scrollWheelZoom={true} >
              
-        {loading &&
           <LoadingIcon />
-        }
 
         <MapOpenMid mapQueryData={mapQueryData} bounds={bounds} />
     

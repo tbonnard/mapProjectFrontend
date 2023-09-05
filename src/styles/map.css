@@ -85,22 +85,36 @@
     padding: 0 10px;
 }
 
+
+.searchMapButtons {
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    top: 80px;
+    margin-left: auto; 
+    margin-right: auto; 
+    display: flex;
+    flex-direction: row;
+    z-index: 500;
+    width: fit-content;
+}
+
 .searchNearButtonMap{
-    position: relative;
 }
 
 .searchNearButtonDiv{
-    position: absolute;
+    /* position: absolute; */
     /* left: 10px; */
-    top: 90px;
+    /* top: 90px; */
     z-index: 500;
     width: 170px;
     height: auto;
     /* margin: 10px 5px; */
-    left: 0; 
+    /* left: 0; 
     right: 0; 
     margin-left: auto; 
-    margin-right: auto; 
+    margin-right: auto;  */
+    margin: 0 5px 0 0;
 }
 
 .searchNearButton {
@@ -111,14 +125,15 @@
     padding: 7px 15px 7px 10px;
     cursor: pointer;
     border: none;
-    border-radius: 5%;
+    border-radius: 5px;
     text-align: left;
-    width: 100%;
+    width: auto;
+    text-align: center;
 }
 
 .searchNearButton:hover {
-    background-color: white;
-    color:var(--green);
+    background-color:var(--green);
+    color:white;
 }
 
 .navigationIcon {
@@ -131,13 +146,16 @@
 
 
 .searchTurboPassButtonDiv {
-    position: absolute;
-    left: 10px;
-    top: 120px;
+    /* position: absolute; */
     z-index: 500;
     width: 180px;
     height: auto;
-    margin: 10px 5px;
+    /* left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;  */
+    margin: 0 0px 0 5px;
+
 }
 
 

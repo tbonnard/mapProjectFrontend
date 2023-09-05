@@ -10,12 +10,6 @@
     margin: 0 auto;
   }
    
-  @media (max-width: 800px) {
-    .introDiv{
-      width: 95%;
-    }
-    
-  }
 
   .backimg {
     background-image: url('../media/backimage.png');
@@ -37,3 +31,9 @@
 }
 
  
+@media (max-width: 800px) {
+  .introDiv{
+    width: 95%;
+  }
+  
+}

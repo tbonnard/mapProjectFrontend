@@ -51,9 +51,12 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
     <>
         <MapDraggable />
         
-        <SearchNearPoint map={map} bounds={bounds}/>
+        <div className='searchMapButtons'>
+          <SearchNearPoint map={map} bounds={bounds}/>
 
-        {/* <SearchAroundCenterAll map={map} bounds={bounds}/> */}
+          <SearchAroundCenterAll map={map} bounds={bounds}/>
+        </div>
+     
 
         <Legend icons={iconsList}/>
 

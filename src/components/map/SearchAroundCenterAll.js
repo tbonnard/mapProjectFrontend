@@ -20,7 +20,8 @@ const SearchAroundCenterAll = ({map, bounds}) => {
     const handleClick = () => {
         removeInputTextContent()
         const coordinates = map.getCenter()
-        // const bounding = map.getBounds()
+        const bounding = map.getBounds()
+        map.setZoom(16);
         if (map.getZoom() >= 12) {
             dispatch(getMapQueryDataAroundCenterAll(coordinates))
         } else {
@@ -41,11 +42,12 @@ const SearchAroundCenterAll = ({map, bounds}) => {
     map.fitBounds(bounds);
   }, [map, bounds]);
 
+
+
     return (
         <div className='searchButtonMap'>
             <div className='searchTurboPassButtonDiv'>
-                <img className='navigationIcon' src={navigationIcon}/>
-                <button className='searchNearButton' onClick={handleClick}>or search for any places</button>
+                <button className='searchNearButton' onClick={handleClick}>search any here</button>
             </div>
         </div>
         )
