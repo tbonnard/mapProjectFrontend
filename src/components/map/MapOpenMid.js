@@ -1,5 +1,6 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { TileLayer, useMap, Marker } from 'react-leaflet';
 import MapMarker from './MapMarker';
@@ -10,8 +11,8 @@ import SearchAroundCenterAll from './SearchAroundCenterAll';
 import Legend from './Legend';
 import MapDraggable from './MapDraggable';
 import SearchAroundCenterParameter from './SearchAroundCenterParameter';
-import { useSelector } from 'react-redux';
 
+import { setPositionCenter } from '../../reducers/centerPositionReducer';
 
 // FIXME: when new project, marker icon does not update (need to research)
 
@@ -19,6 +20,7 @@ import { useSelector } from 'react-redux';
 const MapOpenMid = ({mapQueryData, bounds}) => {
 
   const map = useMap()
+  const dispatch = useDispatch()
 
   const positionCenter = useSelector(store => store.centerPosition)
 
@@ -28,9 +30,6 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
   // https://github.com/lennardv2/Leaflet.awesome-markers
   // upload images on server and update url
   
-  //TODO: center marker
-
-
   var greenIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -61,6 +60,11 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
 
   const iconsList = [{'icon': blueIcon, 'description':'without suggestions'}, {'icon': greenIcon, 'description':'with suggestions'}, {'icon': GoldIconCenter, 'description':'center, search point'} ]
   
+  
+  useEffect(() => {
+    dispatch(setPositionCenter(map.getCenter()))
+    },[dispatch, mapQueryData])
+
   return (
     <>
         <MapDraggable />

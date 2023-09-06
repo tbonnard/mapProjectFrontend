@@ -7,8 +7,6 @@
 import React from 'react';
 import {  useSelector } from 'react-redux'
 
-import { Helmet } from 'react-helmet';
-
 import { MapContainer } from 'react-leaflet';
 
 import '../../styles/map.css'
@@ -16,13 +14,11 @@ import '../../styles/map.css'
 import LoadingIcon from '../global/LoadingIcon';
 import MapOpenMid from './MapOpenMid';
 
-
 const MapOpen = ({mapQueryData}) => {
 
   const bounds = useSelector(state => state.bounds)
-
+  
   // on Map maxZoom={30}
-
 
   return (
     <>

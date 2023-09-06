@@ -18,7 +18,6 @@ const CurrentLocation = ({defaultCoordinates}) => {
         dispatch(setNotification({message:' Here are properties with suggestions within a 10km radius', style:'success', time:5000}))
         if (position.coords) {
             setCoordinates(position.coords)
-            console.log(position.coords)
             dispatch(setPositionCenter([position.coords.latitude,position.coords.longitude] ))
         } else {
             dispatch(setNotification({message:'There was an error with your location, default location is presented on the map', style:'warning', time:5000}))
