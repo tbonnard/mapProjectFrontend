@@ -7,10 +7,9 @@ import * as L from "leaflet";
 
 import SearchNearPoint from './SearchNearPoint';
 import SearchAroundCenterAll from './SearchAroundCenterAll';
-
 import Legend from './Legend';
 import MapDraggable from './MapDraggable';
-
+import SearchAroundCenterParameter from './SearchAroundCenterParameter';
 
   // FIXME: when new project, marker icon does not update (need to research)
   //TODO: clic sur map et ca va search l'item OSM
@@ -55,6 +54,8 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
           <SearchNearPoint map={map} bounds={bounds}/>
 
           <SearchAroundCenterAll map={map} bounds={bounds}/>
+
+          <SearchAroundCenterParameter map={map} bounds={bounds} />
         </div>
      
 

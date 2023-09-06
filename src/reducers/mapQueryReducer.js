@@ -35,7 +35,7 @@ export const getMapQueryDataSearchNearLocation = (itemObject) => {
             data: propertyItem
             })
             if (propertyItem.length === 0) {
-                dispatch(setNotification({message:'There are currently no properties with suggestions in a 10km radius or zoom in!', style:'warning', time:10000}))
+                dispatch(setNotification({message:'There are currently no results near that 10km radius. Move the map!', style:'warning', time:10000}))
             }
             dispatch(setLoading(false))
     }
@@ -50,6 +50,54 @@ export const getMapQueryDataDBData = (parameterData) => {
             type: "MAP_QUERY_DB_DATA",
             data: propertyItem
             })
+            if (propertyItem.length === 0) {
+                dispatch(setNotification({message:'There are currently no results near that 10km radius. Move the map!', style:'warning', time:10000}))
+            }
+            dispatch(setLoading(false))
+    }
+}
+
+
+
+export const getMapQueryDataAroundSpecificCoordinateParameter = (itemObject) => {
+    return async dispatch => {
+        dispatch(setLoading(true))
+        let propertyItem = await mapQueryServices.getMapQueryDataAroundSpecificCoordinateParameter(itemObject)
+        
+        // let newObjects = []
+        // let typesIds = ''
+        // for (const i in propertyItem['elements']) {
+        //     if (typesIds.length === 0) {
+        //         typesIds = propertyItem['elements'][i]['type'].charAt(0).toUpperCase()+propertyItem['elements'][i]['id'] 
+        //     } else {
+        //         typesIds = typesIds + ',' + propertyItem['elements'][i]['type'].charAt(0).toUpperCase()+propertyItem['elements'][i]['id'] 
+        //     }       
+        // }
+
+        // let newObjectOSM = await mapQueryServices.getItemsIdsToOSM(typesIds)
+        
+        // if (!newObjectOSM) {
+
+        //     for (const i in propertyItem['elements']) {
+        //         const typeId = propertyItem['elements'][i]['type'].charAt(0).toUpperCase()+propertyItem['elements'][i]['id']
+        //         newObjectOSM = await mapQueryServices.getItemsIdsToOSM(typeId)
+        //         if (newObjectOSM) {
+        //             newObjects.push(newObjectOSM[0])
+        //         }
+        //     }
+        // } else {
+        //     newObjects = newObjectOSM
+        // }
+
+        if (!propertyItem)  {
+            propertyItem = []
+         }
+
+        dispatch({
+            type: "MAP_QUERY_AROUND_CENTER_PARAMETER",
+            data: propertyItem
+            })
+            dispatch(getMapQueryDataDBData(propertyItem))
             dispatch(setLoading(false))
     }
 }
@@ -60,7 +108,7 @@ export const getMapQueryDataAroundCenterAll = (parameterData) => {
     return async dispatch => {
         dispatch(setLongLoading(true))
         const propertyItem = await mapQueryServices.getMapQueryDataAroundCenterAll(parameterData)
-        const newObjects = []
+        let newObjects = []
         let typesIds = ''
         for (const i in propertyItem['elements']) {
             if (typesIds.length === 0) {
@@ -69,25 +117,27 @@ export const getMapQueryDataAroundCenterAll = (parameterData) => {
                 typesIds = typesIds + ',' + propertyItem['elements'][i]['type'].charAt(0).toUpperCase()+propertyItem['elements'][i]['id'] 
             }       
         }
-
-        const newObjectOSM = await mapQueryServices.getItemsIdsToOSM(typesIds)
+            
+        let newObjectOSM = await mapQueryServices.getItemsIdsToOSM(typesIds)
         
         if (!newObjectOSM) {
 
             for (const i in propertyItem['elements']) {
                 const typeId = propertyItem['elements'][i]['type'].charAt(0).toUpperCase()+propertyItem['elements'][i]['id']
                 newObjectOSM = await mapQueryServices.getItemsIdsToOSM(typeId)
-                if (newObjectOSM) {
+                if (newObjectOSM.length > 0) {
                     newObjects.push(newObjectOSM[0])
                 }
             }
+        } else {
+            newObjects = newObjectOSM
         }
 
         dispatch({
             type: "MAP_QUERY_AROUND_CENTER_ALL",
-            data: newObjectOSM
+            data: newObjects
             })
-            dispatch(getMapQueryDataDBData(newObjectOSM))
+            dispatch(getMapQueryDataDBData(newObjects))
             dispatch(setLoading(false))
     }
 }
@@ -112,6 +162,8 @@ const mapQueryReducer = (state=[], action) => {
         case 'MAP_QUERY_DB_DATA':
                     return action.data
         case 'MAP_QUERY_AROUND_CENTER_ALL':
+            return action.data
+        case 'MAP_QUERY_AROUND_CENTER_PARAMETER':
             return action.data
         default:
             return state

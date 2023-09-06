@@ -18,15 +18,18 @@ const SearchAroundCenterAll = ({map, bounds}) => {
     const dispatch = useDispatch()
 
     const handleClick = () => {
-        removeInputTextContent()
+        // removeInputTextContent()
         const coordinates = map.getCenter()
         const bounding = map.getBounds()
         map.setZoom(18);
-        if (map.getZoom() >= 12) {
-            dispatch(getMapQueryDataAroundCenterAll(coordinates))
-        } else {
-            dispatch(setNotification({message:'Please zoom in to search within a 10km radius', style:'warning', time:5000}))
-        }
+        dispatch(getMapQueryDataAroundCenterAll(coordinates))
+
+        // if (map.getZoom() >= 12) {
+        //     dispatch(getMapQueryDataAroundCenterAll(coordinates))
+        // } else {
+        //     dispatch(setNotification({message:'Please zoom in to search within a 10km radius', style:'warning', time:5000}))
+        // }
+        
      }
 
     const removeInputTextContent = () => {

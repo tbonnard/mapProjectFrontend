@@ -25,7 +25,7 @@ const LoadingIcon = () => {
 
             {longLoadingIconState && 
             <div className="longLoadingDiv">
-                <p>loading can be long as we query on all types of properties near that location (100 meters)</p>
+                <p>loading can be long as we query on all types of properties near that location (50 meters)</p>
             </div>
             }
 

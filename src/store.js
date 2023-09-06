@@ -17,6 +17,7 @@ import votePropertyProjectReducer from './reducers/votePropertyProjectReducer'
 import voteUserPropertyProjectReducer from './reducers/voteUserPropertyProjectReducer'
 import followPropertiesGetProjectsReducer from './reducers/followPropertiesGetProjectsReducer'
 import voteAllPropertiesFollowedReducer from './reducers/voteAllPropertiesFollowedReducer';
+import searchReducer from './reducers/searchReducer';
 
 import {logger} from './utils/middleware';
 
@@ -34,7 +35,8 @@ const appReducer = combineReducers({
     votePropProj : votePropertyProjectReducer,
     voteUserProperty : voteUserPropertyProjectReducer,
     followPropertiesGetProjects:followPropertiesGetProjectsReducer,
-    voteAllPropertiesFollowed:voteAllPropertiesFollowedReducer
+    voteAllPropertiesFollowed:voteAllPropertiesFollowedReducer,
+    searchItem:searchReducer,
   })
   
   const rootReducer = (state, action) => {

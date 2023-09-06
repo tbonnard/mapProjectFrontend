@@ -101,7 +101,9 @@ import web from '../../media/addresstype/web.png'
 import kitchen from '../../media/addresstype/kitchen.png'
 import religion from '../../media/addresstype/religion.png'
 import dock from '../../media/addresstype/dock.png'
-
+import beach from '../../media/addresstype/beach.png'
+import shoal from '../../media/addresstype/shoal.png'
+import wine from '../../media/addresstype/wine.png'
 
 import '../../styles/map.css'
 
@@ -123,6 +125,8 @@ const MapMarker = ({icon, markerData}) => {
     "bar":bar,
     "barbecue":barbecue,
     "barrier": barrier,
+    "bay":beach,
+    "beach":beach,
     "bench": bench,
     "brothel": building,
     "bicycle_parking": bicycle,
@@ -138,6 +142,7 @@ const MapMarker = ({icon, markerData}) => {
     "baby_hatch": healthcare,
     "clinic": healthcare,
     "crematorium": healthcare,
+    "cemetery": healthcare,
     "clock": time,
     "childcare":child,
     "cafe": cafe,
@@ -243,10 +248,12 @@ const MapMarker = ({icon, markerData}) => {
     "reasearch_institute":school,
     "residential": residential,
     "restaurant": food,
+    "retail": shop,
     "road": route,
     "sanitary_dump_station":recycling,
     "security": police,
     "shelter":shelter,
+    "shoal":shoal,
     "shower":water,
     "school":school,
     "social_facility": healthcare,
@@ -285,6 +292,7 @@ const MapMarker = ({icon, markerData}) => {
     "water_point": water,
     "watering_place": water,
     "waterway": waterway,
+    "vineyard":wine,
 }
     
   const dispatch = useDispatch()

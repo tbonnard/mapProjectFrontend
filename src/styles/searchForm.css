@@ -63,6 +63,23 @@
   margin: 0 !important;
 }
 
+.inputSearchFormCancelDiv{
+ position: relative;
+ width: 100%;
+}
+
+.cancelIcon{
+  position: absolute;
+  top: 19px;
+  right: 10px;
+  width: 24px;
+  z-index: 501;
+  cursor: pointer;
+}
+
+.cancelIcon:hover{
+  opacity: 0.6;
+}
 
 
 @media (max-width: 1000px) {

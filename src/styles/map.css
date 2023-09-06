@@ -108,7 +108,7 @@
     /* left: 10px; */
     /* top: 90px; */
     z-index: 500;
-    width: 170px;
+    width: auto;
     height: auto;
     /* margin: 10px 5px; */
     /* left: 0; 
@@ -149,7 +149,7 @@
 .searchTurboPassButtonDiv {
     /* position: absolute; */
     z-index: 500;
-    width: 180px;
+    width: auto;
     height: auto;
     /* left: 0; 
     right: 0; 

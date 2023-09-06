@@ -17,14 +17,19 @@ const SearchNearPoint = ({map, bounds}) => {
     const dispatch = useDispatch()
 
     const handleClick = () => {
-        removeInputTextContent()
+        // removeInputTextContent()
         const coordinates = map.getCenter()
-        if (map.getZoom() >= 12) {
-            const itemObject = {latitude:coordinates['lat'], longitude:coordinates['lng']}
-            dispatch(getMapQueryDataSearchNearLocation(itemObject))
-        } else {
-            dispatch(setNotification({message:'Please zoom in to search within a 10km radius', style:'warning', time:5000}))
-        }
+
+        const itemObject = {latitude:coordinates['lat'], longitude:coordinates['lng']}
+        dispatch(getMapQueryDataSearchNearLocation(itemObject))
+
+        
+        // if (map.getZoom() >= 12) {
+        //     const itemObject = {latitude:coordinates['lat'], longitude:coordinates['lng']}
+        //     dispatch(getMapQueryDataSearchNearLocation(itemObject))
+        // } else {
+        //     dispatch(setNotification({message:'Please zoom in to search within a 10km radius', style:'warning', time:5000}))
+        // }
      }
 
     const removeInputTextContent = () => {
