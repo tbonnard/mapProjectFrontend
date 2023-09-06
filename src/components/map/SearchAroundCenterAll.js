@@ -10,9 +10,6 @@ import { getMapQueryDataAroundCenterAll } from '../../reducers/mapQueryReducer';
 import navigationIcon from '../../media/navigation.png'
 
 
-// TODO: drag & reload
-
-
 const SearchAroundCenterAll = ({map, bounds}) => {
     
     const dispatch = useDispatch()

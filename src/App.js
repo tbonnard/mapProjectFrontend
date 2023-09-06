@@ -37,10 +37,10 @@ import SearchForm from './components/map/SearchForm';
 // TODO: share a suggestion
 // TODO: report proj
 // TODO: Get user data for analytics, country api…
-// TODO: add new item > search near in OSM (all radius small) > if none, creaate new
-//TODO: Language file
+// TODO: add new item > search near in OSM (all radius small) > if none, creaate new / add marker / put marker on click - tbc
+// TODO: Language file
 
-//TODO: download all OSM data --> https://planet.openstreetmap.org/
+// TODO: download all OSM data --> https://planet.openstreetmap.org/
 //https://www.geoapify.com/ways-to-get-openstreetmap-data
 
 

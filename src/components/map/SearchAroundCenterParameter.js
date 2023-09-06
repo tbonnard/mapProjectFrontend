@@ -10,9 +10,6 @@ import { getMapQueryDataAroundSpecificCoordinateParameter } from '../../reducers
 import navigationIcon from '../../media/navigation.png'
 
 
-// TODO: drag & reload
-
-
 const SearchAroundCenterParameter = ({map, bounds}) => {
     
     const dispatch = useDispatch()

@@ -9,9 +9,6 @@ import { setNotification } from '../../reducers/notificationTempReducer';
 import navigationIcon from '../../media/navigation.png'
 
 
-// TODO: drag & reload
-
-
 const SearchNearPoint = ({map, bounds}) => {
     
     const dispatch = useDispatch()

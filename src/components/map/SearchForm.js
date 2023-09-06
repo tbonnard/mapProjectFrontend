@@ -10,21 +10,6 @@ import { setItemToSearch } from '../../reducers/searchReducer';
 
 import cancelIcon from '../../media/remove_input.png'
 
-
-//TODO: search optim based on center / zoom
-// voir toutes les lieux possibles de Open street map dans un radius de x
-// search near based on zoom and zoom level = km specific
-// Search in specific area with coordinates- https://overpass-turbo.eu/
-// data=(way (around:5000,50.10707,8.76040);); out center;
-// if center has changed, search near new center point
-// Search based on zoom center & si no result search plus glibal
-// button reload here
-//https://nominatim.org/release-docs/latest/api/Lookup/
-// 1 : "user recherche un lieu specifique" . 
-// 2 : "user veut voir tout ce qu'il y a avec suggestions deja". 
-// 3 : "user veut voir toutes les lieux possibles de Open street map dans un radius de x"
-//https://www.geoapify.com/reverse-geocoding-api
-
 const SearchForm = () => {
     
   const dispatch = useDispatch()

@@ -17,9 +17,6 @@ import LoadingIcon from '../global/LoadingIcon';
 import MapOpenMid from './MapOpenMid';
 
 
-// TODO: add marker / put marker on click
-
-
 const MapOpen = ({mapQueryData}) => {
 
   const bounds = useSelector(state => state.bounds)

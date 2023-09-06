@@ -1,3 +1,5 @@
+// https://wiki.openstreetmap.org/wiki/Map_features
+
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 

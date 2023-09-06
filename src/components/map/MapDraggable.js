@@ -5,7 +5,7 @@ import {useMapEvents } from 'react-leaflet';
 
 import { getMapQueryDataSearchNearLocation } from '../../reducers/mapQueryReducer';
 import { setBounds } from '../../reducers/boundsReducer';
-
+import { setPositionCenter } from '../../reducers/centerPositionReducer';
 
 // bbox = left,bottom,right,top
 // bbox = min Longitude , min Latitude , max Longitude , max Latitude 
@@ -18,6 +18,7 @@ const MapDraggable = () => {
 
   const map = useMapEvents({
     dragend: (e) => {
+      dispatch(setPositionCenter(e.target.getCenter()))
       // console.log("mapCenter", e.target.getCenter());
       // console.log("map bounds", e.target.getBounds());
 
@@ -32,6 +33,7 @@ const MapDraggable = () => {
       const zoomCurrent = map.getZoom()
       // console.log(e.latlng.lat,e.latlng.lng);
       map.flyTo([e.latlng.lat,e.latlng.lng], zoomCurrent)
+      dispatch(setPositionCenter([e.latlng.lat,e.latlng.lng]))
         }
   });
 

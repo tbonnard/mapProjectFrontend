@@ -18,6 +18,8 @@ import voteUserPropertyProjectReducer from './reducers/voteUserPropertyProjectRe
 import followPropertiesGetProjectsReducer from './reducers/followPropertiesGetProjectsReducer'
 import voteAllPropertiesFollowedReducer from './reducers/voteAllPropertiesFollowedReducer';
 import searchReducer from './reducers/searchReducer';
+import centerPositionReducer from './reducers/centerPositionReducer';
+
 
 import {logger} from './utils/middleware';
 
@@ -37,6 +39,7 @@ const appReducer = combineReducers({
     followPropertiesGetProjects:followPropertiesGetProjectsReducer,
     voteAllPropertiesFollowed:voteAllPropertiesFollowedReducer,
     searchItem:searchReducer,
+    centerPosition:centerPositionReducer
   })
   
   const rootReducer = (state, action) => {
