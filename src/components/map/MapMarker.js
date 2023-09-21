@@ -184,6 +184,7 @@ const MapMarker = ({icon, markerData}) => {
     "gambling": casino,
     "give_box": people,
     "grave_yard": healthcare, 
+    "grass": natural,
     "geological": geological,
     "hunting_stand": hunt, 
     "hamlet":village,

@@ -18,6 +18,7 @@ import LoginForm from './components/login/LoginForm';
 import AccountForm from './components/login/AccountForm';
 import NotificationTemp from './components/global/NotificationTemp'
 import Why from './components/home/Why';
+import Explanation from './components/home/Explanation';
 
 import { getUserInfo } from '../src/reducers/userReducer'
 
@@ -76,6 +77,8 @@ function App() {
         <Route path='/howitworks' element= { <HowItWorks /> } />
 
         <Route path='/why' element= { <Why /> } />
+
+        <Route path='/explanation' element= { <Explanation /> } />
 
         <Route path='/suggestion' element= { <ProjectForm /> } />
 

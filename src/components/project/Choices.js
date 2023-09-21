@@ -13,6 +13,8 @@ import ChoicesWithVotes from './ChoicesWithVotes';
 // - et un indicateur temporel (= si c'est du vieux topic, plus actif, ca laisse la prio aux trucs frais) 
 // (Au moins info en back-end si c'est pas direct via la UI)
 
+//  TODO: Add 4eme choix de vote (Absolument / Why not / Pas concerné /  Non) - (high prio / low prio/  pas concerné no)
+
 
 const Choices = ({project}) => {
     

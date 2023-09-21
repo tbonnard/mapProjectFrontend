@@ -16,7 +16,7 @@
     z-index:2000;
     width: 200px;
     left: 40%;
-    top: 40%;
+    top: 35%;
 }
 
 /* .loadingIcon:hover {
@@ -29,7 +29,7 @@
     position: absolute;
     z-index:2000;
     left: 39%;
-    top: 67%;
+    top: 60%;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -52,7 +52,7 @@
 
 .layerDiv {
     text-align: center;
-    padding-top: 200px;
+    padding: 200px 20px 50px 20px;
     width: 50%;
     margin: 0 auto;
 }
@@ -87,10 +87,28 @@
         width: 90%;
     }
 
+    .longLoadingDiv {
+        left: 35%;
+    }
+
+    .loadingIcon {
+        left: 35%;
+    }
+
   }
 
   @media (max-width: 600px) {
     .layerTitle {
         text-underline-offset:7px;
     }
+
+    .longLoadingDiv {
+        left: 22%;
+    }
+
+    .loadingIcon {
+        left: 25%;
+    }
+
+
   }

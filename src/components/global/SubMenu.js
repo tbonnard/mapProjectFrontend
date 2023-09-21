@@ -31,6 +31,12 @@ const SubMenu = ({setMenuDisplayed}) => {
         navigate('/why')
     }
 
+    
+    const handleExplanation = () => {
+        navigate('/explanation')
+    }
+
+
     const closeLayer = () => {
         setMenuDisplayed(false)
     }
@@ -61,12 +67,16 @@ const SubMenu = ({setMenuDisplayed}) => {
 
 
         <div className='subMenuButtonDiv'>
+            <button className='buttonTier MainColor' onClick={handleExplanation}>Explanation</button>
+        </div>
+
+        {/* <div className='subMenuButtonDiv'>
             <button className='buttonTier MainColor' onClick={handleWhy}>why?</button>
         </div>
 
         <div className='subMenuButtonDiv'>
             <button className='buttonTier MainColor' onClick={handleHowItWorks}>see how it works</button>
-        </div>
+        </div> */}
 
     </div>
     )

@@ -16,6 +16,14 @@ import { setPositionCenter } from '../../reducers/centerPositionReducer';
 
 // FIXME: when new project, marker icon does not update (need to research)
 
+// TODO: Change cursor icon pour un radius sur map
+
+  // TODO: custom images in icon based on type
+  // https://blogs.absyz.com/2019/04/03/customizing-the-markers-in-your-leaflet-map
+  // https://github.com/pointhi/leaflet-color-markers
+  // https://github.com/lennardv2/Leaflet.awesome-markers
+  // upload images on server and update url
+  
 
 const MapOpenMid = ({mapQueryData, bounds}) => {
 
@@ -24,12 +32,6 @@ const MapOpenMid = ({mapQueryData, bounds}) => {
 
   const positionCenter = useSelector(store => store.centerPosition)
 
-  // TODO: custom images in icon based on type
-  // https://blogs.absyz.com/2019/04/03/customizing-the-markers-in-your-leaflet-map
-  // https://github.com/pointhi/leaflet-color-markers
-  // https://github.com/lennardv2/Leaflet.awesome-markers
-  // upload images on server and update url
-  
   var greenIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
