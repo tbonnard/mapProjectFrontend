@@ -51,6 +51,13 @@
     margin-top: 100px;
 }
 
+.buttonTabFollowedItems {
+    display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
 @media (max-width: 800px) {
     .buttonFollowed{
         text-underline-offset: 2px !important;

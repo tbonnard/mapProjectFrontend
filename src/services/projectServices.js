@@ -3,6 +3,7 @@ import axios from 'axios'
 const baseUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PROD_URL : process.env.REACT_APP_DEV_URL;
 const urlCreate = `${baseUrl}api/project/`
 const url = `${baseUrl}api/projects/`
+const urlAll = `${baseUrl}api/allprojects/`
 
 
 const getProjectsfromProperty = async (itemObject) => {
@@ -22,10 +23,14 @@ const createProject = async (itemObject) => {
         'Content-Type': 'application/json',
       }} );
     return response.data
-    
 }
 
-const exportedObject = { getProjectsfromProperty, createProject } 
+const getNearbyProjectsfromProperties = async (itemObject) => {
+  const response = await axios.post(`${urlAll}`, itemObject );
+  return response.data
+}
+
+const exportedObject = { getProjectsfromProperty, createProject, getNearbyProjectsfromProperties } 
 
 export default exportedObject
 

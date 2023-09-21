@@ -63,6 +63,17 @@
   margin: 0 !important;
 }
 
+
+.greenColor{
+  background-color: white !important;
+  color: var(--greenMain);
+  padding: 20px 5px !important;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 !important;
+}
+
+
 .inputSearchFormCancelDiv{
  position: relative;
  width: 100%;

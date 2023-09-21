@@ -23,6 +23,7 @@ const MapOpenGlobal = () => {
  
       const defaultCityCoordinates = {'latitude':45.5019, 'longitude':-73.5674}
 
+
       useEffect(() => {
             setMapData(mapQueryData)
             if (mapQueryData.length > 0) {

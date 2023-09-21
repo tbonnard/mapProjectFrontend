@@ -22,6 +22,7 @@ const HowItWorks = () => {
 
   
     const handleHome = () => {
+      window.scrollTo(0,0);
       navigate('/')
   }
  

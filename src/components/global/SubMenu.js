@@ -12,27 +12,32 @@ const SubMenu = ({setMenuDisplayed}) => {
     const navigate = useNavigate();
 
     const handleLogin = () => {
+        window.scrollTo(0,0);
         navigate('/login')
     }
 
     const handleProfile = () => {
+        window.scrollTo(0,0);
         navigate('/profile')
     }
 
     const handleHome = () => {
+        window.scrollTo(0,0);
         navigate('/')
     }
 
     const handleHowItWorks = () => {
+        window.scrollTo(0,0);
         navigate('/howitworks')
     }
 
     const handleWhy = () => {
+        window.scrollTo(0,0);
         navigate('/why')
     }
 
-    
     const handleExplanation = () => {
+        window.scrollTo(0,0);
         navigate('/explanation')
     }
 
